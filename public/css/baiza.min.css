@@ -1,0 +1,371 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    letter-spacing: .1rem;
+    font-size: .8rem
+}
+
+.navbar-white {
+    background: #fff
+}
+
+.navbar-white a {
+    color: #424242;
+    font-size: .8rem;
+    letter-spacing: .2rem;
+    margin: 0 5px
+}
+
+.navbar-white a:hover,
+.navbar-white a:focus {
+    color: #f37b8a
+}
+
+
+.navbar-white .form-inline a {
+    margin: 0;
+}
+
+.navbar-white .form-inline .btn-blue {
+    padding: 0.86em 1.2em;
+    font-weight: normal;
+}
+
+.mg-2-0 {
+    margin-top: 2em;
+    margin-bottom: 2em
+}
+
+.mg-4-0 {
+    margin-top: 4em;
+    margin-bottom: 4em
+}
+
+.carousel-indicators li {
+    height: 10px;
+    width: 10px;
+    background: rgba(66, 66, 66, .5);
+    cursor: pointer
+}
+
+.carousel-indicators .active {
+    background: #424242
+}
+
+.myos-div {
+    background: #75c8ce;
+    background-image: url(../image/myos-bg.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    padding-top: 4em;
+    padding-bottom: 4em;
+}
+
+.rtos-div {
+    background: #f37b8a;
+    background-image: url(../image/rtos-bg-1.png), url(../image/rtos-bg-2.png);
+    background-position: bottom left, top right;
+    background-repeat: no-repeat;
+    padding-top: 4em;
+    padding-bottom: 4em;
+}
+
+.choose-roll {
+    background: #75c8ce;
+    background-image: url(../image/myos-roll-bg.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    color: #fff;
+    font-weight: 500;
+    height: 130px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px 0 60px
+}
+.myos-sect-title {
+	font-weight: 800;
+    color: #70c6cc;
+    font-size: 1.8rem;
+}
+.myos-sect-sub-title {
+	font-weight: 600;
+    font-size: 0.9rem;
+}
+.cr-text {
+    width: calc(100% - 30px);
+    float: left;
+    padding-right: 10px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: .15em
+}
+
+.cr-text .desc {
+    font-size: .8rem;
+    font-weight: 400
+}
+
+.sushi-list {
+    background: #fffcb5;
+    height: 14em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 1em 1em 0
+}
+
+.sl-text {
+    width: 55%;
+    float: left
+}
+
+.sl-text {
+    padding-left: 1.6em
+}
+
+.sl-text .title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    letter-spacing: .1rem;
+    color: #475f9d
+}
+
+.sl-text .content {
+    color: #424242;
+    line-height: 1rem;
+    margin: .5rem 0 1rem
+}
+
+.sl-img {
+    width: 45%;
+    float: left
+}
+
+.cr-checkbox {
+    position: relative;
+    width: 30px;
+    float: left
+}
+
+.cr-checkbox label {
+    cursor: pointer
+}
+
+.cr-checkbox label:before,
+.cr-checkbox label:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0
+}
+
+.cr-checkbox label:before {
+    width: 30px;
+    height: 30px;
+    background: #f37b8a;
+    border-radius: 0;
+    cursor: pointer;
+    transition: background .3s
+}
+
+.cr-checkbox input[type="checkbox"] {
+    outline: 0
+}
+
+.cr-checkbox input[type="checkbox"]+label:after {
+    transform: rotate(-45deg);
+    top: 7px;
+    left: 5px;
+    width: 20px;
+    height: 10px;
+    border: 3px solid #cc626f;
+    border-top-style: none;
+    border-right-style: none
+}
+
+.cr-checkbox input[type="checkbox"]:checked+label:before {
+    color: #fff
+}
+
+.cr-checkbox input[type="checkbox"]:checked+label:after {
+    transform: rotate(-45deg);
+    top: 7px;
+    left: 5px;
+    width: 20px;
+    height: 10px;
+    border: 3px solid #fff;
+    border-top-style: none;
+    border-right-style: none
+}
+
+.footer {
+    background: #465f9c;
+    text-align: center;
+    color: #fff;
+    letter-spacing: .1rem;
+    font-size: .6rem;
+    padding: 4em 2em;
+    margin-top: 2em;
+}
+
+.footer .list-inline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 3em
+}
+
+.footer a {
+    font-size: .8rem;
+    color: #fff;
+    margin: 0 5px;
+    text-decoration: none
+}
+.btn{
+	border-radius: 0;
+	font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+}
+.btn-teal {
+    background-color: #75c8ce;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-teal:hover,
+.btn-teal:focus {
+    background-color: #138496;
+    border: none
+}
+
+.btn-blue {
+    background-color: #475f9d;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-blue:hover,
+.btn-blue:focus {
+    background-color: #364d85;
+    border: none
+}
+
+.btn-peach {
+    background-color: #f37b8a;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.btn-peach:hover,
+.btn-peach:focus {
+    background-color: #d05161;
+    border: none
+}
+
+.btn-select {
+    background-color: #75c8ce;
+    color: #fff;
+    background-image: url(../image/btn-teal-bg.png);
+    background-position: center left;
+    background-repeat: no-repeat;
+    padding-left: 30px;
+    cursor: pointer
+}
+
+.product-list {
+    padding: .5em
+}
+
+.product-list .btn-select {
+    width: calc(100% - 30px);
+    float: left;
+    height: 30px;
+    font-weight: 500;
+    font-size: .7rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: .1rem;
+    line-height: .8rem;
+    margin-bottom: 0
+}
+
+.form-control {
+    border-radius: 0
+}
+
+.login-pop-up,
+.register-pop-up {
+    position: fixed;
+    z-index: 2000;
+    bottom: 0;
+    right: 0;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: rgba(70, 95, 156, .9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    -webkit-transition: all .5s ease;
+    transition: all .5s ease
+}
+
+.register-pop-up {
+    background: rgba(70, 95, 156, 1)
+}
+
+.open {
+    opacity: 1;
+    visibility: visible
+}
+
+.message-box {
+    background-color: #76C7CC;
+    color: #FFF;
+    max-width: 480px;
+    text-align: center;
+    width: 100%;
+    padding: 1em
+}
+
+.close-box {
+    position: relative;
+    top: -2em;
+    right: -2em;
+    float: right
+}
+
+.navbar-instagram,
+.navbar-cart,
+.navbar-facebook {
+    display: inline-block;
+    background: url('../image/navbar-icon.png') no-repeat;
+    overflow: hidden;
+    text-indent: -9999px;
+    text-align: left;
+}
+
+.navbar-instagram {
+    background-position: -1px -0px;
+    width: 43px;
+    height: 41px;
+}
+
+.navbar-cart {
+    background-position: -1px -42px;
+    width: 42px;
+    height: 41px;
+}
+
+.navbar-facebook {
+    background-position: -1px -84px;
+    width: 42px;
+    height: 41px;
+}
