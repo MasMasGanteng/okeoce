@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,500,600,800');
+
 body {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: .1rem;
@@ -30,6 +32,10 @@ body {
     font-weight: normal;
 }
 
+.mt-4 {
+    margin-top: 4em;
+}
+
 .mg-2-0 {
     margin-top: 2em;
     margin-bottom: 2em
@@ -40,6 +46,7 @@ body {
     margin-bottom: 4em
 }
 
+/*Home and Product page*/
 .carousel-indicators li {
     height: 10px;
     width: 10px;
@@ -60,6 +67,18 @@ body {
     padding-bottom: 4em;
 }
 
+.product-myos-div {
+    background: #75c8ce;
+    background-image: url(../image/product-myos-bg.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    padding-top: 4em;
+    padding-bottom: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .rtos-div {
     background: #f37b8a;
     background-image: url(../image/rtos-bg-1.png), url(../image/rtos-bg-2.png);
@@ -67,6 +86,55 @@ body {
     background-repeat: no-repeat;
     padding-top: 4em;
     padding-bottom: 4em;
+}
+
+.product-rtos-div {
+    background: #f37b8a;
+    background-image: url(../image/product-rtos-bg.png);
+    background-position: top right;
+    background-repeat: no-repeat;
+    padding-top: 4em;
+    padding-bottom: 4em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*Promo Page*/
+.promo-detail {
+    padding: 2em;
+}
+.promo-detail .content{
+    padding: 1em 0;
+    margin: 1em 0;
+    border-top: 1px solid #424242;
+    border-bottom: 1px solid #424242;
+}
+.btn-toggle-promo {
+    margin: 2em auto 3em;
+    display: block;;
+}
+/*About Page*/
+.about-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    font-family: 'Montserrat', sans-serif;
+    color: #424242;
+
+    background-image: url(/image/about-bg-1.png), url(/image/about-bg-2.png);
+    background-position: bottom left, bottom right;
+    background-repeat: no-repeat;
+}
+
+.about-container .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.about-container .row .h6 {
+    line-height: 1.6rem;
 }
 
 .choose-roll {
@@ -82,15 +150,18 @@ body {
     align-items: center;
     padding: 0 20px 0 60px
 }
+
 .myos-sect-title {
-	font-weight: 800;
+    font-weight: 800;
     color: #70c6cc;
     font-size: 1.8rem;
 }
+
 .myos-sect-sub-title {
-	font-weight: 600;
+    font-weight: 600;
     font-size: 0.9rem;
 }
+
 .cr-text {
     width: calc(100% - 30px);
     float: left;
@@ -221,12 +292,14 @@ body {
     margin: 0 5px;
     text-decoration: none
 }
-.btn{
-	border-radius: 0;
-	font-size: 0.8rem;
+
+.btn {
+    border-radius: 0;
+    font-size: 0.8rem;
     letter-spacing: 0.1rem;
     font-weight: 600;
 }
+
 .btn-teal {
     background-color: #75c8ce;
     border: none;

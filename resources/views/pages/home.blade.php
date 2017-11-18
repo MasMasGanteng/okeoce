@@ -12,12 +12,12 @@
                     <img class="d-block w-100" src="image/slider-1.jpg" alt="First slide">
                 </div>
                 <div class="carousel-item">
-                    <img class="d-block w-100" src="image/slider-1.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="image/slider-2.jpg" alt="Second slide">
                 </div>
             </div>
         </div>
         <!-- call to action -->
-        <div class="row no-gutters mx-auto" style="max-width: 1233px;">
+        <div class="row no-gutters mx-auto mt-4" style="max-width: 1233px;">
             <div class="col myos-div">
                 <div class="row mx-0 align-items-center">
                     <div class="col-7 pl-0">
