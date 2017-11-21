@@ -1,4 +1,4 @@
-<div class="row no-gutters justify-content-center mg-4-0">
+<div class="row no-gutters justify-content-center my-5">
     <img class="img-fluid" src="image/rtos-title.png">
 </div>
 <div class="row no-gutters justify-content-md-center">

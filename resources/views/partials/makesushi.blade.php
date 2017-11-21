@@ -1,4 +1,4 @@
-<div class="row no-gutters justify-content-center mg-4-0">
+<div class="row no-gutters justify-content-center my-5">
     <img class="img-fluid" src="image/myos-title.png">
 </div>
 <div class="row no-gutters justify-content-md-center">
@@ -37,7 +37,7 @@
 <div class="row no-gutters justify-content-md-center">
     <div class="col col-lg-8 text-center">
         <!-- section 1 -->
-        <div class="mg-2-0">
+        <div class="mt-5 mb-4">
             <div class="myos-sect-title">
                 Essentials
             </div>
@@ -102,7 +102,7 @@
             </div>
         </div>
         <!-- section 2 -->
-        <div class="mg-2-0">
+        <div class="mt-5 mb-4">
             <div class="myos-sect-title">
                 Specials
             </div>
@@ -133,6 +133,6 @@
                 </div>
             </div>
         </div>
-        <button class="btn btn-blue mg-2-0" type="submit">DETAIL ORDER</button>
+        <button class="btn btn-blue my-4" type="submit">DETAIL ORDER</button>
     </div>
 </div>
