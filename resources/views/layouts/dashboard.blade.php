@@ -28,13 +28,13 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Components">
-                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion">
+            <ul class="navbar-nav navbar-sidenav" id="leftAccordion">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Front">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseFront" data-parent="#leftAccordion">
                         <i class="fa fa-fw fa-eye"></i>
                         <span class="nav-link-text">Front</span>
                     </a>
-                    <ul class="sidenav-second-level collapse" id="collapseComponents">
+                    <ul class="sidenav-second-level collapse" id="collapseFront">
                         <li>
                             <a href="#">Banner</a>
                         </li>
@@ -46,12 +46,12 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Example Pages">
-                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Product">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProduct" data-parent="#leftAccordion">
                         <i class="fa fa-fw fa-archive"></i>
                         <span class="nav-link-text">Product</span>
                     </a>
-                    <ul class="sidenav-second-level collapse" id="collapseExamplePages">
+                    <ul class="sidenav-second-level collapse" id="collapseProduct">
                         <li>
                             <a href="#">Ingredients</a>
                         </li>
@@ -60,12 +60,12 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Menu Levels">
-                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion">
+                <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Selling">
+                    <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSelling" data-parent="#leftAccordion">
                         <i class="fa fa-fw fa-dollar"></i>
                         <span class="nav-link-text">Selling</span>
                     </a>
-                    <ul class="sidenav-second-level collapse" id="collapseMulti">
+                    <ul class="sidenav-second-level collapse" id="collapseSelling">
                         <li>
                             <a href="#">Order</a>
                         </li>
@@ -141,7 +141,7 @@
                                     <th>Office</th>
                                     <th>Age</th>
                                     <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tfoot>
@@ -151,7 +151,7 @@
                                     <th>Office</th>
                                     <th>Age</th>
                                     <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>Action</th>
                                 </tr>
                             </tfoot>
                             <tbody>
@@ -161,7 +161,10 @@
                                     <td>Edinburgh</td>
                                     <td>51</td>
                                     <td>2008/11/13</td>
-                                    <td>$183,000</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-info btn-sm"><i class="fa fa-pencil"></i></button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Michael Bruce</td>
@@ -169,7 +172,10 @@
                                     <td>Singapore</td>
                                     <td>29</td>
                                     <td>2011/06/27</td>
-                                    <td>$183,000</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-info btn-sm"><i class="fa fa-pencil"></i></button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <td>Donna Snider</td>
@@ -177,7 +183,10 @@
                                     <td>New York</td>
                                     <td>27</td>
                                     <td>2011/01/25</td>
-                                    <td>$112,000</td>
+                                    <td>
+                                        <button type="button" class="btn btn-outline-info btn-sm"><i class="fa fa-pencil"></i></button>
+                                        <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
