@@ -44,11 +44,11 @@
             <div class="myos-sect-sub-title">
                 5 Essentials
             </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value=""> Charge 7.000 untuk tambah 1 essential
-                </label>
-            </div>
+            <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" value="">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Charge 7.000 untuk tambah 1 essential</span>
+            </label>
         </div>
         
         <div class="row mx-0 text-center">
@@ -109,11 +109,11 @@
             <div class="myos-sect-sub-title">
                 5 Specials
             </div>
-            <div class="form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" type="checkbox" value=""> Charge 18.000 untuk tambah 1 Specials
-                </label>
-            </div>
+            <label class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" value="">
+                <span class="custom-control-indicator"></span>
+                <span class="custom-control-description">Charge 18.000 untuk tambah 1 Specials</span>
+            </label>
         </div>
         <div class="row mx-0 text-center">
             <div class="col col-lg-4">

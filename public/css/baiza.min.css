@@ -32,7 +32,12 @@ body {
     font-weight: normal;
 }
 
+.full-container {
+    min-height: calc(100% - 17.2rem);
+}
+
 /*Home and Product page*/
+
 .carousel-indicators li {
     height: 10px;
     width: 10px;
@@ -85,21 +90,30 @@ body {
     justify-content: center;
     align-items: center;
 }
+
+
 /*Promo Page*/
+
 .promo-detail {
     padding: 2em;
 }
-.promo-detail .content{
+
+.promo-detail .content {
     padding: 1em 0;
     margin: 1em 0;
     border-top: 1px solid #424242;
     border-bottom: 1px solid #424242;
 }
+
 .btn-toggle-promo {
     margin: 2em auto 3em;
-    display: block;;
+    display: block;
+    ;
 }
+
+
 /*About Page*/
+
 .about-container {
     display: flex;
     align-items: center;
@@ -253,6 +267,18 @@ body {
     border: 3px solid #fff;
     border-top-style: none;
     border-right-style: none
+}
+
+.custom-control {
+    align-items: center;
+}
+
+.custom-control-input:checked~.custom-control-indicator {
+    background-color: #f37b8a;
+}
+
+.custom-checkbox .custom-control-indicator {
+    border-radius: 0;
 }
 
 .footer {
