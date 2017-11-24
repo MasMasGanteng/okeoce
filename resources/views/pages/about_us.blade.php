@@ -12,6 +12,9 @@
             margin-top: 0;
         }
         @media (min-height: 768px) {
+            body {
+                height: 100%;
+            }
             .about-container {
                 height: calc(100% - 20em);
             }

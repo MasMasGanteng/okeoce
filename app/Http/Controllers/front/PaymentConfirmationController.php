@@ -1,14 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\dashboard;
+namespace App\Http\Controllers\front;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
-use Mail;
 
-class DashboardController
+class PaymentConfirmationController 
 {
     /**
      * Create a new controller instance.
@@ -26,6 +25,6 @@ class DashboardController
      */
     public function index()
     {
-		return view('layouts/dashboard');
+		return view('pages/payment_confirmation');
     }
 }
