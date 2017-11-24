@@ -22,9 +22,9 @@
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">            
-            <a href="#"><div class="navbar-facebook"></div></a>
-            <a href="#"><div class="navbar-instagram"></div></a>
-            <a href="#"><div class="navbar-cart"></div></a>
+            <a href="https://www.facebook.com/baizasushi/" target="_blank"><div class="navbar-facebook"></div></a>
+            <a href="https://www.instagram.com/baizasushi/" target="_blank"><div class="navbar-instagram"></div></a>
+            <a href="/detail_order"><div class="navbar-cart"></div></a>
             <button type="button" class="btn btn-blue my-2 my-sm-0 login-overlay">SIGNUP/LOGIN</button>
         </form>
     </div>

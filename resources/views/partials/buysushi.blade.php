@@ -16,7 +16,7 @@
                         <div class="content">
                             tobiko, mayonaise, kani, alpukat, tamago, kyuri, selada
                         </div>
-                        <button class="btn btn-blue">ADD TO CART</button>
+                        <button class="btn btn-blue cart-overlay">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         <div class="content">
                             tobiko, mayonaise, kani, alpukat, tamago, kyuri, selada
                         </div>
-                        <button class="btn btn-blue">ADD TO CART</button>
+                        <button class="btn btn-blue cart-overlay">ADD TO CART</button>
                     </div>
                 </div>
             </div>

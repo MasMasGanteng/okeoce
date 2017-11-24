@@ -74,12 +74,12 @@
                         <img class="img-fluid" src="image/cucumber.jpg">
                     </div>
                     <div class="row mx-0">
-                        <label class="btn-select" for="check-1">
-                            Acar Timun
+                        <label class="btn-select" for="check-2">
+                            Acar Timun 2
                         </label>
                         <div class="cr-checkbox">
-                            <input id="check-1" type="checkbox">
-                            <label for="check-1"></label>
+                            <input id="check-2" type="checkbox">
+                            <label for="check-2"></label>
                         </div>
                     </div>
                 </div>
@@ -90,12 +90,12 @@
                         <img class="img-fluid" src="image/cucumber.jpg">
                     </div>
                     <div class="row mx-0">
-                        <label class="btn-select" for="check-1">
-                            Acar Timun
+                        <label class="btn-select" for="check-3">
+                            Acar Timun 3
                         </label>
                         <div class="cr-checkbox">
-                            <input id="check-1" type="checkbox">
-                            <label for="check-1"></label>
+                            <input id="check-3" type="checkbox">
+                            <label for="check-3"></label>
                         </div>
                     </div>
                 </div>
@@ -122,17 +122,18 @@
                         <img class="img-fluid" src="image/cucumber.jpg">
                     </div>
                     <div class="row mx-0">
-                        <label class="btn-select" for="check-2">
+                        <label class="btn-select" for="check-4">
                             Acar Timun - KIV
                         </label>
                         <div class="cr-checkbox">
-                            <input id="check-2" type="checkbox">
-                            <label for="check-2"></label>
+                            <input id="check-4" type="checkbox">
+                            <label for="check-4"></label>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <button class="btn btn-blue my-4" type="submit">DETAIL ORDER</button>
+        <!-- <button class="btn btn-blue my-4" type="submit">DETAIL ORDER</button> -->
+        <a href="/detail_order" class="btn btn-blue my-4">DETAIL ORDER</a>
     </div>
 </div>
