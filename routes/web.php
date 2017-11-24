@@ -11,10 +11,23 @@
 |
 */
 
+Route::get('/main/persiapan/nasional/pokja/pembentukan', 'MAIN\bk010201Controller@index');
+Route::get('/main/persiapan/nasional/pokja/pembentukan/select', 'MAIN\bk010201Controller@select');
+Route::post('/main/persiapan/nasional/pokja/pembentukan', 'MAIN\bk010201Controller@post');
+Route::get('/main/persiapan/nasional/pokja/pembentukan/create', 'MAIN\bk010201Controller@create');
+Route::get('/main/persiapan/nasional/pokja/pembentukan/show', 'MAIN\bk010201Controller@show');
+Route::post('/main/persiapan/nasional/pokja/pembentukan/create', 'MAIN\bk010201Controller@post_create');
+Route::get('/main/persiapan/nasional/pokja/pembentukan/delete', 'MAIN\bk010201Controller@delete');
+
 //view homePage
 Route::get('/', 'HomeController@index');
+
 //view  dashboardPage
 Route::get('/dashboard', 'dashboard\DashboardController@index');
+//view  dashboard/bannerPage
+Route::get('/dashboard/banner', 'dashboard\DashboardBannerController@index');
+Route::get('/dashboard/banner/create', 'dashboard\DashboardBannerController@create');
+
 //view  productPage
 Route::get('/product', 'front\ProductController@index');
 //view  promoPage
