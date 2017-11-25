@@ -16,13 +16,13 @@
     <li class="breadcrumb-item">
         <a href="/dashboard">Dashboard</a>
     </li>
-    <li class="breadcrumb-item active">Banner</li>
+    <li class="breadcrumb-item active">FAQ</li>
 </ol>
 <!-- table -->
 <div class="card mb-3">
     <div class="card-header">
         <div class="d-flex align-items-center">
-            Banner List
+            FAQ List
             <a href="/dashboard/banner/create" class="btn btn-success ml-auto"><i class="fa fa-plus-circle fa-fw"></i>Add Banner</a>
         </div>
     </div>

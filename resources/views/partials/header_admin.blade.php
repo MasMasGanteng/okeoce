@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="index.html">Baiza Admin</a>
+    <a class="navbar-brand" href="/dashboard">Baiza Admin</a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -13,10 +13,10 @@
                     </a>
                 <ul class="sidenav-second-level collapse" id="collapseProduct">
                     <li>
-                        <a href="/dashboard/ingredients">Make Sushi</a>
+                        <a href="/dashboard/make_sushi">Make Sushi</a>
                     </li>
                     <li>
-                        <a href="/dashboard/product">Ready to Eat</a>
+                        <a href="/dashboard/ready_to_eat">Ready to Eat</a>
                     </li>
                 </ul>
             </li>
@@ -44,10 +44,10 @@
                     </a>
                 <ul class="sidenav-second-level collapse" id="collapseSelling">
                     <li>
-                        <a href="/dashboard/banner">Order</a>
+                        <a href="/dashboard/order">Order</a>
                     </li>
                     <li>
-                        <a href="/dashboard/banner">Transaction</a>
+                        <a href="/dashboard/transaction">Transaction</a>
                     </li>
                 </ul>
             </li>
