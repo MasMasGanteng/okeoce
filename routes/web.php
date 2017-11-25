@@ -55,6 +55,9 @@ Route::get('/dashboard/banner/create', 'dashboard\DashboardBannerController@crea
 //view  dashboard/ingredientsPage
 Route::get('/dashboard/ingredients', 'dashboard\DashboardIngredientsController@index');
 Route::get('/dashboard/ingredients/create', 'dashboard\DashboardIngredientsController@create');
+//view  dashboard/productPage
+Route::get('/dashboard/product', 'dashboard\DashboardProductController@index');
+Route::get('/dashboard/product/create', 'dashboard\DashboardProductController@create');
 
 // Route::get('/login', 'Auth\LoginController@showLoginForm');
 // //Route::post('/login', 'Auth\LoginController@dologin');
