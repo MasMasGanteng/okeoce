@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
 
-class DetailOrderController 
+class PaymentConfirmationSuccessController 
 {
     /**
      * Create a new controller instance.
@@ -25,6 +25,6 @@ class DetailOrderController
      */
     public function index()
     {
-		return view('pages/detail_order');
+		return view('pages/thank_you');
     }
 }

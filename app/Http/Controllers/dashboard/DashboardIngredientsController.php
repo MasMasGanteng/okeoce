@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\dashboard;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Redirect;
 use Mail;
 
-class HomeController extends Controller
+class DashboardIngredientsController
 {
     /**
      * Create a new controller instance.
@@ -26,6 +26,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-		return view('pages/home');
+        return view('dashboard/ingredients/index');
+    }
+
+    public function create()
+    {
+        return view('dashboard/ingredients/create');
     }
 }

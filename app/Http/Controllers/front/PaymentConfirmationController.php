@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
 
-class PromoController 
+class PaymentConfirmationController 
 {
     /**
      * Create a new controller instance.
@@ -25,6 +25,6 @@ class PromoController
      */
     public function index()
     {
-		return view('pages/promo');
+		return view('pages/payment_confirmation');
     }
 }

@@ -1,4 +1,4 @@
-<div class="row no-gutters justify-content-center mg-4-0">
+<div class="row no-gutters justify-content-center my-5">
     <img class="img-fluid" src="image/rtos-title.png">
 </div>
 <div class="row no-gutters justify-content-md-center">
@@ -16,7 +16,7 @@
                         <div class="content">
                             tobiko, mayonaise, kani, alpukat, tamago, kyuri, selada
                         </div>
-                        <button class="btn btn-blue">ADD TO CART</button>
+                        <button class="btn btn-blue cart-overlay">ADD TO CART</button>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
                         <div class="content">
                             tobiko, mayonaise, kani, alpukat, tamago, kyuri, selada
                         </div>
-                        <button class="btn btn-blue">ADD TO CART</button>
+                        <button class="btn btn-blue cart-overlay">ADD TO CART</button>
                     </div>
                 </div>
             </div>

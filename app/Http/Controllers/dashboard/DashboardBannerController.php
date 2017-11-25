@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\front;
+namespace App\Http\Controllers\dashboard;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
+use Mail;
 
-class HowToOrderController 
+class DashboardBannerController
 {
     /**
      * Create a new controller instance.
@@ -25,6 +26,11 @@ class HowToOrderController
      */
     public function index()
     {
-		return view('pages/how_to_order');
+        return view('dashboard/banner/index');
+    }
+
+    public function create()
+    {
+        return view('dashboard/banner/create');
     }
 }
