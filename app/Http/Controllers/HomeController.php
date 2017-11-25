@@ -26,6 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-		return view('pages/home');
+        $data['essential_list'] = DB::select('select * from ingredients where status=1');
+        $data['sprinkle_list'] = DB::select('select * from ingredients where status=2');
+        $data['house_sauce_list'] = DB::select('select * from ingredients where status=3');
+        $data['special_list'] = DB::select('select * from ingredients where status=4');
+		return view('pages/home',$data);
     }
 }
