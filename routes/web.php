@@ -43,23 +43,6 @@ Route::get('/detail_order', 'front\DetailOrderController@index');
 //get data for datatable
 Route::post('/detail_order', 'front\DetailOrderController@post');
 
-//PaymentMethod form
-//get html form data
-Route::get('/payment_method', 'front\PaymentMethodController@index');
-//get data for datatable
-Route::post('/payment_method', 'front\PaymentMethodController@post');
-
-//PaymentConfirmation form
-//get html form data
-Route::get('/payment_confirmation', 'front\PaymentConfirmationController@index');
-//get data for datatable
-Route::post('/payment_confirmation', 'front\PaymentConfirmationController@post');
-
-//PaymentConfirmationSuccess form
-//get html form data
-Route::get('/thank_you', 'front\PaymentConfirmationSuccessController@index');
-//get data for datatable
-Route::post('/thank_you', 'front\PaymentConfirmationSuccessController@post');
 // Route::get('/login', 'Auth\LoginController@showLoginForm');
 // //Route::post('/login', 'Auth\LoginController@dologin');
 // Route::get('/register', 'Auth\RegisterController@index');

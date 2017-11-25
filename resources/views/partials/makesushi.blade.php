@@ -1,4 +1,4 @@
-<div class="row no-gutters justify-content-center my-5">
+<div class="row no-gutters justify-content-center mg-4-0">
     <img class="img-fluid" src="image/myos-title.png">
 </div>
 <div class="row no-gutters justify-content-md-center">
@@ -37,18 +37,18 @@
 <div class="row no-gutters justify-content-md-center">
     <div class="col col-lg-8 text-center">
         <!-- section 1 -->
-        <div class="mt-5 mb-4">
+        <div class="mg-2-0">
             <div class="myos-sect-title">
                 Essentials
             </div>
             <div class="myos-sect-sub-title">
                 5 Essentials
             </div>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" value="">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Charge 7.000 untuk tambah 1 essential</span>
-            </label>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value=""> Charge 7.000 untuk tambah 1 essential
+                </label>
+            </div>
         </div>
         
         <div class="row mx-0 text-center">
@@ -74,12 +74,12 @@
                         <img class="img-fluid" src="image/cucumber.jpg">
                     </div>
                     <div class="row mx-0">
-                        <label class="btn-select" for="check-2">
-                            Acar Timun 2
+                        <label class="btn-select" for="check-1">
+                            Acar Timun
                         </label>
                         <div class="cr-checkbox">
-                            <input id="check-2" type="checkbox">
-                            <label for="check-2"></label>
+                            <input id="check-1" type="checkbox">
+                            <label for="check-1"></label>
                         </div>
                     </div>
                 </div>
@@ -90,30 +90,30 @@
                         <img class="img-fluid" src="image/cucumber.jpg">
                     </div>
                     <div class="row mx-0">
-                        <label class="btn-select" for="check-3">
-                            Acar Timun 3
+                        <label class="btn-select" for="check-1">
+                            Acar Timun
                         </label>
                         <div class="cr-checkbox">
-                            <input id="check-3" type="checkbox">
-                            <label for="check-3"></label>
+                            <input id="check-1" type="checkbox">
+                            <label for="check-1"></label>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- section 2 -->
-        <div class="mt-5 mb-4">
+        <div class="mg-2-0">
             <div class="myos-sect-title">
                 Specials
             </div>
             <div class="myos-sect-sub-title">
                 5 Specials
             </div>
-            <label class="custom-control custom-checkbox">
-                <input type="checkbox" class="custom-control-input" value="">
-                <span class="custom-control-indicator"></span>
-                <span class="custom-control-description">Charge 18.000 untuk tambah 1 Specials</span>
-            </label>
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" type="checkbox" value=""> Charge 18.000 untuk tambah 1 Specials
+                </label>
+            </div>
         </div>
         <div class="row mx-0 text-center">
             <div class="col col-lg-4">
@@ -122,18 +122,17 @@
                         <img class="img-fluid" src="image/cucumber.jpg">
                     </div>
                     <div class="row mx-0">
-                        <label class="btn-select" for="check-4">
+                        <label class="btn-select" for="check-2">
                             Acar Timun - KIV
                         </label>
                         <div class="cr-checkbox">
-                            <input id="check-4" type="checkbox">
-                            <label for="check-4"></label>
+                            <input id="check-2" type="checkbox">
+                            <label for="check-2"></label>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- <button class="btn btn-blue my-4" type="submit">DETAIL ORDER</button> -->
-        <a href="/detail_order" class="btn btn-blue my-4">DETAIL ORDER</a>
+        <button class="btn btn-blue mg-2-0" type="submit">DETAIL ORDER</button>
     </div>
 </div>

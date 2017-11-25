@@ -26,6 +26,6 @@ class DashboardController
      */
     public function index()
     {
-		return view('layouts/dashboard');
+		return view('pages/product');
     }
 }

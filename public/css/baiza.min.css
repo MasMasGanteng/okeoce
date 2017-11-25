@@ -3,17 +3,9 @@
 body {
     font-family: 'Montserrat', sans-serif;
     letter-spacing: .1rem;
-    font-size: .8rem;
-    height: 100%;
+    font-size: .8rem
 }
-a {
-    color: #475f9d;
-    font-weight: 600;
-}
-a:hover, a:focus {
-    text-decoration: none;
-    color: #2c4075;
-}
+
 .navbar-white {
     background: #fff
 }
@@ -22,8 +14,7 @@ a:hover, a:focus {
     color: #424242;
     font-size: .8rem;
     letter-spacing: .2rem;
-    margin: 0 5px;
-    font-weight: normal;
+    margin: 0 5px
 }
 
 .navbar-white a:hover,
@@ -41,46 +32,21 @@ a:hover, a:focus {
     font-weight: normal;
 }
 
-.baiza-nav .nav-link {
-    border: 1px solid #424242;
-    border-radius: 0;
-    color: #424242;
-    font-weight: 600;
-    height: 2.4rem;
-        margin-right: 1.2em;
-    width: 15em;
-    text-align: center;
-    
-    font-size: .8rem;
+.mt-4 {
+    margin-top: 4em;
 }
 
-.baiza-nav .nav-link:hover {
-    color: #465f9c;
-    border: 1px solid #465f9c;
+.mg-2-0 {
+    margin-top: 2em;
+    margin-bottom: 2em
 }
 
-.baiza-nav .nav-item.show .nav-link,
-.nav-tabs .nav-link.active {
-    color: #ffffff;
-    background-color: #465f9c;
-    border: none;
-    height: 3rem;
-    padding-top: .675rem;
+.mg-4-0 {
+    margin-top: 4em;
+    margin-bottom: 4em
 }
-
-.baiza-tab-content {
-    background: #465f9c;
-    padding: 2em;
-    color: #fff;
-}
-
-.full-container {
-    min-height: calc(100% - 18.2rem);
-}
-
 
 /*Home and Product page*/
-
 .carousel-indicators li {
     height: 10px;
     width: 10px;
@@ -133,32 +99,21 @@ a:hover, a:focus {
     justify-content: center;
     align-items: center;
 }
-
-
-
 /*Promo Page*/
-
 .promo-detail {
     padding: 2em;
 }
-
-.promo-detail .content {
+.promo-detail .content{
     padding: 1em 0;
     margin: 1em 0;
     border-top: 1px solid #424242;
     border-bottom: 1px solid #424242;
 }
-
 .btn-toggle-promo {
     margin: 2em auto 3em;
-    display: block;
-    ;
+    display: block;;
 }
-
-
-
 /*About Page*/
-
 .about-container {
     display: flex;
     align-items: center;
@@ -314,18 +269,6 @@ a:hover, a:focus {
     border-right-style: none
 }
 
-.custom-control {
-    align-items: center;
-}
-
-.custom-control-input:checked~.custom-control-indicator {
-    background-color: #f37b8a;
-}
-
-.custom-checkbox .custom-control-indicator {
-    border-radius: 0;
-}
-
 .footer {
     background: #465f9c;
     text-align: center;
@@ -380,7 +323,6 @@ a:hover, a:focus {
 .btn-blue:hover,
 .btn-blue:focus {
     background-color: #364d85;
-    color: #fff;
     border: none
 }
 
@@ -407,10 +349,6 @@ a:hover, a:focus {
     cursor: pointer
 }
 
-.font-blue {
-    color: #475f9d;
-}
-
 .product-list {
     padding: .5em
 }
@@ -430,16 +368,11 @@ a:hover, a:focus {
 }
 
 .form-control {
-    border-radius: 0;
-    font-size: 0.85rem;
-    font-weight: 600;
-    padding: .5rem 1rem;
-    letter-spacing: .1rem
+    border-radius: 0
 }
 
 .login-pop-up,
-.register-pop-up,
-.cart-pop-up {
+.register-pop-up {
     position: fixed;
     z-index: 2000;
     bottom: 0;
@@ -447,6 +380,7 @@ a:hover, a:focus {
     top: 0;
     left: 0;
     height: 100%;
+    background: rgba(70, 95, 156, .9);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -456,16 +390,8 @@ a:hover, a:focus {
     transition: all .5s ease
 }
 
-.login-pop-up {
-    background: rgba(70, 95, 156, .9);
-}
-
 .register-pop-up {
     background: rgba(70, 95, 156, 1)
-}
-
-.cart-pop-up {
-    background: rgba(255, 255, 255, .9);
 }
 
 .open {
@@ -479,16 +405,13 @@ a:hover, a:focus {
     max-width: 480px;
     text-align: center;
     width: 100%;
-    padding: 4em
+    padding: 1em
 }
 
-.cart-pop-up .message-box {
-    background-color: #fffcb5;
-}
 .close-box {
     position: relative;
-    top: -5em;
-    right: -5em;
+    top: -2em;
+    right: -2em;
     float: right
 }
 
@@ -518,32 +441,4 @@ a:hover, a:focus {
     background-position: -1px -84px;
     width: 42px;
     height: 41px;
-}
-
-
-/* table */
-
-.baiza-table thead th {
-    color: #475f9d;
-}
-.baiza-table thead th:nth-child(2n+0), .baiza-table tbody tr td:nth-child(2n+0), .baiza-table tfoot th:nth-child(2n+0) {
-    text-align: center;
-}
-.baiza-table thead th:nth-child(3n+0), .baiza-table tbody tr td:nth-child(3n+0), .baiza-table tfoot th:nth-child(3n+0) {
-    text-align: right;
-}
-.baiza-table td,
-.baiza-table th {
-    border-top: none;
-}
-.baiza-table ul {
-    list-style-type: square;
-    -webkit-padding-start: 1.45em;
-    -moz-padding-start: 1.45em;
-    margin-top: .4em;
-    font-size: .75rem;
-    margin-bottom: .2rem;
-}
-.baiza-table ul li {
-    margin-bottom: .4em;
 }

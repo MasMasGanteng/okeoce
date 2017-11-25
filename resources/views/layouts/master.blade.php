@@ -10,7 +10,6 @@
     <!-- login/register -->
     @include('partials.login')
     @include('partials.register')
-    @include('partials.add_to_cart')
     <!-- content -->
     @yield('content')
     <!-- footer -->
@@ -27,9 +26,6 @@
     $('.register-overlay').click(function() {
         $('.login-pop-up').removeClass('open');
         $('.register-pop-up').toggleClass('open');
-    });
-    $('.cart-overlay').click(function() {
-        $('.cart-pop-up').toggleClass('open');
     });
     </script>
 </body>
