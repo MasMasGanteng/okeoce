@@ -36,8 +36,6 @@ Route::get('/promo', 'front\PromoController@index');
 Route::get('/how_to_order', 'front\HowToOrderController@index');
 //view  aboutusPage
 Route::get('/about_us', 'front\AboutUsController@index');
-//view  cartPage
-Route::get('/cart', 'front\CartController@index');
 
 //DetailOrder form
 //get html form data
