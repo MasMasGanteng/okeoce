@@ -14,15 +14,26 @@
 <div class="col-6 px-0 mb-4">
     <form>
         <div class="form-group">
-            <label>Email address</label>
-            <input class="form-control" placeholder="Enter email">
+            <label>Title</label>
+            <input class="form-control" placeholder="Title">
         </div>
         <div class="form-group">
-            <label>Password</label>
-            <input class="form-control" placeholder="Password">
+            <label>Price</label>
+            <input class="form-control" placeholder="Price">
         </div>
         <div class="form-group">
-            <label>Add Text</label>
+            <label>Stock</label>
+            <input class="form-control" placeholder="Stock">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Status</label>
+            <select class="form-control" id="exampleFormControlSelect1">
+                <option>Aktif</option>
+                <option>Tidak Aktif</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
             <textarea class="form-control" name="editor1"></textarea>
         </div>
         <div class="form-group">

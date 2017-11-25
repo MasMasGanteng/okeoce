@@ -12,6 +12,6 @@
             </div>
             <button type="submit" class="btn btn-blue">MASUK</button>
         </form>
-        <a href="#" class="register-overlay">REGISTER</a>
+        <a href="/register" class="register-overlay">REGISTER</a>
     </div>
 </div>

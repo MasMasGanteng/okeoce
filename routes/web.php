@@ -13,6 +13,8 @@
 
 //view homePage
 Route::get('/', 'HomeController@index');
+//view  registerPage
+Route::get('/register', 'Auth\RegisterController@index');
 //view  productPage
 Route::get('/product', 'front\ProductController@index');
 //view  promoPage
@@ -46,12 +48,22 @@ Route::get('/thank_you', 'front\PaymentConfirmationSuccessController@index');
 //get data for datatable
 Route::post('/thank_you', 'front\PaymentConfirmationSuccessController@post');
 
+// Route::get('/main/persiapan/kota/info', 'MAIN\bk010205Controller@index');
+// Route::post('/main/persiapan/kota/info', 'MAIN\bk010205Controller@post');
+// Route::get('/main/persiapan/kota/info/select', 'MAIN\bk010205Controller@select');
+// Route::get('/main/persiapan/kota/info/show', 'MAIN\bk010205Controller@show');
+// Route::get('/main/persiapan/kota/info/create', 'MAIN\bk010205Controller@create');
+// Route::post('/main/persiapan/kota/info/create', 'MAIN\bk010205Controller@post_create');
+// Route::get('/main/persiapan/kota/info/delete', 'MAIN\bk010205Controller@delete');
 
 //view  dashboardPage
 Route::get('/dashboard', 'dashboard\DashboardController@index');
 //view  dashboard/bannerPage
 Route::get('/dashboard/banner', 'dashboard\DashboardBannerController@index');
+Route::post('/dashboard/banner', 'dashboard\DashboardBannerController@post');
 Route::get('/dashboard/banner/create', 'dashboard\DashboardBannerController@create');
+Route::post('/dashboard/banner/create', 'dashboard\DashboardBannerController@post_create');
+Route::get('/dashboard/banner/delete', 'dashboard\DashboardBannerController@delete');
 //view  dashboard/ingredientsPage
 Route::get('/dashboard/ingredients', 'dashboard\DashboardIngredientsController@index');
 Route::get('/dashboard/ingredients/create', 'dashboard\DashboardIngredientsController@create');
