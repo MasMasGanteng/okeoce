@@ -13,6 +13,7 @@
 
 //view homePage
 Route::get('/', 'HomeController@index');
+Route::post('/add_to_cart', 'HomeController@add_to_cart');
 //view  registerPage
 Route::get('/register', 'Auth\RegisterController@index');
 //view  productPage

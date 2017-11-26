@@ -1,4 +1,8 @@
 @extends('layouts.master')
+{{-- local styles --}} @section('header_styles')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet">
+<link href="{{asset('vendors/pnotify/css/pnotify.css')}}" rel="stylesheet" type="text/css">
+@stop
 @section('content')
     <div class="container-fluid">
         <!-- banner -->
@@ -48,4 +52,4 @@
         <!-- ready to eat sushi -->
         @include('partials.buysushi')
     </div>
-@stop
+@stop 

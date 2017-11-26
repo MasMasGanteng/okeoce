@@ -26,10 +26,81 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $data['essential_list'] = DB::select('select * from ingredients where status=1');
-        $data['sprinkle_list'] = DB::select('select * from ingredients where status=2');
-        $data['house_sauce_list'] = DB::select('select * from ingredients where status=3');
-        $data['special_list'] = DB::select('select * from ingredients where status=4');
+        $data['essential_list'] = DB::select('select * from ingredients where status=1 and categories=1');
+        $data['special_list'] = DB::select('select * from ingredients where status=1 and categories=2');
+        $data['sprinkle_list'] = DB::select('select * from ingredients where status=1 and categories=3');
+        $data['house_sauce_list'] = DB::select('select * from ingredients where status=1 and categories=4');
 		return view('pages/home',$data);
+    }
+
+    public function add_to_cart(Request $request){
+        if($request->all()!=null){
+            $lastInsertOrder=DB::table('order')->insertGetId([
+                "status" => 1,
+                "id_user" => 1
+            ]);
+
+            $lastInsertOrderDetail=DB::table('order_detail')->insertGetId([
+                "id_order" => $lastInsertOrder
+            ]);
+
+            $essential=$request->input('essential_choosed');
+            $special=$request->input('special_choosed');
+            $sprinkle=$request->input('sprinkle_choosed');
+            $house_sauce=$request->input('house_sauce_choosed');
+
+            if($request->input('essential_choosed')!=null){
+
+            }
+            DB::beginTransaction();
+            foreach($essential as $value){
+                DB::table('order_ingredients')->insert([
+                    "id_order_detail" => $lastInsertOrderDetail,
+                    "id_ingredients" => $value,
+                    "status" => 0,
+                ]);
+            }
+            DB::commit();
+
+            if($request->input('special_choosed')!=null){
+                DB::beginTransaction();
+                foreach($special as $value){
+                    DB::table('order_ingredients')->insert([
+                        "id_order_detail" => $lastInsertOrderDetail,
+                        "id_ingredients" => $value,
+                        "status" => 0,
+                    ]);
+                }
+                DB::commit();
+            }
+            
+
+            if($request->input('sprinkle_choosed')!=null){
+                DB::beginTransaction();
+                foreach($sprinkle as $value){
+                    DB::table('order_ingredients')->insert([
+                        "id_order_detail" => $lastInsertOrderDetail,
+                        "id_ingredients" => $value,
+                        "status" => 0,
+                    ]);
+                }
+                DB::commit();
+            }
+            
+
+            if($request->input('house_sauce_choosed')!=null){
+                DB::beginTransaction();
+                foreach($house_sauce as $value){
+                    DB::table('order_ingredients')->insert([
+                        "id_order_detail" => $lastInsertOrderDetail,
+                        "id_ingredients" => $value,
+                        "status" => 0,
+                    ]);
+                }
+                DB::commit();
+            }
+            
+            
+        }
     }
 }
