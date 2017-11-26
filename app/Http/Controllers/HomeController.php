@@ -34,15 +34,24 @@ class HomeController extends Controller
     }
 
     public function add_to_cart(Request $request){
+        $check_order_aktif = DB::select('select * from `order` where status=1 and id_user=1');
         if($request->all()!=null){
-            $lastInsertOrder=DB::table('order')->insertGetId([
-                "status" => 1,
-                "id_user" => 1
-            ]);
+            if($check_order_aktif!=null){
+                $lastInsertOrderDetail=DB::table('order_detail')->insertGetId([
+                    "id_order" => $check_order_aktif[0]->id,
+                    "id_product" => $request->input('product')
+                ]);
+            }else{
+                $lastInsertOrder=DB::table('order')->insertGetId([
+                    "status" => 1,
+                    "id_user" => 1
+                ]);
 
-            $lastInsertOrderDetail=DB::table('order_detail')->insertGetId([
-                "id_order" => $lastInsertOrder
-            ]);
+                $lastInsertOrderDetail=DB::table('order_detail')->insertGetId([
+                    "id_order" => $lastInsertOrder,
+                    "id_product" => $request->input('product')
+                ]);
+            }
 
             $essential=$request->input('essential_choosed');
             $special=$request->input('special_choosed');

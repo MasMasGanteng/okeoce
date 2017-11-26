@@ -1,7 +1,7 @@
 @extends('layouts.master')
 {{-- local styles --}} @section('header_styles')
 <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet">
-<link href="{{asset('vendors/pnotify/css/pnotify.css')}}" rel="stylesheet" type="text/css">
+<link href="{{asset('vendors/pnotify/css/pnotify.custom.min.css')}}" rel="stylesheet" type="text/css">
 @stop
 @section('content')
     <div class="container-fluid">
@@ -53,3 +53,6 @@
         @include('partials.buysushi')
     </div>
 @stop 
+{{-- local scripts --}} @section('footer_scripts')
+<script src="{{asset('vendors/pnotify/js/pnotify.custom.min.js')}}" type="text/javascript"></script>
+@stop

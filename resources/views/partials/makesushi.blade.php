@@ -241,10 +241,6 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-peach" data-dismiss="modal">Close</button>
                                     <button type="submit" id="submit" class="btn btn-blue">Add to Cart</button>
-                                    <button onclick="new PNotify({
-                                            title: 'Yayyy you clicked me',
-                                            text: 'Haha, made you click'
-                                        });">Click Me!</button>
                                 </div>
                         </form>
                         </div>
@@ -313,6 +309,7 @@
     //on modal show
     $('#detail_order').on('shown.bs.modal', function (e) {
         $("#jns_roll").text($('#cr-1:checkbox:checked').length > 0?'Roll Kecil':'Roll Besar');
+        $('#cr-1:checkbox:checked').length > 0?$("#modal_essential").append('<input name="product" type="text" value="2" hidden>'):$("#modal_essential").append('<input name="product" type="text" value="3" hidden>');
         $('input[name="essential_checked"]:checked').each(function() {
            $("#modal_essential").append('<li>'+$("#essential_name"+this.value).val()+'</li>');
            $("#modal_essential").append('<input name="essential_choosed[]" type="checkbox" value="'+this.value+'" checked hidden>');
@@ -353,12 +350,8 @@
                         $("#submit").prop('disabled', true);
                     },
                     success: function () {
-                        $.pnotify({
-                            title: 'Success',
-                            text: 'Order Added to Cart.',
-                            type: 'success'
-                        });
-                        // window.location.href = "/";
+                        alert('Form Submitted.');
+                        window.location.href = "/";
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(xhr.status);
@@ -374,5 +367,5 @@
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
-<script src="{{asset('vendors/pnotify/js/pnotify.js')}}" type="text/javascript"></script>
+
 @stop
