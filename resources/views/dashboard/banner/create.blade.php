@@ -1,4 +1,9 @@
 @extends('layouts.dashboard')
+{{-- local styles --}} @section('header_styles')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet">
+<!-- <link href="{{asset('vendors/iCheck/css/all.css')}}" rel="stylesheet" type="text/css" />
+<link href="{{asset('vendors/bootstrap-multiselect/css/bootstrap-multiselect.css')}}" rel="stylesheet" type="text/css"> -->
+@stop
 @section('content')
 <!-- breadcrumb -->
 <ol class="breadcrumb">
@@ -15,7 +20,7 @@
     <form id="form-validation" enctype="multipart/form-data" class="form-horizontal form-bordered">
         <div class="form-group">
             <label>Title</label>
-            <input class="form-control" placeholder="Title" value="{{$title}}">
+            <input class="form-control" placeholder="Title" value="{{$title}}" required>
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Status</label>
@@ -41,7 +46,7 @@
             <a href="/dashboard/banner" type="button" class="btn btn-effect-ripple btn-danger">
                 Cancel
             </a>
-            <button type="submit" id="submit" class="btn btn-effect-ripple btn-primary">
+            <button type="submit" class="btn btn-effect-ripple btn-primary">
                 Submit
             </button>
             <button type="reset" class="btn btn-effect-ripple btn-default reset_btn2">
@@ -50,15 +55,16 @@
         </div>
     </form>
 </div>
+@stop {{-- local scripts --}} @section('footer_scripts')
 <script>
-function test(id){
-    console.log(id)
-    var elem = document.getElementById(id);
-    elem.parentNode.removeChild(elem);
-    var elem2 = $('#'+id+'-file');
-    elem2.removeAttr('value');
-    return false;
-    }
+// function test(id){
+//     console.log(id)
+//     var elem = document.getElementById(id);
+//     elem.parentNode.removeChild(elem);
+//     var elem2 = $('#'+id+'-file');
+//     elem2.removeAttr('value');
+//     return false;
+//     }
     
 $(document).ready(function () {
 
@@ -97,11 +103,17 @@ $(document).ready(function () {
                 }
             });
         });
+    }).on('error.form.bv', function(e) {
+        $("#submit").prop('disabled', false);
     });
 });
 </script>
-
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="{{asset('js_kotaku/custom_js/form_layouts.js')}}" type="text/javascript"></script>
 <script src="{{asset('js_kotaku/custom_js/form_validations.js')}}" type="text/javascript"></script>
-<script src="{{asset('js_kotaku/custom_js/custom_elements.js')}}" type="text/javascript"></script>
+<script src="{{asset('js_kotaku/custom_js/custom_elements.js')}}" type="text/javascript"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+<!-- <script src="{{asset('vendors/iCheck/js/icheck.js')}}" type="text/javascript"></script>
+<script src="{{asset('vendors/bootstrap-multiselect/js/bootstrap-multiselect.js')}}" type="text/javascript"></script> -->
+
 @stop

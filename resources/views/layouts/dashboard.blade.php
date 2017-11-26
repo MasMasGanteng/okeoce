@@ -3,6 +3,8 @@
 
 <head>
     @include('partials.head_admin')
+    <!-- end of global css -->
+    @yield('header_styles')
 </head>
 
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
@@ -64,8 +66,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/fileinput.min.js"></script>
         <!-- optionally uncomment line below for loading your theme assets for a theme like Font Awesome (`fa`) -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/themes/fa/theme.min.js"></script>
+        @yield('footer_scripts')
         <script>
-        CKEDITOR.replace('editor1');
+        // CKEDITOR.replace('editor1');
 
         $(document).ready(function() {
             $("#input-fa-1").fileinput({
