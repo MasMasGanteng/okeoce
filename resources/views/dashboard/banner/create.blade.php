@@ -23,7 +23,7 @@
             <input class="form-control" placeholder="Title" value="{{$title}}" required>
         </div>
         <div class="form-group">
-            <label for="exampleFormControlSelect1">Status</label>
+            <label for="exampleFormControlSelect1">Statustes</label>
             <select class="form-control" id="select-status-input" name="select-status-input">
                 <option value="0" {!! $status=='0' ? 'selected':'' !!}>Aktif</option>
                 <option value="1" {!! $status=='1' ? 'selected':'' !!}>Tidak Aktif</option>
