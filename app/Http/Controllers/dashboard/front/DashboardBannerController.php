@@ -124,6 +124,20 @@ class DashboardBannerController
 
     public function post_create(Request $request)
     {
+        $file_document = $request->file('url_img_banner-input');
+        $url_img_banner = null;
+        $upload_document = false;
+        if($request->input('url_img_banner-file') != null && $file_document == null){
+            $url_img_banner = $request->input('url_img_banner-file');
+            $upload_document = false;
+        }elseif($request->input('url_img_banner-file') != null && $file_document != null){
+            $url_img_banner = $file_document->getClientOriginalName();
+            $upload_document = true;
+        }elseif($request->input('url_img_banner-file') == null && $file_document != null){
+            $url_img_banner = $file_document->getClientOriginalName();
+            $upload_document = true;
+        }
+
         if ($request->input('id')!=null){
             DB::table('banner')->where('id', $request->input('id'))
             ->update(['title' => $request->input('title-input'),
@@ -137,7 +151,8 @@ class DashboardBannerController
                 'url_img_banner' => $url_img_banner,
                 'description' => $request->input('description-input'),
                 'status' => $request->input('status-input'),
-                'created_by' => Auth::user()->id
+                // 'created_by' => Auth::user()->id
+                'created_by' => 1
                 ]);
         }
     }

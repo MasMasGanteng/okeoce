@@ -23,8 +23,8 @@
                     <div class="col-7 pl-0">
                     </div>
                     <div class="col pl-0">
-                        <a href="#">
-                            <img class="img-fluid" src="image/myos-link.png" alt="Make your own sushi">
+                        <a href="javascript:void(0)">
+                            <img class="img-fluid" src="image/myos-link.png" alt="Make your own sushi" id="make_your_own">
                         </a>
                     </div>
                 </div>
@@ -34,8 +34,8 @@
                     <div class="col-5 pl-0">
                     </div>
                     <div class="col pl-4">
-                        <a href="#">
-                            <img class="" src="image/rtos-link.png" alt="Ready to eat sushi">
+                        <a href="javascript:void(0)" >
+                            <img class="" src="image/rtos-link.png" alt="Ready to eat sushi" id="ready_to_eat">
                         </a>
                     </div>
                 </div>
