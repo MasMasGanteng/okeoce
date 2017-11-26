@@ -33,9 +33,12 @@
                     <tr>
                         <th>ID</th>
                         <th>Images</th>
+                        <th>Nama File</th>
                         <th>Title</th>
                         <th>Description</th>
                         <th>Status</th>
+                        <th>Created By</th>
+                        <th>Created Time</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -46,40 +49,40 @@
 </div>
 <script src="{{asset('js/jquery-1.11.1.min.js')}}" type="text/javascript"></script>
 <script>
-    $(document).ready(function () {
-        var table = $('#tables').DataTable({
-            // dom: 'Bflrtip',
+$(document).ready(function () {
+    var table = $('#tables').DataTable({
+        // dom: 'Bflrtip',
 
-            "processing": true,
-            "serverSide": true,
-            "ajax":{
-                     "url": "/dashboard/banner",
-                     "dataType": "json",
-                     "type": "POST"
-                   },
-            success: function(data) {
-                 alert('success')
-              },
-              error: function (xhr, ajaxOptions, thrownError) {
-                alert(xhr.status);
-                alert(thrownError);
-              },
-            "columns": [
-                { "data": "id" , name:"id"},
-                { "data": "url_img_banner" , name:"url_img_banner"},
-                { "data": "title" , name:"title"},
-                { "data": "description" , name:"nama_kel"},
-                { "data": "status" , name:"status"},
-                { "data": "option" , name:"option",orderable:false}
-            ],
-            "order": [[ 1, "desc" ]]
-        });
-        $('#tables_filter input').unbind();
-        $('#tables_filter input').bind('keyup', function(e) {
+        "processing": true,
+        "serverSide": true,
+        "ajax":{
+                 "url": "/dashboard/banner",
+                 "dataType": "json",
+                 "type": "POST"
+               },
+
+        "columns": [
+            { "data": "id" , "name":"id"},
+            { "data": "images", "render": function(data, type, row) {
+                return '<img src="'+data+'" />';
+                }
+            },
+            { "data": "url_img_banner" , name:"url_img_banner"},
+            { "data": "title" , name:"title"},
+            { "data": "description" , name:"nama_kel"},
+            { "data": "status" , name:"status"},
+            { "data": "created_by" , name:"created_by"},
+            { "data": "created_time" , name:"created_time"},
+            { "data": "option" , name:"option",orderable:false}
+        ],
+        "order": [[ 0, "desc" ]]
+    });
+    $('#tables_filter input').unbind();
+    $('#tables_filter input').bind('keyup', function(e) {
         if(e.keyCode == 13) {
             table.search(this.value).draw();
         }
-    })
+    });
 });
 </script>
 <script type="text/javascript" src="{{asset('vendors/datatables/js/jquery.dataTables.js')}}"></script>
@@ -94,5 +97,5 @@
 <script type="text/javascript" src="{{asset('vendors/datatables/js/buttons.bootstrap.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendors/datatables/js/buttons.print.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendors/datatables/js/dataTables.scroller.js')}}"></script>
-<script src="{{asset('js/custom_js/alert.js')}}" type="text/javascript"></script>
+<script src="{{asset('js_kotaku/custom_js/alert.js')}}" type="text/javascript"></script>
 @stop
