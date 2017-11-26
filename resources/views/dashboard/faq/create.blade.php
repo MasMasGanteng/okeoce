@@ -100,8 +100,4 @@ $(document).ready(function () {
     });
 });
 </script>
-
-<script src="{{asset('js_kotaku/custom_js/form_layouts.js')}}" type="text/javascript"></script>
-<script src="{{asset('js_kotaku/custom_js/form_validations.js')}}" type="text/javascript"></script>
-<script src="{{asset('js_kotaku/custom_js/custom_elements.js')}}" type="text/javascript"></script>
 @stop

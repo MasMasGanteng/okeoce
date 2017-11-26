@@ -64,6 +64,9 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/fileinput.min.js"></script>
         <!-- optionally uncomment line below for loading your theme assets for a theme like Font Awesome (`fa`) -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/themes/fa/theme.min.js"></script>
+        <script src="{{asset('js_kotaku/custom_js/form_layouts.js')}}" type="text/javascript"></script>
+        <script src="{{asset('js_kotaku/custom_js/form_validations.js')}}" type="text/javascript"></script>
+        <script src="{{asset('js_kotaku/custom_js/custom_elements.js')}}" type="text/javascript"></script>
         <script>
         CKEDITOR.replace('editor1');
 
