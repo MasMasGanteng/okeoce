@@ -40,7 +40,12 @@ class DashboardBannerController
             6 =>'created_by'
 
         );
-        $query='select * from banner';
+        $query='select *,
+                case 
+                    when status=0 then "Tidak Aktif"
+                    when status=1 then "Aktif"
+                end status_banner
+                from banner';
         $totalData = DB::select('select count(1) cnt from banner');
         $totalFiltered = $totalData[0]->cnt;
         $limit = $request->input('length');
@@ -57,23 +62,25 @@ class DashboardBannerController
             $totalFiltered=DB::select('select count(1) cnt from ('.$query. ' and nama like "%'.$search.'%" ) a');
             $totalFiltered=$totalFiltered[0]->cnt;
         }
-
         $data = array();
 
         if(!empty($posts))
         {
             foreach ($posts as $post)
             {
+                $show =  $post->id;
                 $edit =  $post->id;
+                $delete = $post->id;
                 $url_edit="/dashboard/banner/create?id=".$edit;
-                $url_delete="/dashboard/banner/delete?id=".$edit;
+                $url_delete="/dashboard/banner/delete?id=".$delete;
                 $nestedData['id'] = $post->id;
                 $nestedData['title'] = $post->title;
                 $nestedData['url_img_banner'] = $post->url_img_banner;
+                $nestedData['images'] = '/uploads/front/banner/'.$post->url_img_banner;
                 $nestedData['description'] = $post->description;
-                $nestedData['status'] = $post->status;
+                $nestedData['status'] = $post->status_banner;
                 $nestedData['created_time'] = $post->created_time;
-                $nestedData['created_by'] = $post->created_time;
+                $nestedData['created_by'] = $post->created_by;
                 $nestedData['option'] = "&emsp;<a href='{$url_edit}' title='EDIT' ><span class='fa fa-fw fa-edit'></span></a>
                                           &emsp;<a href='#' onclick='delete_func(\"{$url_delete}\");'><span class='fa fa-fw fa-trash-o'></span></a>";
                 $data[] = $nestedData;
@@ -124,18 +131,18 @@ class DashboardBannerController
 
     public function post_create(Request $request)
     {
-        $file_document = $request->file('url_img_banner-input');
+        $file_banner = $request->file('url_img_banner-input');
         $url_img_banner = null;
-        $upload_document = false;
-        if($request->input('url_img_banner-file') != null && $file_document == null){
+        $upload_banner = false;
+        if($request->input('url_img_banner-file') != null && $file_banner == null){
             $url_img_banner = $request->input('url_img_banner-file');
-            $upload_document = false;
-        }elseif($request->input('url_img_banner-file') != null && $file_document != null){
-            $url_img_banner = $file_document->getClientOriginalName();
-            $upload_document = true;
-        }elseif($request->input('url_img_banner-file') == null && $file_document != null){
-            $url_img_banner = $file_document->getClientOriginalName();
-            $upload_document = true;
+            $upload_banner = false;
+        }elseif($request->input('url_img_banner-file') != null && $file_banner != null){
+            $url_img_banner = $file_banner->getClientOriginalName();
+            $upload_banner = true;
+        }elseif($request->input('url_img_banner-file') == null && $file_banner != null){
+            $url_img_banner = $file_banner->getClientOriginalName();
+            $upload_banner = true;
         }
 
         if ($request->input('id')!=null){
@@ -143,17 +150,23 @@ class DashboardBannerController
             ->update(['title' => $request->input('title-input'),
                 'url_img_banner' => $url_img_banner,
                 'description' => $request->input('description-input'),
-                'status' => $request->input('status-input')
+                'status' => $request->input('select-status-input')
                 ]);
+            if($upload_banner == true){
+                $file_banner->move(public_path('/uploads/front/banner'), $file_banner->getClientOriginalName());
+            }
         }else{
             DB::table('banner')->insert(
                 ['title' => $request->input('title-input'),
                 'url_img_banner' => $url_img_banner,
                 'description' => $request->input('description-input'),
-                'status' => $request->input('status-input'),
+                'status' => $request->input('select-status-input'),
                 // 'created_by' => Auth::user()->id
                 'created_by' => 1
                 ]);
+            if($upload_banner == true){
+                $file_banner->move(public_path('/uploads/front/banner'), $file_banner->getClientOriginalName());
+            }
         }
     }
 
