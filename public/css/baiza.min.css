@@ -482,6 +482,14 @@ a:hover, a:focus {
     padding: 4em
 }
 
+.message-box .register-overlay {
+    font-weight: 600;
+    cursor: pointer;
+}
+.message-box .register-overlay:hover {
+    color: #424242;
+}
+
 .cart-pop-up .message-box {
     background-color: #fffcb5;
 }

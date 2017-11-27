@@ -71,13 +71,6 @@
         @yield('footer_scripts')
         <script>
         // CKEDITOR.replace('editor1');
-
-        // $(document).ready(function() {
-        //     $("#input-fa-1").fileinput({
-        //         theme: "fa",
-        //         uploadUrl: "/file-upload-batch/2"
-        //     });
-        // });
         </script>
     </div>
 </body>

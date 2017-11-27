@@ -1,6 +1,6 @@
 @extends('layouts.dashboard')
 
-<link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/dataTables.bootstrap.css')}}" />
+<!-- <link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/dataTables.bootstrap.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/buttons.bootstrap.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/colReorder.bootstrap.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/dataTables.bootstrap.css')}}" />
@@ -8,7 +8,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/buttons.bootstrap.css')}}">
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/scroller.bootstrap.css')}}">
 <link href="{{asset('vendors/hover/css/hover-min.css')}}" rel="stylesheet">
-<link href="{{asset('css/buttons_sass.css')}}" rel="stylesheet">
+<link href="{{asset('css/buttons_sass.css')}}" rel="stylesheet"> -->
 
 @section('content')
 <!-- Breadcrumbs-->
@@ -28,7 +28,7 @@
     </div>
     <div class="card-body">
         <div class="table-responsive">
-            <table class="table table-bordered" width="1500px" cellspacing="0" id="tables">
+            <table class="table table-bordered" cellspacing="0" id="tables" style="width: 100%;min-width: 1300px;">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -85,7 +85,7 @@ $(document).ready(function () {
     });
 });
 </script>
-<script type="text/javascript" src="{{asset('vendors/datatables/js/jquery.dataTables.js')}}"></script>
+<!-- <script type="text/javascript" src="{{asset('vendors/datatables/js/jquery.dataTables.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendors/datatables/js/buttons.html5.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendors/datatables/js/dataTables.bootstrap.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendors/datatables/js/dataTables.buttons.js')}}"></script>
@@ -97,5 +97,5 @@ $(document).ready(function () {
 <script type="text/javascript" src="{{asset('vendors/datatables/js/buttons.bootstrap.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendors/datatables/js/buttons.print.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendors/datatables/js/dataTables.scroller.js')}}"></script>
-<script src="{{asset('js_kotaku/custom_js/alert.js')}}" type="text/javascript"></script>
+<script src="{{asset('js_kotaku/custom_js/alert.js')}}" type="text/javascript"></script> -->
 @stop

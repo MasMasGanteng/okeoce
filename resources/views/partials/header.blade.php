@@ -21,11 +21,33 @@
                 <a class="nav-link" href="/about_us">ABOUT US</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">            
-            <a href="https://www.facebook.com/baizasushi/" target="_blank"><div class="navbar-facebook"></div></a>
-            <a href="https://www.instagram.com/baizasushi/" target="_blank"><div class="navbar-instagram"></div></a>
-            <a href="/detail_order"><div class="navbar-cart"></div></a>
+        <form class="form-inline my-2 my-lg-0">
+            <a href="https://www.facebook.com/baizasushi/" target="_blank">
+                <div class="navbar-facebook"></div>
+            </a>
+            <a href="https://www.instagram.com/baizasushi/" target="_blank">
+                <div class="navbar-instagram"></div>
+            </a>
+            <a href="/detail_order">
+                <div class="navbar-cart"></div>
+            </a>
+            <!-- Authentication Links -->
+            @guest
+            <!-- <li><a href="{{ route('login') }}">Login</a></li>
+                            <li><a href="{{ route('register') }}">Register</a></li> -->
             <button type="button" class="btn btn-blue my-2 my-sm-0 login-overlay">SIGNUP/LOGIN</button>
+            @else
+            <div class="navbar-nav dropdown">
+                <button class="btn btn-blue dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Hi {{ Auth::user()->name }}</button>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="/detail_order">Detail Order</a>
+                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                    </form>
+                </div>
+            </div>
+            @endguest
         </form>
     </div>
 </nav>

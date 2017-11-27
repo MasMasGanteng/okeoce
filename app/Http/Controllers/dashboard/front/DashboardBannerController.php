@@ -81,8 +81,8 @@ class DashboardBannerController
                 $nestedData['status'] = $post->status_banner;
                 $nestedData['created_time'] = $post->created_time;
                 $nestedData['created_by'] = $post->created_by;
-                $nestedData['option'] = "&emsp;<a href='{$url_edit}' title='EDIT' ><span class='fa fa-fw fa-edit'></span></a>
-                                          &emsp;<a href='#' onclick='delete_func(\"{$url_delete}\");'><span class='fa fa-fw fa-trash-o'></span></a>";
+                $nestedData['option'] = "<a href='{$url_edit}' title='EDIT' class='btn btn-outline-info'><i class='fa fa-pencil'></i></a>
+                                        <button class='btn btn-outline-danger' type='button' onclick='delete_func(\"{$url_delete}\");'><i class='fa fa-trash-o'></i></button>";
                 $data[] = $nestedData;
             }
         }

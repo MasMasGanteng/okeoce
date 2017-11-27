@@ -8,8 +8,8 @@
     <!-- navbar -->
     @include('partials.header')
     <!-- login/register -->
-    @include('partials.login')
-    @include('partials.register')
+    @include('partials.login_popup')
+    @include('partials.register_popup')
     @include('partials.add_to_cart')
     <!-- content -->
     @yield('content')
