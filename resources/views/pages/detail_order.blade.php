@@ -61,12 +61,12 @@
                             </ol>
                     </ul>
                 </td>
-                <td class="jml_product_order"><input class="form-control" id="jml{{$op->id_order_detail}}" type="number" min="1" oninput="calculate({{$op->id_order_detail}})" value="1" required></td>
+                <td class="jml_product_order"><input class="form-control" id="jml{{$op->id}}" type="number" min="1" oninput="calculate({{$op->id}})" value="1" required></td>
                 <td class="price_product_default">
-                    <span id="price{{$op->id_order_detail}}">{{'Rp. '.number_format($op->price,2,",",".")}}</span>
-                    <input id="price_hidden{{$op->id_order_detail}}" type="number" min="1" value="{{$op->price}}" hidden>
+                    <span id="price{{$op->id}}">{{'Rp. '.number_format($op->price,2,",",".")}}</span>
+                    <input id="price_hidden{{$op->id}}" type="number" min="1" value="{{$op->price}}" hidden>
                 </td>
-                <td><button id="cancel{{$op->id_order_detail}}" class="btn btn-peach btn-lg">Cancel</button></td>
+                <td><button id="cancel{{$op->id}}" class="btn btn-peach btn-lg">Cancel</button></td>
             </tr>
             @endforeach
         </tbody>
