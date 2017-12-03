@@ -1,4 +1,8 @@
 @extends('layouts.dashboard')
+{{-- local styles --}} @section('header_styles')
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet">
+<link href="{{asset('vendors/bootstrap-fileinput/css/fileinput.min.css')}}" media="all" rel="stylesheet" type="text/css"/>
+@stop
 @section('content')
 <!-- breadcrumb -->
 <ol class="breadcrumb">
@@ -6,60 +10,58 @@
         <a href="/dashboard">Dashboard</a>
     </li>
     <li class="breadcrumb-item">
-        <a href="/dashboard/banner">List Banner</a>
+        <a href="/dashboard/make_sushi">List Ingredients</a>
     </li>
-    <li class="breadcrumb-item active">Add Banner</li>
+    <li class="breadcrumb-item active">Add Ingredients</li>
 </ol>
 <!-- form -->
 <div class="col-6 px-0 mb-4">
     <form id="form-validation" enctype="multipart/form-data" class="form-horizontal form-bordered">
         <div class="form-group">
             <label>Name</label>
-            <input type="hidden" class="form-control" placeholder="id" name="id" id="id" value="{{$id}}">
-            <input type="text" class="form-control" placeholder="Name" id="name-input" name="name-input" value="{{$name}}">
+            <input class="form-control" type="hidden" placeholder="id" name="id" id="id" value="{{$id}}">
+            <input class="form-control" type="text" placeholder="Name" name="name-input" id="name-input" value="{{$name}}" required>
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Status</label>
             <select class="form-control" id="select-status-input" name="select-status-input">
-                <option value="0" {!! $status=='0' ? 'selected':'' !!}>Aktif</option>
-                <option value="1" {!! $status=='1' ? 'selected':'' !!}>Tidak Aktif</option>
+                <option value="1" {!! $status=='1' ? 'selected':'' !!}>Aktif</option>
+                <option value="0" {!! $status=='0' ? 'selected':'' !!}>Tidak Aktif</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Categories</label>
+            <select class="form-control" id="select-categories-input" name="select-categories-input">
+                <option value="1" {!! $categories=='1' ? 'selected':'' !!}>Essentials</option>
+                <option value="2" {!! $categories=='2' ? 'selected':'' !!}>Sprinkles</option>
+                <option value="3" {!! $categories=='3' ? 'selected':'' !!}>Specials</option>
+                <option value="4" {!! $categories=='4' ? 'selected':'' !!}>House Sauce</option>
             </select>
         </div>
         <div class="form-group">
             <label>Price</label>
-            <input type="number" class="form-control" id="price-input" name="price-input" placeholder="Price" value="{{$price}}">
+            <input class="form-control" type="number" placeholder="Price" name="price-input" id="price-input" value="{{$price}}" required>
         </div>
         <div class="form-group">
-            <label>Stock</label>
-            <input type="number" class="form-control" id="stock-input" name="stock-input" placeholder="Stock" value="{{$stock}}">
-        </div>
-        <div class="form-group">
-            <label for="exampleFormControlSelect1">Categories</label>
-            <select class="form-control" id="select-status-input" name="select-status-input">
-                <option value="0" {!! $status=='0' ? 'selected':'' !!}>Essentials</option>
-                <option value="1" {!! $status=='1' ? 'selected':'' !!}>Sprinkles</option>
-                <option value="2" {!! $status=='2' ? 'selected':'' !!}>Specials</option>
-                <option value="3" {!! $status=='3' ? 'selected':'' !!}>House Sauce</option>
-            </select>
+            <label>Price</label>
+            <input class="form-control" type="number" placeholder="Stock" name="stock-input" id="stock-input" value="{{$stock}}" required>
         </div>
         <div class="form-group">
             <label>Description</label>
-            <textarea class="form-control" id="description-input" name="description-input">{{$description}}</textarea>
+            <textarea class="form-control" id="description-input" name="description-input" rows="10">{{$description}}</textarea>
         </div>
         <div class="form-group">
             <label>Upload Images</label>
-            <div class="file-loading">
-                <input id="url_img_banner-input" name="url_img_banner-input" type="file" class="file" accept="image/*">
-                <img id="url_img_banner" alt="gallery" src="/uploads/dashboard/banner/{{$url_img_banner}}" {!! $url_img_banner==null ? 'style="display:none"':'style="width:150px"' !!} >
-                <input type="hidden" id="url_img_banner-file" name="url_img_banner-file" value="{{$url_img_banner}}">
-                <button type="button" class="btn btn-effect-ripple btn-danger" {!! $url_img_banner==null ? 'style="display:none"':'' !!} onclick="test('url_img_banner')">Delete</button>
-            </div>
+            <img id="url_img_ingredients" alt="gallery" src="/uploads/front/banner/{{$url_img_ingredients}}" {!! $url_img_ingredients==null ? 'style="display:none"':'style="width:150px"' !!} >
+            <input id="url_img_ingredients-input" name="url_img_ingredients-input" type="file" class="file" accept="image/*">
+            <input type="hidden" id="url_img_ingredients-file" name="url_img_ingredients-file" value="{{$url_img_ingredients}}">
+            <button type="button" class="btn btn-effect-ripple btn-danger" {!! $url_img_ingredients==null ? 'style="display:none"':'' !!} onclick="test('url_img_ingredients')">Delete</button>
         </div>
         <div class="form-group form-actions">
             <a href="/dashboard/banner" type="button" class="btn btn-effect-ripple btn-danger">
                 Cancel
             </a>
-            <button type="submit" id="submit" class="btn btn-effect-ripple btn-primary">
+            <button type="submit" class="btn btn-effect-ripple btn-primary">
                 Submit
             </button>
             <button type="reset" class="btn btn-effect-ripple btn-default reset_btn2">
@@ -68,6 +70,7 @@
         </div>
     </form>
 </div>
+@stop {{-- local scripts --}} @section('footer_scripts')
 <script>
 function test(id){
     console.log(id)
@@ -80,7 +83,7 @@ function test(id){
     
 $(document).ready(function () {
 
-    $("#uri_img_banner-input").fileinput({
+    $("#uri_img_ingredients-input").fileinput({
         previewFileType: "image",
         browseClass: "btn btn-success",
         browseLabel: " Pick Image",
@@ -115,11 +118,12 @@ $(document).ready(function () {
                 }
             });
         });
+    }).on('error.form.bv', function(e) {
+        $("#submit").prop('disabled', false);
     });
 });
 </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+<script src="{{asset('vendors/bootstrap-fileinput/js/fileinput.min.js')}}" type="text/javascript"></script>
 
-<script src="{{asset('js_kotaku/custom_js/form_layouts.js')}}" type="text/javascript"></script>
-<script src="{{asset('js_kotaku/custom_js/form_validations.js')}}" type="text/javascript"></script>
-<script src="{{asset('js_kotaku/custom_js/custom_elements.js')}}" type="text/javascript"></script>
 @stop

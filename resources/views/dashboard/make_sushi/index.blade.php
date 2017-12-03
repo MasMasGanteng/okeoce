@@ -6,7 +6,7 @@
     <li class="breadcrumb-item">
         <a href="/dashboard">Dashboard</a>
     </li>
-    <li class="breadcrumb-item active">Make Eat Sushi</li>
+    <li class="breadcrumb-item active">Ingredients</li>
 </ol>
 <!-- table -->
 <div class="card mb-3">
@@ -25,12 +25,11 @@
                         <th>Images</th>
                         <th>Nama File</th>
                         <th>Name</th>
-                        <th>Status</th>
+                        <th>Categories</th>
                         <th>Price</th>
                         <th>Stock</th>
                         <th>Description</th>
-                        <th>Created By</th>
-                        <th>Created Time</th>
+                        <th>Status</th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -48,7 +47,7 @@ $(document).ready(function () {
         "processing": true,
         "serverSide": true,
         "ajax":{
-                 "url": "/dashboard/banner",
+                 "url": "/dashboard/make_sushi",
                  "dataType": "json",
                  "type": "POST"
                },
@@ -59,14 +58,13 @@ $(document).ready(function () {
                 return '<img src="'+data+'" />';
                 }
             },
-            { "data": "url_img_banner" , name:"url_img_banner"},
-            { "data": "title" , name:"title"},
-            { "data": "description" , name:"description"},
-            { "data": "status" , name:"status"},
+            { "data": "url_img_ingredients" , name:"url_img_ingredients"},
+            { "data": "name" , name:"name"},
+            { "data": "categories" , name:"categories"},
             { "data": "price" , name:"price"},
             { "data": "stock" , name:"stock"},
-            { "data": "created_by" , name:"created_by"},
-            { "data": "created_time" , name:"created_time"},
+            { "data": "description" , name:"description"},
+            { "data": "status" , name:"status"},
             { "data": "option" , name:"option",orderable:false}
         ],
         "order": [[ 0, "desc" ]]
@@ -78,4 +76,5 @@ $(document).ready(function () {
         }
     });
 });
+</script>
 @stop

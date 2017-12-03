@@ -66,35 +66,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/fileinput.min.js"></script>
         <!-- optionally uncomment line below for loading your theme assets for a theme like Font Awesome (`fa`) -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/themes/fa/theme.min.js"></script>
+        <!-- another js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
         @yield('footer_scripts')
         <script>
         // CKEDITOR.replace('editor1');
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-
-        $(document).ready(function() {
-            $("#input-fa-1").fileinput({
-                theme: "fa",
-                uploadUrl: "/file-upload-batch/2"
-            });
-        });
->>>>>>> parent of 62e747c... Edit uploaded image di create banner
-=======
-=======
->>>>>>> parent of 79aec08... nitip buat lanjut ngerjain dirumah
-
-        // $(document).ready(function() {
-        //     $("#input-fa-1").fileinput({
-        //         theme: "fa",
-        //         uploadUrl: "/file-upload-batch/2"
-        //     });
-        // });
-<<<<<<< HEAD
->>>>>>> parent of 79aec08... nitip buat lanjut ngerjain dirumah
-=======
->>>>>>> parent of 79aec08... nitip buat lanjut ngerjain dirumah
         </script>
     </div>
 </body>
