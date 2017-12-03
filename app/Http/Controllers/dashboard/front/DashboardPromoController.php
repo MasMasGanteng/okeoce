@@ -84,7 +84,7 @@ class DashboardPromoController extends Controller
                 $nestedData['title'] = $post->title;
                 $nestedData['url_img_banner'] = $post->url_img_banner;
                 $nestedData['images'] = '/uploads/front/banner/'.$post->url_img_banner;
-                $nestedData['status'] = $post->status_banner;
+                $nestedData['status'] = $post->status_promo;
                 $nestedData['description'] = $post->description;
                 $nestedData['location'] = $post->location;
                 $nestedData['start_date'] = $post->start_date;
