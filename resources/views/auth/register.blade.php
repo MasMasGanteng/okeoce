@@ -2,7 +2,17 @@
 
 @section('content')
 <div class="container full-container flex-div">
-    <div class="col-5 mx-auto mt-3">
+    <div class="col-5 mx-auto">
+        <h4 class="text-center"><b>REGISTER</b></h4>
+        <div class="row my-4">
+            <div class="col-6">
+                <button class="btn btn-blue btn-lg btn-block">FACEBOOK</button>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-peach btn-lg btn-block">GOOGLE</button>
+            </div>
+        </div>
+        <p class="text-center">or</p>
         <form method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
 
@@ -36,8 +46,11 @@
             <div class="form-group">
                 <input id="password-confirm" type="password" placeholder="CONFIRM PASSWORD" class="form-control" name="password_confirmation" required>
             </div>
-            <button type="submit" class="btn btn-blue btn-block btn-lg mt-3">DAFTAR</button>
+            <button type="submit" class="btn btn-blue btn-block btn-lg mt-3">SIGN UP</button>
         </form>
+        <p class="text-center">
+            Already have an account? <a href="{{ route('login') }}">LOGIN</a>
+        </p>
     </div>
 </div>
 @endsection

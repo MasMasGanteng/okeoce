@@ -35,7 +35,6 @@
             <a href="/detail_order"><div class="navbar-cart"></div></a>
             @guest
                 <a href="{{ route('login') }}" class="btn btn-blue my-2 my-sm-0">LOGIN</a>
-                <a href="{{ route('register') }}" class="btn btn-blue my-2 my-sm-0">REGISTER</a>
             @else
                 <li class="dropdown">
                     <a href="#" class="btn btn-blue dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">

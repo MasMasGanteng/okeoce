@@ -2,7 +2,17 @@
 
 @section('content')
 <div class="container full-container flex-div">
-    <div class="col-5 mx-auto mt-3">
+    <div class="col-5 mx-auto">
+        <h4 class="text-center"><b>LOGIN</b></h4>
+        <div class="row my-4">
+            <div class="col-6">
+                <button class="btn btn-blue btn-lg btn-block">FACEBOOK</button>
+            </div>
+            <div class="col-6">
+                <button class="btn btn-peach btn-lg btn-block">GOOGLE</button>
+            </div>
+        </div>
+        <p class="text-center">or</p>
         <form method="POST" action="{{ route('login') }}">
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                 <input id="email" type="email" class="form-control" name="email" placeholder="EMAIL" value="{{ old('email') }}" required autofocus>
@@ -40,9 +50,11 @@
                             
                         </div>
 
-            <button type="submit" class="btn btn-blue btn-block btn-lg">MASUK</button>
+            <button type="submit" class="btn btn-blue btn-block btn-lg">LOGIN</button>
         </form>
-        <!-- <a href="/register" class="register-overlay">REGISTER</a> -->
+        <p class="text-center">
+            Didn't have an account? <a href="{{ route('register') }}">REGISTER</a>
+        </p>
     </div>
 </div>
 @endsection
