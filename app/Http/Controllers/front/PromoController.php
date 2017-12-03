@@ -25,6 +25,12 @@ class PromoController
      */
     public function index()
     {
-		return view('pages/promo');
+		$data['promo_list'] = DB::select('select a.*, 
+                                            b.url_img_banner url_img_banner 
+                                        from promo a
+                                            left join banner b on a.id_banner=b.id
+                                        where a.status=1');
+        return view('pages/promo',$data);
+
     }
 }
