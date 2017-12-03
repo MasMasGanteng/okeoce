@@ -57,7 +57,7 @@
 
     <!-- login/register -->
     <!-- @include('partials.login')
-    @include('partials.register') -->
+    @include('partials.register')
     @include('partials.add_to_cart')
     <!-- content -->
     @yield('content')
