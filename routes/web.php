@@ -109,11 +109,3 @@ Route::post('/dashboard/transaction/create', 'dashboard\selling\DashboardTransac
 Route::get('/dashboard/transaction/delete', 'dashboard\selling\DashboardTransactionController@delete');
 
 Auth::routes();
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

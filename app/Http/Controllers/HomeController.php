@@ -17,12 +17,11 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
      * Show the application dashboard.
-     *
      * @return \Illuminate\Http\Response
      */
     public function index()
@@ -31,7 +30,7 @@ class HomeController extends Controller
         $data['special_list'] = DB::select('select * from ingredients where status=1 and categories=2');
         $data['sprinkle_list'] = DB::select('select * from ingredients where status=1 and categories=3');
         $data['house_sauce_list'] = DB::select('select * from ingredients where status=1 and categories=4');
-        return view('pages/home',$data);
+		return view('pages/home',$data);
     }
 
     public function add_to_cart(Request $request){
@@ -112,6 +111,5 @@ class HomeController extends Controller
             
             
         }
-        return view('pages/home',$data);
     }
 }

@@ -58,13 +58,8 @@
             </li>
         </ul>
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Hai, Admin
-                </a>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                    <a href="#" class="dropdown-item" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-fw fa-sign-out"></i> &nbsp;Logout</a>
-                </div>
+            <li class="nav-item">
+                <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-fw fa-sign-out"></i>Logout</a>
             </li>
         </ul>
     </div>
