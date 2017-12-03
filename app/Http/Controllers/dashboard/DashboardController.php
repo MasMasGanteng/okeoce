@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
 
-class DashboardController
+class DashboardController extends Controller
 {
     /**
      * Create a new controller instance.
