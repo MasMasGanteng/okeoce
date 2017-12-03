@@ -1,3 +1,6 @@
+@section('header_scripts')
+<link href="{{asset('vendors/pnotify/css/pnotify.css')}}" rel="stylesheet" type="text/css">
+@stop
 <div id="order_make_your_own" hidden>
     
         <div class="row no-gutters justify-content-center my-5">
@@ -51,12 +54,13 @@
                             5 Essentials
                         </div>
                         <label class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="">
+                            <input type="checkbox" class="custom-control-input" name="add_essential">
                             <span class="custom-control-indicator"></span>
                             <span class="custom-control-description">Charge 7.000 untuk tambah 1 essential</span>
                         </label>
                     </div>
                     <div class="row mx-0 text-center">
+                        <input type="number" id="limit_essential" hidden>
                         @foreach($essential_list as $list)
                         <div class="col col-lg-4">
                             <div class="product-list">
@@ -85,15 +89,16 @@
                             Specials
                         </div>
                         <div class="myos-sect-sub-title">
-                            5 Specials
+                            1 Specials
                         </div>
                         <label class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="">
+                            <input type="checkbox" class="custom-control-input" name="add_special">
                             <span class="custom-control-indicator"></span>
                             <span class="custom-control-description">Charge 18.000 untuk tambah 1 Specials</span>
                         </label>
                     </div>
                     <div class="row mx-0 text-center">
+                        <input type="number" id="limit_special" value="1" hidden>
                         @foreach($special_list as $list)
                         <div class="col col-lg-4">
                             <div class="product-list">
@@ -125,12 +130,13 @@
                             1 Sprinkle
                         </div>
                         <label class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="">
+                            <input type="checkbox" class="custom-control-input" name="add_sprinkle">
                             <span class="custom-control-indicator"></span>
                             <span class="custom-control-description">Charge 18.000 untuk tambah 1 Sprinkle</span>
                         </label>
                     </div>
                     <div class="row mx-0 text-center">
+                        <input type="number" id="limit_sprinkle" value="1" hidden>
                         @foreach($sprinkle_list as $list)
                         <div class="col col-lg-4">
                             <div class="product-list">
@@ -162,12 +168,13 @@
                             1 House Sauce
                         </div>
                         <label class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" value="">
+                            <input type="checkbox" class="custom-control-input" name="add_sauce">
                             <span class="custom-control-indicator"></span>
                             <span class="custom-control-description">Charge 18.000 untuk tambah 1 House Sauce</span>
                         </label>
                     </div>
                     <div class="row mx-0 text-center">
+                        <input type="number" id="limit_sauce" value="1" hidden>
                         @foreach($house_sauce_list as $list)
                         <div class="col col-lg-4">
                             <div class="product-list">
@@ -201,7 +208,7 @@
                                 <h4 class="modal-title">Detail Order</h4>
                                 <button type="button" class="btn btn-blue " data-dismiss="modal">&times;</button>
                             </div>
-                            <form id="form-makeyourown" enctype="multipart/form-data" class="form-horizontal form-bordered">
+                            <form id="form-makeyourown" enctype="multipart/form-data" class="form-horizontal form-bordered" data-bv-excluded="disabled">
                                 <div class="modal-body">
                                     <table class="table baiza-table">
                                         <thead>
@@ -281,11 +288,22 @@
             $('html, body').animate({
                 scrollTop: $("#essential_list").offset().top
             }, 1000);
+            //ubah limit pilih essensial
+            $('#limit_essential').val(3);
+            $('input[name="essential_checked"]:checked').prop('checked', false);
+            $('input[name="special_checked"]:checked').prop('checked', false);
+            $('input[name="sprinkle_checked"]:checked').prop('checked', false);
+            $('input[name="house_sauce_checked"]:checked').prop('checked', false);
         }else{
             $('#ingredient').prop('hidden', true);
             $('html, body').animate({
                 scrollTop: $("#cr-1").offset().top
             }, 1000);
+            $('#limit_essential').val(0);
+            $('input[name="essential_checked"]:checked').prop('checked', false);
+            $('input[name="special_checked"]:checked').prop('checked', false);
+            $('input[name="sprinkle_checked"]:checked').prop('checked', false);
+            $('input[name="house_sauce_checked"]:checked').prop('checked', false);
         }
     });
     $("#cr-2").change(function() {
@@ -298,32 +316,152 @@
             $('html, body').animate({
                 scrollTop: $("#essential_list").offset().top
             }, 1000);
+            //ubah limit pilih essensial
+            $('#limit_essential').val(5);
+            //clear checked
+            $('input[name="essential_checked"]:checked').prop('checked', false);
+            $('input[name="special_checked"]:checked').prop('checked', false);
+            $('input[name="sprinkle_checked"]:checked').prop('checked', false);
+            $('input[name="house_sauce_checked"]:checked').prop('checked', false);
         }else{
             $('#ingredient').prop('hidden', true);
-            $('input[name="special_checked"]:checked').prop('checked', false);
             $('html, body').animate({
                 scrollTop: $("#cr-2").offset().top
             }, 1000);
+            $('#limit_essential').val(0);
+            $('input[name="essential_checked"]:checked').prop('checked', false);
+            $('input[name="special_checked"]:checked').prop('checked', false);
+            $('input[name="sprinkle_checked"]:checked').prop('checked', false);
+            $('input[name="house_sauce_checked"]:checked').prop('checked', false);
+        }
+    });
+    //check max checked
+    $('input[name="essential_checked"]').change(function(){
+        var current = $('input[name="essential_checked"]').filter(':checked').length;
+        var max_essential = parseInt($('#limit_essential').val());
+        $('input[name="essential_checked"]').filter(':not(:checked)').prop('disabled', current >= max_essential);
+    });
+    $('input[name="special_checked"]').change(function(){
+        var current = $('input[name="special_checked"]').filter(':checked').length;
+        var max_special = parseInt($('#limit_special').val());
+        $('input[name="special_checked"]').filter(':not(:checked)').prop('disabled', current >= max_special);
+    });
+    $('input[name="sprinkle_checked"]').change(function(){
+        var current = $('input[name="sprinkle_checked"]').filter(':checked').length;
+        var max_sprinkle = parseInt($('#limit_sprinkle').val());
+        $('input[name="sprinkle_checked"]').filter(':not(:checked)').prop('disabled', current >= max_sprinkle);
+    });
+    $('input[name="house_sauce_checked"]').change(function(){
+        var current = $('input[name="house_sauce_checked"]').filter(':checked').length;
+        var max_sauce = parseInt($('#limit_sauce').val());
+        $('input[name="house_sauce_checked"]').filter(':not(:checked)').prop('disabled', current >= max_sauce);
+    });
+    //tambah bahan
+    $('input[name="add_essential"]').change(function(){
+        if(this.checked) {
+            var current = $('input[name="essential_checked"]').filter(':checked').length;
+            var max_essential = parseInt($('#limit_essential').val())+1;
+            $('#limit_essential').val(max_essential);
+            $('input[name="essential_checked"]').filter(':not(:checked)').prop('disabled', current >= max_essential);
+        }else{
+            var current = $('input[name="essential_checked"]').filter(':checked').length;
+            var max_essential = parseInt($('#limit_essential').val())-1;
+            $('input[name="essential_checked"]').eq(max_essential).prop('checked', false);
+            $('#limit_essential').val(max_essential);
+            $('input[name="essential_checked"]').filter(':not(:checked)').prop('disabled', current >= max_essential);
+        }
+    });
+    $('input[name="add_special"]').change(function(){
+        if(this.checked) {
+            var current = $('input[name="special_checked"]').filter(':checked').length;
+            var max_special = parseInt($('#limit_special').val())+1;
+            $('#limit_special').val(max_special);
+            $('input[name="special_checked"]').filter(':not(:checked)').prop('disabled', current >= max_special);
+        }else{
+            var current = $('input[name="special_checked"]').filter(':checked').length;
+            var max_special = parseInt($('#limit_special').val())-1;
+            $('input[name="special_checked"]').eq(max_special).prop('checked', false);
+            $('#limit_special').val(max_special);
+            $('input[name="special_checked"]').filter(':not(:checked)').prop('disabled', current >= max_special);
+        }
+    });
+    $('input[name="add_sprinkle"]').change(function(){
+        if(this.checked) {
+            var current = $('input[name="sprinkle_checked"]').filter(':checked').length;
+            var max_sprinkle = parseInt($('#limit_sprinkle').val())+1;
+            $('#limit_sprinkle').val(max_sprinkle);
+            $('input[name="sprinkle_checked"]').filter(':not(:checked)').prop('disabled', current >= max_sprinkle);
+        }else{
+            var current = $('input[name="sprinkle_checked"]').filter(':checked').length;
+            var max_sprinkle = parseInt($('#limit_sprinkle').val())-1;
+            $('input[name="sprinkle_checked"]').eq(max_sprinkle).prop('checked', false);
+            $('#limit_elimit_sprinkleslimit_sprinklesential').val(max_sprinkle);
+            $('input[name="sprinkle_checked"]').filter(':not(:checked)').prop('disabled', current >= max_sprinkle);
+        }
+    });
+    $('input[name="add_sauce"]').change(function(){
+        if(this.checked) {
+            var current = $('input[name="house_sauce_checked"]').filter(':checked').length;
+            var max_sauce = parseInt($('#limit_sauce').val())+1;
+            $('#limit_sauce').val(max_sauce);
+            $('input[name="house_sauce_checked"]').filter(':not(:checked)').prop('disabled', current >= max_sauce);
+        }else{
+            var current = $('input[name="house_sauce_checked"]').filter(':checked').length;
+            var max_sauce = parseInt($('#limit_sauce').val())-1;
+            $('input[name="house_sauce_checked"]').eq(max_sauce).prop('checked', false);
+            $('#limit_sauce').val(max_sauce);
+            $('input[name="house_sauce_checked"]').filter(':not(:checked)').prop('disabled', current >= max_sauce);
         }
     });
     //on modal show
     $('#detail_order').on('shown.bs.modal', function (e) {
-        $("#jns_roll").text($('#cr-1:checkbox:checked').length > 0?'Roll Kecil':'Roll Besar');
-        $('#cr-1:checkbox:checked').length > 0?$("#modal_essential").append('<input name="product" type="text" value="2" hidden>'):$("#modal_essential").append('<input name="product" type="text" value="3" hidden>');
-        $('input[name="essential_checked"]:checked').each(function() {
+        var roll_kecil = $('#cr-1:checkbox:checked');
+        var roll_besar = $('#cr-2:checkbox:checked');
+        var essential_input = $('input[name="essential_checked"]:checked');
+        var special_input = $('input[name="special_checked"]:checked');
+        var sprinkle_input = $('input[name="sprinkle_checked"]:checked');
+        var sauce_input = $('input[name="house_sauce_checked"]:checked');
+        //jika roll kecil
+        if(roll_kecil.length > 0){
+            $("#jns_roll").text('Roll Kecil');
+            $("#modal_essential").append('<input name="product" type="text" value="2" hidden>');
+            if(essential_input.length == 0 || sprinkle_input.length == 0 || sauce_input.length == 0){
+                var essensial = essential_input.length == 0 ? 'Essential ':'';
+                var sprinkle = sprinkle_input.length == 0 ? 'Sprinkle ':'';
+                var sauce = sauce_input.length == 0 ? 'House Sauce':'';
+                $("#modal_essential").append('<input id="req_all" name="'+essensial+sprinkle+sauce+'" type="text" required hidden>');
+            }else if(essential_input.length > 0 || sprinkle_input.length > 0 || sauce_input.length > 0){
+                $('#req_all').remove();
+            }
+        //jika roll besar
+        }else if(roll_besar.length > 0){
+            $("#jns_roll").text('Roll Besar');
+            $("#modal_essential").append('<input name="product" type="text" value="3" hidden>');
+            if(essential_input.length == 0|| special_input.length == 0 || sprinkle_input.length == 0 || sauce_input.length == 0){
+                var essensial = essential_input.length == 0 ? 'Essential ':'';
+                var special = special_input.length == 0 ? 'Special ':'';
+                var sprinkle = sprinkle_input.length == 0 ? 'Sprinkle ':'';
+                var sauce = sauce_input.length == 0 ? 'House Sauce':'';
+                $("#modal_essential").append('<input id="req_all" name="'+essensial+special+sprinkle+sauce+'" type="text" required hidden>');
+            }else if(essential_input.length > 0 || special_input.length == 0 || sprinkle_input.length > 0 || sauce_input.length > 0){
+                $('#req_all').remove();
+            }
+        }
+        
+        essential_input.each(function() {
            $("#modal_essential").append('<li>'+$("#essential_name"+this.value).val()+'</li>');
            $("#modal_essential").append('<input name="essential_choosed[]" type="checkbox" value="'+this.value+'" checked hidden>');
-           
         });
-        $('input[name="special_checked"]:checked').each(function() {
+        
+        special_input.each(function() {
            $("#modal_special").append('<li>'+$("#special_name"+this.value).val()+'</li>');
            $("#modal_special").append('<input name="special_choosed[]" type="checkbox" value="'+this.value+'" checked hidden>');
         });
-        $('input[name="sprinkle_checked"]:checked').each(function() {
+        sprinkle_input.each(function() {
            $("#modal_sprinkle").append('<li>'+$("#sprinkle_name"+this.value).val()+'</li>');
            $("#modal_sprinkle").append('<input name="sprinkle_choosed[]" type="checkbox" value="'+this.value+'" checked hidden>');
         });
-        $('input[name="house_sauce_checked"]:checked').each(function() {
+        sauce_input.each(function() {
            $("#modal_house_sauce").append('<li>'+$("#house_sauce_name"+this.value).val()+'</li>');
            $("#modal_house_sauce").append('<input name="house_sauce_choosed[]" type="checkbox" value="'+this.value+'" checked hidden>');
         });
@@ -335,8 +473,16 @@
         $("#modal_house_sauce").empty();
     });
 
+    document.addEventListener('invalid', (function () {
+          return function (e) {
+            e.preventDefault();
+            console.log(e)
+            alert('Belum memilih '+e.target.name+'.');
+          };
+        })(), true);
+
     $(document).ready(function () {
-        $('#form-makeyourown').bootstrapValidator().on('success.form.bv', function(e) {
+        // $('#form-makeyourown').bootstrapValidator().on('success.form.bv', function(e) {
             $('#form-makeyourown').on('submit', function (e) {
                 e.preventDefault();
                 var form_data = new FormData(this);
@@ -360,12 +506,14 @@
                     }
                 });
             });
-        }).on('error.form.bv', function(e) {
-            $("#submit").prop('disabled', false);
-        });
+        // }).on('error.form.bv', function(e) {
+        //     $("#submit").prop('disabled', false);
+        //     alert('isi');
+        // });
     });
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+<script src="{{asset('vendors/pnotify/js/pnotify.js')}}" type="text/javascript"></script>
 
 @stop
