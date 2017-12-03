@@ -21,11 +21,28 @@
                 <a class="nav-link" href="/about_us">ABOUT US</a>
             </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">            
+        <ul class="nav navbar-nav navbar-right">            
             <a href="https://www.facebook.com/baizasushi/" target="_blank"><div class="navbar-facebook"></div></a>
             <a href="https://www.instagram.com/baizasushi/" target="_blank"><div class="navbar-instagram"></div></a>
             <a href="/detail_order"><div class="navbar-cart"></div></a>
-            <button type="button" class="btn btn-blue my-2 my-sm-0 login-overlay">SIGNUP/LOGIN</button>
+            @guest
+                <a href="{{ route('login') }}" class="btn btn-blue my-2 my-sm-0">LOGIN</a>
+                <a href="{{ route('register') }}" class="btn btn-blue my-2 my-sm-0">REGISTER</a>
+            @else
+                <li class="dropdown">
+                    <a href="#" class="btn btn-blue dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                        {{ Auth::user()->name }}
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}</form>
+                        </li>
+                    </ul>
+                </li>
+            @endguest
         </form>
     </div>
 </nav>

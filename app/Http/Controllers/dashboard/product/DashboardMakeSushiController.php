@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\dashboard\product;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
 
-class DashboardMakeSushiController
+class DashboardMakeSushiController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -16,7 +17,7 @@ class DashboardMakeSushiController
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
