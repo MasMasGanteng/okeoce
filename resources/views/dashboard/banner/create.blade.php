@@ -1,7 +1,7 @@
 @extends('layouts.dashboard')
 {{-- local styles --}} @section('header_styles')
-<!-- <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet">
-<link href="{{asset('vendors/bootstrap-fileinput/css/fileinput.min.css')}}" media="all" rel="stylesheet" type="text/css"/> -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet">
+<link href="{{asset('vendors/bootstrap-fileinput/css/fileinput.min.css')}}" media="all" rel="stylesheet" type="text/css"/>
 @stop
 @section('content')
 <!-- breadcrumb -->
@@ -33,27 +33,21 @@
             <label>Description</label>
             <textarea class="form-control" id="description-input" name="description-input" rows="10">{{$description}}</textarea>
         </div>
-        <!-- <div class="form-group">
+        <div class="form-group">
             <label>Upload Images</label>
             <img id="url_img_banner" alt="gallery" src="/uploads/front/banner/{{$url_img_banner}}" {!! $url_img_banner==null ? 'style="display:none"':'style="width:150px"' !!} >
             <input id="url_img_banner-input" name="url_img_banner-input" type="file" class="file" accept="image/*">
             <input type="hidden" id="url_img_banner-file" name="url_img_banner-file" value="{{$url_img_banner}}">
-            <button type="button" class="btn btn-danger" {!! $url_img_banner==null ? 'style="display:none"':'' !!} onclick="test('url_img_banner')">Delete</button>
-        </div> -->
-        <div class="form-group">
-            <label>Upload Image</label>
-            <!-- <img id="url_img_banner" alt="gallery" src="/uploads/front/banner/{{$url_img_banner}}" {!! $url_img_banner==null ? 'style="display:none"':'style="width:150px"' !!} > -->
-            <input class="img-banner-view" id="url_img_banner-input" name="url_img_banner-input" type="file" class="file" accept="image/*">
-            <input type="hidden" id="url_img_banner-file" name="url_img_banner-file" value="{{$url_img_banner}}">
+            <button type="button" class="btn btn-effect-ripple btn-danger" {!! $url_img_banner==null ? 'style="display:none"':'' !!} onclick="test('url_img_banner')">Delete</button>
         </div>
-        <div class="form-group form-actions mt-5">
-            <a href="/dashboard/banner" type="button" class="btn btn-danger">
+        <div class="form-group form-actions">
+            <a href="/dashboard/banner" type="button" class="btn btn-effect-ripple btn-danger">
                 Cancel
             </a>
-            <button type="submit" class="btn btn-primary">
+            <button type="submit" class="btn btn-effect-ripple btn-primary">
                 Submit
             </button>
-            <button type="reset" class="btn btn-default reset_btn2">
+            <button type="reset" class="btn btn-effect-ripple btn-default reset_btn2">
                 Reset
             </button>
         </div>
@@ -72,33 +66,14 @@ function test(id){
     
 $(document).ready(function () {
 
-    // $("#uri_img_banner-input").fileinput({
-    //     // previewFileType: "image",
-    //     // browseClass: "btn btn-success",
-    //     // browseLabel: " Pick Image",
-    //     // browseIcon: '<i class="glyphicon glyphicon-picture"></i>',
-    //     // removeClass: "btn btn-danger",
-    //     // removeLabel: "Delete",
-    //     // removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
-    //     // showUpload: false
-    //     theme: "fa",
-    //     showCaption: false,
-    //     showRemove: false,
-    //     showUpload: false
-    // });
-
-    var bannerurl = '/uploads/front/banner/{{$url_img_banner}}';
-
-    $(".img-banner-view").fileinput({
-        initialPreview: [bannerurl],
-        initialPreviewAsData: true,
-        // initialPreviewConfig: [
-        //     {downloadUrl: bannerurl, key: 1}
-        // ],
-        theme: "fa",
-        showCaption: false,
-        showDownload: false,
-        showDrag: false,
+    $("#uri_img_banner-input").fileinput({
+        previewFileType: "image",
+        browseClass: "btn btn-success",
+        browseLabel: " Pick Image",
+        browseIcon: '<i class="glyphicon glyphicon-picture"></i>',
+        removeClass: "btn btn-danger",
+        removeLabel: "Delete",
+        removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
         showUpload: false
     });
 
@@ -131,7 +106,7 @@ $(document).ready(function () {
     });
 });
 </script>
-<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
-<script src="{{asset('vendors/bootstrap-fileinput/js/fileinput.min.js')}}" type="text/javascript"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
+<script src="{{asset('vendors/bootstrap-fileinput/js/fileinput.min.js')}}" type="text/javascript"></script>
 
 @stop

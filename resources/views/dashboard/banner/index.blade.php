@@ -1,15 +1,5 @@
 @extends('layouts.dashboard')
 
-<!-- <link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/dataTables.bootstrap.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/buttons.bootstrap.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/colReorder.bootstrap.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/dataTables.bootstrap.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/rowReorder.bootstrap.css')}}" />
-<link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/buttons.bootstrap.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/scroller.bootstrap.css')}}">
-<link href="{{asset('vendors/hover/css/hover-min.css')}}" rel="stylesheet">
-<link href="{{asset('css/buttons_sass.css')}}" rel="stylesheet"> -->
-
 @section('content')
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
@@ -35,8 +25,8 @@
                         <th>Images</th>
                         <th>Nama File</th>
                         <th>Title</th>
-                        <th>Description</th>
                         <th>Status</th>
+                        <th>Description</th>
                         <th>Created By</th>
                         <th>Created Time</th>
                         <th>Action</th>
@@ -69,7 +59,7 @@ $(document).ready(function () {
             },
             { "data": "url_img_banner" , name:"url_img_banner"},
             { "data": "title" , name:"title"},
-            { "data": "description" , name:"nama_kel"},
+            { "data": "description" , name:"description"},
             { "data": "status" , name:"status"},
             { "data": "created_by" , name:"created_by"},
             { "data": "created_time" , name:"created_time"},
@@ -84,18 +74,4 @@ $(document).ready(function () {
         }
     });
 });
-</script>
-<!-- <script type="text/javascript" src="{{asset('vendors/datatables/js/jquery.dataTables.js')}}"></script>
-<script type="text/javascript" src="{{asset('vendors/datatables/js/buttons.html5.js')}}"></script>
-<script type="text/javascript" src="{{asset('vendors/datatables/js/dataTables.bootstrap.js')}}"></script>
-<script type="text/javascript" src="{{asset('vendors/datatables/js/dataTables.buttons.js')}}"></script>
-<script type="text/javascript" src="{{asset('vendors/datatables/js/dataTables.colReorder.js')}}"></script>
-<script type="text/javascript" src="{{asset('vendors/datatables/js/dataTables.responsive.js')}}"></script>
-<script type="text/javascript" src="{{asset('vendors/datatables/js/dataTables.rowReorder.js')}}"></script>
-<script type="text/javascript" src="{{asset('vendors/datatables/js/buttons.colVis.js')}}"></script>
-<script type="text/javascript" src="{{asset('vendors/datatables/js/buttons.html5.js')}}"></script>
-<script type="text/javascript" src="{{asset('vendors/datatables/js/buttons.bootstrap.js')}}"></script>
-<script type="text/javascript" src="{{asset('vendors/datatables/js/buttons.print.js')}}"></script>
-<script type="text/javascript" src="{{asset('vendors/datatables/js/dataTables.scroller.js')}}"></script>
-<script src="{{asset('js_kotaku/custom_js/alert.js')}}" type="text/javascript"></script> -->
 @stop

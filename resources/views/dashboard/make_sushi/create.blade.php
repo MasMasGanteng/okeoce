@@ -14,14 +14,32 @@
 <div class="col-6 px-0 mb-4">
     <form id="form-validation" enctype="multipart/form-data" class="form-horizontal form-bordered">
         <div class="form-group">
-            <label>Title</label>
-            <input class="form-control" placeholder="Title" value="{{$title}}">
+            <label>Name</label>
+            <input type="hidden" class="form-control" placeholder="id" name="id" id="id" value="{{$id}}">
+            <input type="text" class="form-control" placeholder="Name" id="name-input" name="name-input" value="{{$name}}">
         </div>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Status</label>
             <select class="form-control" id="select-status-input" name="select-status-input">
                 <option value="0" {!! $status=='0' ? 'selected':'' !!}>Aktif</option>
                 <option value="1" {!! $status=='1' ? 'selected':'' !!}>Tidak Aktif</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Price</label>
+            <input type="number" class="form-control" id="price-input" name="price-input" placeholder="Price" value="{{$price}}">
+        </div>
+        <div class="form-group">
+            <label>Stock</label>
+            <input type="number" class="form-control" id="stock-input" name="stock-input" placeholder="Stock" value="{{$stock}}">
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Categories</label>
+            <select class="form-control" id="select-status-input" name="select-status-input">
+                <option value="0" {!! $status=='0' ? 'selected':'' !!}>Essentials</option>
+                <option value="1" {!! $status=='1' ? 'selected':'' !!}>Sprinkles</option>
+                <option value="2" {!! $status=='2' ? 'selected':'' !!}>Specials</option>
+                <option value="3" {!! $status=='3' ? 'selected':'' !!}>House Sauce</option>
             </select>
         </div>
         <div class="form-group">
@@ -81,14 +99,14 @@ $(document).ready(function () {
                 type: 'post',
                 processData: false,
                 contentType: false,
-                "url": "/dashboard/banner/create",
+                "url": "/dashboard/make_sushi/create",
                 data: form_data,
                 beforeSend: function (){
                     $("#submit").prop('disabled', true);
                 },
                 success: function () {
                     alert('From Submitted.');
-                    window.location.href = "/dashboard/banner";
+                    window.location.href = "/dashboard/make_sushi";
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     alert(xhr.status);

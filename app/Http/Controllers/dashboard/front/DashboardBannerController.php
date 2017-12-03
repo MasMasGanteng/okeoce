@@ -31,13 +31,14 @@ class DashboardBannerController
     public function Post(Request $request)
     {
         $columns = array(
-            0 =>'id',
-            1 =>'title',
+            0 =>'id',            
+            1 =>'images',
             2 =>'url_img_banner',
-            3 =>'description',
+            3 =>'title',
             4 =>'status',
-            5 =>'created_time',
-            6 =>'created_by'
+            5 =>'description',
+            6 =>'created_time',
+            7 =>'created_by'
 
         );
         $query='select *,

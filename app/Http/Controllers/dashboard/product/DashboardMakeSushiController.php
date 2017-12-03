@@ -40,8 +40,8 @@ class DashboardMakeSushiController
             6 =>'created_by'
 
         );
-        $query='select * from banner';
-        $totalData = DB::select('select count(1) cnt from banner');
+        $query='select * from ingredients';
+        $totalData = DB::select('select count(1) cnt from ingredients');
         $totalFiltered = $totalData[0]->cnt;
         $limit = $request->input('length');
         $start = $request->input('start');
@@ -65,13 +65,15 @@ class DashboardMakeSushiController
             foreach ($posts as $post)
             {
                 $edit =  $post->id;
-                $url_edit="/dashboard/banner/create?id=".$edit;
-                $url_delete="/dashboard/banner/delete?id=".$edit;
+                $url_edit="/dashboard/make_sushi/create?id=".$edit;
+                $url_delete="/dashboard/make_sushi/delete?id=".$edit;
                 $nestedData['id'] = $post->id;
-                $nestedData['title'] = $post->title;
+                $nestedData['name'] = $post->name;
                 $nestedData['url_img_banner'] = $post->url_img_banner;
                 $nestedData['description'] = $post->description;
                 $nestedData['status'] = $post->status;
+                $nestedData['price'] = $post->price;
+                $nestedData['stock'] = $post->stock;
                 $nestedData['created_time'] = $post->created_time;
                 $nestedData['created_by'] = $post->created_time;
                 $nestedData['option'] = "&emsp;<a href='{$url_edit}' title='EDIT' ><span class='fa fa-fw fa-edit'></span></a>
@@ -97,19 +99,23 @@ class DashboardMakeSushiController
         //     $data['username'] = $user->name;
             $data['id']=$request->input('id');
             if($data['id']!=null){
-                $rowData = DB::select('select * from banner where id='.$data['id']);
-                $data['title'] = $rowData[0]->title;
+                $rowData = DB::select('select * from ingredients where id='.$data['id']);
+                $data['name'] = $rowData[0]->name;
                 $data['url_img_banner'] = $rowData[0]->url_img_banner;
                 $data['description'] = $rowData[0]->description;
                 $data['status'] = $rowData[0]->status;
+                $data['price'] = $rowData[0]->price;
+                $data['stock'] = $rowData[0]->stock;
                 $data['created_time'] = $rowData[0]->created_time;
                 $data['created_by'] = $rowData[0]->created_by;
                 return view('dashboard/make_sushi/create',$data);
             }else if($data['id']==null){
-                $data['title'] = null;
+                $data['name'] = null;
                 $data['url_img_banner'] = null;
                 $data['description'] = null;
                 $data['status'] = null;
+                $data['price'] = null;
+                $data['stock'] = null;
                 $data['created_time'] = null;
                 $data['created_by'] = null;
                 return view('dashboard/make_sushi/create',$data);
@@ -123,28 +129,52 @@ class DashboardMakeSushiController
     }
 
     public function post_create(Request $request)
-    {
+    {   
+        $file_banner = $request->file('url_img_banner-input');
+        $url_img_banner = null;
+        $upload_banner = false;
+        if($request->input('url_img_banner-file') != null && $file_banner == null){
+            $url_img_banner = $request->input('url_img_banner-file');
+            $upload_banner = false;
+        }elseif($request->input('url_img_banner-file') != null && $file_banner != null){
+            $url_img_banner = $file_banner->getClientOriginalName();
+            $upload_banner = true;
+        }elseif($request->input('url_img_banner-file') == null && $file_banner != null){
+            $url_img_banner = $file_banner->getClientOriginalName();
+            $upload_banner = true;
+        }
+
         if ($request->input('id')!=null){
-            DB::table('banner')->where('id', $request->input('id'))
-            ->update(['title' => $request->input('title-input'),
+            DB::table('ingredients')->where('id', $request->input('id'))
+            ->update(['name' => $request->input('name-input'),
                 'url_img_banner' => $url_img_banner,
                 'description' => $request->input('description-input'),
+                'price' => $request->input('price-input'),
+                'stock' => $request->input('stock-input'),
                 'status' => $request->input('status-input')
                 ]);
+            if($upload_banner == true){
+                $file_banner->move(public_path('/uploads/product/ingredients'), $file_banner->getClientOriginalName());
+            }
         }else{
-            DB::table('banner')->insert(
-                ['title' => $request->input('title-input'),
+            DB::table('ingredients')->insert(
+                ['name' => $request->input('name-input'),
                 'url_img_banner' => $url_img_banner,
                 'description' => $request->input('description-input'),
+                'price' => $request->input('price-input'),
+                'stock' => $request->input('stock-input'),
                 'status' => $request->input('status-input'),
                 'created_by' => Auth::user()->id
                 ]);
+            if($upload_banner == true){
+                $file_banner->move(public_path('/uploads/product/ingredients'), $file_banner->getClientOriginalName());
+            }
         }
     }
 
     public function delete(Request $request)
     {
-        DB::table('banner')->where('id', $request->input('id'))->delete();
+        DB::table('ingredients')->where('id', $request->input('id'))->delete();
         return Redirect::to('/dashboard/make_sushi');
     }
 }
