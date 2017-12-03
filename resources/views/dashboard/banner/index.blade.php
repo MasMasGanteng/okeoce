@@ -1,7 +1,5 @@
 @extends('layouts.dashboard')
 
-<<<<<<< HEAD
-=======
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/dataTables.bootstrap.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/buttons.bootstrap.css')}}" />
 <link rel="stylesheet" type="text/css" href="{{asset('vendors/datatables/css/colReorder.bootstrap.css')}}" />
@@ -12,7 +10,6 @@
 <link href="{{asset('vendors/hover/css/hover-min.css')}}" rel="stylesheet">
 <link href="{{asset('css/buttons_sass.css')}}" rel="stylesheet">
 
->>>>>>> parent of 79aec08... nitip buat lanjut ngerjain dirumah
 @section('content')
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
@@ -87,8 +84,7 @@ $(document).ready(function () {
         }
     });
 });
-<<<<<<< HEAD
-=======
+
 </script>
 <script type="text/javascript" src="{{asset('vendors/datatables/js/jquery.dataTables.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendors/datatables/js/buttons.html5.js')}}"></script>
@@ -103,5 +99,4 @@ $(document).ready(function () {
 <script type="text/javascript" src="{{asset('vendors/datatables/js/buttons.print.js')}}"></script>
 <script type="text/javascript" src="{{asset('vendors/datatables/js/dataTables.scroller.js')}}"></script>
 <script src="{{asset('js_kotaku/custom_js/alert.js')}}" type="text/javascript"></script>
->>>>>>> parent of 79aec08... nitip buat lanjut ngerjain dirumah
 @stop

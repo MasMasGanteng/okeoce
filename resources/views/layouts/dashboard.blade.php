@@ -71,6 +71,7 @@
         // CKEDITOR.replace('editor1');
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 
         $(document).ready(function() {
@@ -81,6 +82,8 @@
         });
 >>>>>>> parent of 62e747c... Edit uploaded image di create banner
 =======
+=======
+>>>>>>> parent of 79aec08... nitip buat lanjut ngerjain dirumah
 
         // $(document).ready(function() {
         //     $("#input-fa-1").fileinput({
@@ -88,6 +91,9 @@
         //         uploadUrl: "/file-upload-batch/2"
         //     });
         // });
+<<<<<<< HEAD
+>>>>>>> parent of 79aec08... nitip buat lanjut ngerjain dirumah
+=======
 >>>>>>> parent of 79aec08... nitip buat lanjut ngerjain dirumah
         </script>
     </div>
