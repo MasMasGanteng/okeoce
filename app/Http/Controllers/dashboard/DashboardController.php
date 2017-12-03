@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\dashboard;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
-use Mail;
 
 class DashboardController
 {
@@ -17,7 +17,7 @@ class DashboardController
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        $this->middleware('auth');
     }
 
     /**
