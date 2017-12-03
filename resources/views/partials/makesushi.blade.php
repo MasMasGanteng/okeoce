@@ -1,6 +1,3 @@
-@section('header_scripts')
-<link href="{{asset('vendors/pnotify/css/pnotify.css')}}" rel="stylesheet" type="text/css">
-@stop
 <div id="order_make_your_own" hidden>
     
         <div class="row no-gutters justify-content-center my-5">
@@ -424,7 +421,7 @@
         //jika roll kecil
         if(roll_kecil.length > 0){
             $("#jns_roll").text('Roll Kecil');
-            $("#modal_essential").append('<input name="product" type="text" value="2" hidden>');
+            $("#modal_essential").append('<input name="product" type="text" value="3" hidden>');
             if(essential_input.length == 0 || sprinkle_input.length == 0 || sauce_input.length == 0){
                 var essensial = essential_input.length == 0 ? 'Essential ':'';
                 var sprinkle = sprinkle_input.length == 0 ? 'Sprinkle ':'';
@@ -436,7 +433,7 @@
         //jika roll besar
         }else if(roll_besar.length > 0){
             $("#jns_roll").text('Roll Besar');
-            $("#modal_essential").append('<input name="product" type="text" value="3" hidden>');
+            $("#modal_essential").append('<input name="product" type="text" value="4" hidden>');
             if(essential_input.length == 0|| special_input.length == 0 || sprinkle_input.length == 0 || sauce_input.length == 0){
                 var essensial = essential_input.length == 0 ? 'Essential ':'';
                 var special = special_input.length == 0 ? 'Special ':'';
@@ -483,28 +480,34 @@
 
     $(document).ready(function () {
         // $('#form-makeyourown').bootstrapValidator().on('success.form.bv', function(e) {
+            var user = $('#user').val();
             $('#form-makeyourown').on('submit', function (e) {
                 e.preventDefault();
-                var form_data = new FormData(this);
-                $.ajax({
-                    type: 'post',
-                    processData: false,
-                    contentType: false,
-                    "url": "/add_to_cart",
-                    data: form_data,
-                    beforeSend: function (){
-                        $("#submit").prop('disabled', true);
-                    },
-                    success: function () {
-                        alert('Form Submitted.');
-                        window.location.href = "/";
-                    },
-                    error: function (xhr, ajaxOptions, thrownError) {
-                        alert(xhr.status);
-                        alert(thrownError);
-                        $("#submit").prop('disabled', false);
-                    }
-                });
+                if(user!=''){
+                    var form_data = new FormData(this);
+                    $.ajax({
+                        type: 'post',
+                        processData: false,
+                        contentType: false,
+                        "url": "/add_to_cart",
+                        data: form_data,
+                        beforeSend: function (){
+                            $("#submit").prop('disabled', true);
+                        },
+                        success: function () {
+                            alert('Form Submitted.');
+                            window.location.href = "/";
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            alert(xhr.status);
+                            alert(thrownError);
+                            $("#submit").prop('disabled', false);
+                        }
+                    });
+                }else{
+                    window.location.href = "/login";
+                }
+                
             });
         // }).on('error.form.bv', function(e) {
         //     $("#submit").prop('disabled', false);
@@ -514,6 +517,4 @@
 
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
-<script src="{{asset('vendors/pnotify/js/pnotify.js')}}" type="text/javascript"></script>
-
 @stop

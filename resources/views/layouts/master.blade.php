@@ -81,6 +81,28 @@
     $('.cart-overlay').click(function() {
         $('.cart-pop-up').toggleClass('open');
     });
+    function buysushi($this) {
+        var id = $this.attr("id");
+        var user = $('#user').val();
+        if(user!=''){
+            $.ajax({
+                type: "post",
+                "url": "/add_to_cart",
+                data: {
+                    id_product: id
+                },
+                success: function (response) {
+                    console.log(response);
+                    $('.cart-pop-up').toggleClass('open');
+                },
+                error: function (response) {
+                    console.log(response);
+                }
+            });
+        }else{
+            window.location.href = "/login";
+        }
+    };
 
     </script>
 </body>

@@ -18,7 +18,8 @@
                             <div class="content">
                                 {{$list->description}}
                             </div>
-                            <button class="btn btn-blue cart-overlay">ADD TO CART</button>
+                            <!-- <input type="text" id="id_product_buysushi{{$list->id}}" name="id_product_buysushi" value="{{$list->id}}" hidden> -->
+                            <button id="{{$list->id}}" class="btn btn-blue" onclick="buysushi($(this));return false;">ADD TO CART</button>
                         </div>
                     </div>
                 </div>
@@ -27,3 +28,26 @@
         </div>
     </div>
 </div>
+{{-- local scripts --}} @section('footer_scripts')
+<script>
+    function buysushi($this) {
+        var id = $this.attr("id");
+        console.log(id);
+
+        // $.ajax({
+        //     method: "post",
+        //     url: "/add_to_cart",
+        //     data: {
+        //         id_product: id
+        //     },
+        //     success: function (response) {
+        //         console.log(response);
+        //         $('.cart-pop-up').toggleClass('open');
+        //     },
+        //     error: function (response) {
+        //         console.log(response);
+        //     }
+        // });
+    }
+</script>
+@stop

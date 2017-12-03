@@ -1,7 +1,6 @@
 @extends('layouts.master')
 {{-- local styles --}} @section('header_styles')
 <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet">
-<link href="{{asset('vendors/pnotify/css/pnotify.custom.min.css')}}" rel="stylesheet" type="text/css">
 @stop
 @section('content')
     <div class="container-fluid">
@@ -21,6 +20,7 @@
         </div>
         <!-- call to action -->
         <div class="row no-gutters mx-auto mt-4" style="max-width: 1233px;">
+            <input type="text" id="user" name="user" value="{{$user}}" hidden>
             <div class="col myos-div">
                 <div class="row mx-0 align-items-center">
                     <div class="col-7 pl-0">
@@ -52,6 +52,3 @@
         @include('partials.buysushi')
     </div>
 @stop 
-{{-- local scripts --}} @section('footer_scripts')
-<script src="{{asset('vendors/pnotify/js/pnotify.custom.min.js')}}" type="text/javascript"></script>
-@stop
