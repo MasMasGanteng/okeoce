@@ -1,8 +1,8 @@
-<div class="register-pop-up">
-    <div class="message-box">
-        <div class="close-box">
-            <button class="btn btn-peach register-overlay">X</button>
-        </div>
+@extends('layouts.master')
+
+@section('content')
+<div class="container full-container flex-div">
+    <div class="col-5 mx-auto mt-3">
         <form method="POST" action="{{ route('register') }}">
             {{ csrf_field() }}
 
@@ -36,7 +36,8 @@
             <div class="form-group">
                 <input id="password-confirm" type="password" placeholder="CONFIRM PASSWORD" class="form-control" name="password_confirmation" required>
             </div>
-            <button type="submit" class="btn btn-blue">DAFTAR</button>
+            <button type="submit" class="btn btn-blue btn-block btn-lg mt-3">DAFTAR</button>
         </form>
     </div>
 </div>
+@endsection

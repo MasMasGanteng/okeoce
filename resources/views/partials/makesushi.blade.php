@@ -61,7 +61,7 @@
                         <div class="col col-lg-4">
                             <div class="product-list">
                                 <div class="img-product">
-                                    <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
+                                    <img class="img-fluid" src="image/cucumber.jpg">
                                 </div>
                                 <div class="row mx-0">
                                     <label class="btn-select" for="essential_checked">
@@ -98,7 +98,7 @@
                         <div class="col col-lg-4">
                             <div class="product-list">
                                 <div class="img-product">
-                                    <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
+                                    <img class="img-fluid" src="image/cucumber.jpg">
                                 </div>
                                 <div class="row mx-0">
                                     <label class="btn-select" for="special_checked">
@@ -135,7 +135,7 @@
                         <div class="col col-lg-4">
                             <div class="product-list">
                                 <div class="img-product">
-                                    <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
+                                    <img class="img-fluid" src="image/cucumber.jpg">
                                 </div>
                                 <div class="row mx-0">
                                     <label class="btn-select" for="sprinkle_checked">
@@ -172,7 +172,7 @@
                         <div class="col col-lg-4">
                             <div class="product-list">
                                 <div class="img-product">
-                                    <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
+                                    <img class="img-fluid" src="image/cucumber.jpg">
                                 </div>
                                 <div class="row mx-0">
                                     <label class="btn-select" for="house_sauce_checked">

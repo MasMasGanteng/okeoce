@@ -5,24 +5,38 @@
     <div class="row no-gutters justify-content-md-center">
         <div class="col col-lg-11">
             <div class="row mx-0">
-                @foreach($product_list as $list)
                 <div class="col col-lg-6">
                     <div class="sushi-list">
                         <div class="sl-img">
-                            <img class="img-fluid" src="uploads/product/product/{{$list->url_img_product}}">
+                            <img class="img-fluid" src="image/rtos-product.png">
                         </div>
                         <div class="sl-text">
                             <div class="title">
-                                {{$list->name}}
+                                CALIFORNIA MAKIKI
                             </div>
                             <div class="content">
-                                {{$list->description}}
+                                tobiko, mayonaise, kani, alpukat, tamago, kyuri, selada
                             </div>
                             <button class="btn btn-blue cart-overlay">ADD TO CART</button>
                         </div>
                     </div>
                 </div>
-                @endforeach
+                <div class="col col-lg-6">
+                    <div class="sushi-list">
+                        <div class="sl-img">
+                            <img class="img-fluid" src="image/rtos-product.png">
+                        </div>
+                        <div class="sl-text">
+                            <div class="title">
+                                CALIFORNIA MAKIKI
+                            </div>
+                            <div class="content">
+                                tobiko, mayonaise, kani, alpukat, tamago, kyuri, selada
+                            </div>
+                            <button class="btn btn-blue cart-overlay">ADD TO CART</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
