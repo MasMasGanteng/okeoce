@@ -89,8 +89,8 @@ class DashboardMakeSushiController
                 $nestedData['categories'] = $post->categories;
                 $nestedData['price'] = $post->price;
                 $nestedData['stock'] = $post->stock;
-                $nestedData['description'] = $post->description;
                 $nestedData['status'] = $post->status;
+                $nestedData['description'] = $post->description;
                 $nestedData['created_time'] = $post->created_time;
                 $nestedData['created_by'] = $post->created_time;
                 $nestedData['option'] = "&emsp;<a href='{$url_edit}' title='EDIT' ><span class='fa fa-fw fa-edit'></span></a>

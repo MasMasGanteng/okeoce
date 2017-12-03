@@ -27,6 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $data['banner_list'] = DB::select('select * from banner where status=1');
+        $data['product_list'] = DB::select('select * from product where status=1');
         $data['essential_list'] = DB::select('select * from ingredients where status=1 and categories=1');
         $data['sprinkle_list'] = DB::select('select * from ingredients where status=1 and categories=2');
         $data['special_list'] = DB::select('select * from ingredients where status=1 and categories=3');

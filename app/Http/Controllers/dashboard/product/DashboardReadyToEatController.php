@@ -28,20 +28,27 @@ class DashboardReadyToEatController
         return view('dashboard/ready_to_eat/index');
     }
 
-    public function Post(Request $request)
+    public function post(Request $request)
     {
         $columns = array(
             0 =>'id',
-            1 =>'title',
-            2 =>'url_img_banner',
-            3 =>'description',
-            4 =>'status',
-            5 =>'created_time',
-            6 =>'created_by'
+            1 =>'name',
+            2 =>'url_img_product',
+            3 =>'images',
+            5 =>'price',
+            7 =>'description',
+            8 =>'status',
+            9 =>'created_time',
+            10 =>'created_by'
 
         );
-        $query='select * from banner';
-        $totalData = DB::select('select count(1) cnt from banner');
+        $query='select *,
+                    case 
+                        when status = 1 then "Aktif"
+                        when status = 0 then "Tidak Aktif"
+                    end status
+                from product';
+        $totalData = DB::select('select count(1) cnt from product');
         $totalFiltered = $totalData[0]->cnt;
         $limit = $request->input('length');
         $start = $request->input('start');
@@ -53,8 +60,8 @@ class DashboardReadyToEatController
         }
         else {
             $search = $request->input('search.value');
-            $posts=DB::select($query. ' and title like "%'.$search.'%"  order by '.$order.' '.$dir.' limit '.$start.','.$limit);
-            $totalFiltered=DB::select('select count(1) cnt from ('.$query. ' and nama like "%'.$search.'%" ) a');
+            $posts=DB::select($query. ' and name like "%'.$search.'%"  order by '.$order.' '.$dir.' limit '.$start.','.$limit);
+            $totalFiltered=DB::select('select count(1) cnt from ('.$query. ' and name like "%'.$search.'%" ) a');
             $totalFiltered=$totalFiltered[0]->cnt;
         }
 
@@ -65,13 +72,15 @@ class DashboardReadyToEatController
             foreach ($posts as $post)
             {
                 $edit =  $post->id;
-                $url_edit="/dashboard/banner/create?id=".$edit;
-                $url_delete="/dashboard/banner/delete?id=".$edit;
+                $url_edit="/dashboard/ready_to_eat/create?id=".$edit;
+                $url_delete="/dashboard/ready_to_eat/delete?id=".$edit;
                 $nestedData['id'] = $post->id;
-                $nestedData['title'] = $post->title;
-                $nestedData['url_img_banner'] = $post->url_img_banner;
-                $nestedData['description'] = $post->description;
+                $nestedData['name'] = $post->name;
+                $nestedData['url_img_product'] = $post->url_img_product;
+                $nestedData['images'] = '/uploads/product/product/'.$post->url_img_product;
+                $nestedData['price'] = $post->price;
                 $nestedData['status'] = $post->status;
+                $nestedData['description'] = $post->description;
                 $nestedData['created_time'] = $post->created_time;
                 $nestedData['created_by'] = $post->created_time;
                 $nestedData['option'] = "&emsp;<a href='{$url_edit}' title='EDIT' ><span class='fa fa-fw fa-edit'></span></a>
@@ -97,17 +106,19 @@ class DashboardReadyToEatController
         //     $data['username'] = $user->name;
             $data['id']=$request->input('id');
             if($data['id']!=null){
-                $rowData = DB::select('select * from banner where id='.$data['id']);
-                $data['title'] = $rowData[0]->title;
-                $data['url_img_banner'] = $rowData[0]->url_img_banner;
+                $rowData = DB::select('select * from product where id='.$data['id']);
+                $data['name'] = $rowData[0]->name;
+                $data['url_img_product'] = $rowData[0]->url_img_product;
+                $data['price'] = $rowData[0]->price;
                 $data['description'] = $rowData[0]->description;
                 $data['status'] = $rowData[0]->status;
                 $data['created_time'] = $rowData[0]->created_time;
                 $data['created_by'] = $rowData[0]->created_by;
                 return view('dashboard/ready_to_eat/create',$data);
             }else if($data['id']==null){
-                $data['title'] = null;
-                $data['url_img_banner'] = null;
+                $data['name'] = null;
+                $data['url_img_product'] = null;
+                $data['price'] = null;
                 $data['description'] = null;
                 $data['status'] = null;
                 $data['created_time'] = null;
@@ -123,28 +134,50 @@ class DashboardReadyToEatController
     }
 
     public function post_create(Request $request)
-    {
+    {   
+        $file_product = $request->file('url_img_product-input');
+        $url_img_product = null;
+        $upload_product = false;
+        if($request->input('url_img_product-file') != null && $file_product == null){
+            $url_img_product = $request->input('url_img_product-file');
+            $upload_product = false;
+        }elseif($request->input('url_img_product-file') != null && $file_product != null){
+            $url_img_product = $file_product->getClientOriginalName();
+            $upload_product = true;
+        }elseif($request->input('url_img_product-file') == null && $file_product != null){
+            $url_img_product = $file_product->getClientOriginalName();
+            $upload_product = true;
+        }
+
         if ($request->input('id')!=null){
-            DB::table('banner')->where('id', $request->input('id'))
-            ->update(['title' => $request->input('title-input'),
-                'url_img_banner' => $url_img_banner,
-                'description' => $request->input('description-input'),
-                'status' => $request->input('status-input')
+            DB::table('product')->where('id', $request->input('id'))
+            ->update(['name' => $request->input('name-input'),
+                'url_img_product' => $url_img_product,
+                'price' => $request->input('price-input'),
+                'status' => $request->input('select-status-input'),
+                'description' => $request->input('description-input')
                 ]);
+            if($upload_product == true){
+                $file_product->move(public_path('/uploads/product/product'), $file_product->getClientOriginalName());
+            }
         }else{
-            DB::table('banner')->insert(
-                ['title' => $request->input('title-input'),
-                'url_img_banner' => $url_img_banner,
-                'description' => $request->input('description-input'),
-                'status' => $request->input('status-input'),
-                'created_by' => Auth::user()->id
+            DB::table('product')->insert(
+                ['name' => $request->input('name-input'),
+                'url_img_product' => $url_img_product,
+                'price' => $request->input('price-input'),
+                'status' => $request->input('select-status-input'),
+                'description' => $request->input('description-input')
+                //'created_by' => Auth::user()->id
                 ]);
+            if($upload_product == true){
+                $file_product->move(public_path('/uploads/product/product'), $file_product->getClientOriginalName());
+            }
         }
     }
 
     public function delete(Request $request)
     {
-        DB::table('banner')->where('id', $request->input('id'))->delete();
+        DB::table('product')->where('id', $request->input('id'))->delete();
         return Redirect::to('/dashboard/ready_to_eat');
     }
 }
