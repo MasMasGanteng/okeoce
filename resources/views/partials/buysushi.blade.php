@@ -28,26 +28,3 @@
         </div>
     </div>
 </div>
-{{-- local scripts --}} @section('footer_scripts')
-<script>
-    function buysushi($this) {
-        var id = $this.attr("id");
-        console.log(id);
-
-        // $.ajax({
-        //     method: "post",
-        //     url: "/add_to_cart",
-        //     data: {
-        //         id_product: id
-        //     },
-        //     success: function (response) {
-        //         console.log(response);
-        //         $('.cart-pop-up').toggleClass('open');
-        //     },
-        //     error: function (response) {
-        //         console.log(response);
-        //     }
-        // });
-    }
-</script>
-@stop
