@@ -7,11 +7,9 @@
 <body>
     <!-- navbar -->
     @include('partials.header')
-    @guest
     <!-- login/register -->
     @include('partials.login_popup')
     @include('partials.register_popup')
-    @endguest
     @include('partials.add_to_cart')
     <!-- content -->
     @yield('content')
@@ -23,9 +21,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
-    <script src="{{ asset('js/app.js') }}"></script>
     @yield('footer_scripts')
-    @guest
     <script type="text/javascript">
     $('.login-overlay').click(function() {
         $('.login-pop-up').toggleClass('open');
@@ -34,14 +30,11 @@
         $('.login-pop-up').removeClass('open');
         $('.register-pop-up').toggleClass('open');
     });
-    </script>    
-    @endguest
-    <script type="text/javascript">        
     $('.cart-overlay').click(function() {
         $('.cart-pop-up').toggleClass('open');
     });
-    </script>
 
+    </script>
 </body>
 
 </html>

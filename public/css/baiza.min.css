@@ -39,7 +39,6 @@ a:hover, a:focus {
 .navbar-white .form-inline .btn-blue {
     padding: 0.86em 1.2em;
     font-weight: normal;
-    height: 41px;
 }
 
 .baiza-nav .nav-link {
@@ -79,12 +78,7 @@ a:hover, a:focus {
     min-height: calc(100% - 18.2rem);
 }
 
-.auth-container {
-    min-height: calc(100% - 17.2rem);
-justify-content: center;
-align-items: center;
-display: flex;
-}
+
 /*Home and Product page*/
 
 .carousel-indicators li {

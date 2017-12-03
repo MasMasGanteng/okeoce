@@ -11,46 +11,6 @@
 |
 */
 
-use Illuminate\Http\Request;
-Route::get('/', function () {
-    return view('pages/home');
-});
-// Route untuk user yang baru register
-Route::group(['prefix' => 'home', 'middleware' => ['auth']], function(){
-	Route::get('/', function(){
-		$data['role'] = \App\UserRole::whereUserId(Auth::id())->get();
-		return view('pages/home', $data);
-	});
-	Route::post('upgrade', function(Request $request){
-		if($request->ajax()){
-			$msg['success'] = 'false';
-			$user = \App\User::find($request->id);
-			if($user)
-				$user->putRole($request->level);
-				$msg['success'] = 'true';
-
-			return response()
-				->json($msg);
-		}
-	});
-});
-// Route untuk user yang admin
-Route::group(['prefix' => 'admin', 'middleware' => ['auth','role:admin']], function(){
-	Route::get('/', function(){
-		$data['users'] = \App\User::whereDoesntHave('roles')->get();
-		return view('dashboard/', $data);
-	});
-});
-// Route untuk user yang member
-Route::group(['prefix' => 'member', 'middleware' => ['auth','role:member']], function(){
-	Route::get('/', function(){
-		return view('pages/home');
-	});
-});
-Auth::routes();
-
-// Route::get('/home', 'HomeController@index')->name('home');
-
 //view homePage
 Route::get('/', 'HomeController@index');
 Route::post('/add_to_cart', 'HomeController@add_to_cart');
@@ -148,12 +108,12 @@ Route::get('/dashboard/transaction/create', 'dashboard\selling\DashboardTransact
 Route::post('/dashboard/transaction/create', 'dashboard\selling\DashboardTransactionController@post_create');
 Route::get('/dashboard/transaction/delete', 'dashboard\selling\DashboardTransactionController@delete');
 
-// Auth::routes();
+Auth::routes();
 
-// Auth::routes();
+Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
 
-// Auth::routes();
+Auth::routes();
 
-// Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
