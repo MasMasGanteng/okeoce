@@ -66,8 +66,30 @@
                     <span id="price{{$op->id_order_detail}}">{{'Rp. '.number_format($op->price,2,",",".")}}</span>
                     <input id="price_hidden{{$op->id_order_detail}}" type="number" min="1" value="{{$op->price}}" hidden>
                 </td>
-                <td><button id="cancel{{$op->id_order_detail}}" class="btn btn-peach btn-lg">Cancel</button></td>
+                <td><button id="cancel{{$op->id_order_detail}}" data-toggle="modal" data-target="#center_modal{{$op->id_order_detail}}" class="btn btn-peach btn-lg">Cancel</button></td>
             </tr>
+            
+            <div id="center_modal{{$op->id_order_detail}}" class="modal fade animated" role="dialog">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Cancel</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                            <p>You are about to cancel this order.</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">Back
+                            </button>
+                            <button type="button" id="dodol" onclick='delete_a("/detail_order/delete?id={{$op->id_order_detail}}");' data-dismiss="modal" class="btn btn-effect-ripple btn-primary">
+                                Ok
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
             @endforeach
         </tbody>
         <tfoot>
@@ -135,6 +157,9 @@
 </div>
 @stop {{-- local scripts --}} @section('footer_scripts')
 <script>
+    function delete_a(url){
+        window.location = url;
+    };
     function calculate(id_product){
         var jml = parseInt($('#jml'+id_product).val()) || 0;
         var harga = parseInt($('#price_hidden'+id_product).val()) || 0;

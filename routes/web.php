@@ -28,8 +28,8 @@ Route::get('/about_us', 'front\AboutUsController@index');
 //DetailOrder form
 //get html form data
 Route::get('/detail_order', 'front\DetailOrderController@index');
-//get data for datatable
-Route::post('/detail_order', 'front\DetailOrderController@post');
+//delete
+Route::get('/detail_order/delete', 'front\DetailOrderController@delete');
 
 //PaymentMethod form
 //get html form data

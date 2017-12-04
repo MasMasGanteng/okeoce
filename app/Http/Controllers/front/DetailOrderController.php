@@ -89,4 +89,22 @@ class DetailOrderController extends Controller
                 a.id='.$data['order'][0]->id);
 		return view('pages/detail_order', $data);
     }
+
+    public function delete(Request $request)
+    {
+        $check = DB::select('
+            select 
+                c.name nama_product,
+                b.*  
+            from order_detail b 
+                left join product c on b.id_product=c.id
+            where 
+                b.id='.$request->input('id'));
+        if($check[0]->nama_product=="Roll Kecil" || $check[0]->nama_product=="Roll Besar"){
+            DB::table('order_ingredients')->where('id_order_detail', $request->input('id'))->delete();
+        }
+
+        DB::table('order_detail')->where('id', $request->input('id'))->delete();
+        return Redirect::to('/detail_order');
+    }
 }

@@ -53,7 +53,7 @@
         </form>
     </div>
 </nav>
-
+        
     <!-- login/register -->
     <!-- @include('partials.login')
     @include('partials.register')
@@ -103,6 +103,7 @@
             window.location.href = "/login";
         }
     };
+    
 
     </script>
 </body>
