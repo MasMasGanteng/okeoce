@@ -553,3 +553,35 @@ a:hover, a:focus {
     align-items: center;
     justify-content: center;
 }
+
+/* mobile screen */
+@media only screen and (max-width: 768px) {
+    .navbar-white {
+        padding: .5rem;
+    }
+    .navbar-white .navbar-brand img {
+        height: 40px;
+    }
+    .carousel {
+        margin: 0 -15px;
+    }
+    .myos-div {
+        background-size: 11rem;
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+    .rtos-div {
+        background-image: url(../image/rtos-bg-1.png);
+        background-position: bottom left;
+        background-size: 9rem;
+        padding-top: 1.8em;
+        padding-bottom: 1.8em;
+    }
+    .footer {
+        padding: 2em;
+    }
+    .footer .list-inline {
+        display: block;
+        margin-top: 2em;
+    }
+}

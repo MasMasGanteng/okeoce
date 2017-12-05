@@ -1,10 +1,9 @@
 <div id="order_make_your_own" hidden>
-    
-        <div class="row no-gutters justify-content-center my-5">
-            <img class="img-fluid" src="image/myos-title.png">
-        </div>
+    <div class="text-center m-5">
+        <img class="img-fluid" src="image/myos-title.png">
+    </div>        
         <div class="row no-gutters justify-content-md-center">
-            <div class="col col-lg-4 pr-2">
+            <div class="col col-lg-4 m-2">
                 <div class="choose-roll">
                     <div class="cr-text">
                         Roll Kecil
@@ -19,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-4 pl-2">
+            <div class="col col-lg-4 m-2">
                 <div class="choose-roll">
                     <div class="cr-text">
                         Roll Besar

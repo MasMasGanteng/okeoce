@@ -1,5 +1,5 @@
 <div id="order_ready_to_eat" hidden>
-    <div class="row no-gutters justify-content-center my-5">
+    <div class="text-center m-5">
         <img class="img-fluid" src="image/rtos-title.png">
     </div>
     <div class="row no-gutters justify-content-md-center">
