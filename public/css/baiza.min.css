@@ -414,7 +414,9 @@ a:hover, a:focus {
 .product-list {
     padding: .5em
 }
-
+.product-list .img-product {
+    height: 125px;
+}
 .product-list .btn-select {
     width: calc(100% - 30px);
     float: left;

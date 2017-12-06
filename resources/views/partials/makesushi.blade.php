@@ -60,7 +60,7 @@
                         @foreach($essential_list as $list)
                         <div class="col col-lg-4">
                             <div class="product-list">
-                                <div class="img-product">
+                                <div class="img-product d-flex align-items-end justify-content-center">
                                     <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
                                 </div>
                                 <div class="row mx-0">

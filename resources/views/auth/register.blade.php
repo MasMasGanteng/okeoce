@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<div class="container full-container flex-div">
+<div class="container full-container flex-div mt-3">
     <div class="col-5 mx-auto">
         <h4 class="text-center"><b>REGISTER</b></h4>
         <div class="row my-4">

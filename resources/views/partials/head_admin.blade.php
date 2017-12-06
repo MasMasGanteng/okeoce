@@ -15,3 +15,10 @@
 <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 <!-- Custom styles for this template-->
 <link href="https://blackrockdigital.github.io/startbootstrap-sb-admin/css/sb-admin.css" rel="stylesheet">
+<style type="text/css">
+img.img-dash-table {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
+</style>
