@@ -232,10 +232,7 @@ a:hover, a:focus {
 
 .sl-text {
     width: 55%;
-    float: left
-}
-
-.sl-text {
+    float: left;
     padding-left: 1.6em
 }
 
@@ -243,7 +240,8 @@ a:hover, a:focus {
     font-size: 1.2rem;
     font-weight: 800;
     letter-spacing: .1rem;
-    color: #475f9d
+    color: #475f9d;
+    text-transform: uppercase;
 }
 
 .sl-text .content {
@@ -579,11 +577,45 @@ a:hover, a:focus {
         padding-top: 1.8em;
         padding-bottom: 1.8em;
     }
+    .cr-text .desc {
+        font-size: .7rem;
+    }
+    #essential_list .custom-control, #special_list .custom-control, #sprinkle_list .custom-control, #house_sauce_list .custom-control {
+        margin: auto;
+    }
+    #essential_list .custom-control-description, #special_list .custom-control-description, #sprinkle_list .custom-control-description, #house_sauce_list .custom-control-description {
+        font-size: .625rem;
+    }
+    .scroll-div {
+        width: 100%;
+        overflow: auto;
+    }
+    .scroll-gallery {
+        width: max-content;
+        width: -moz-max-content;
+        width: -webkit-max-content;
+    }
+    .scroll-div .scroll-gallery .col {
+        padding: .5rem;
+    }
+    .sushi-list {
+        height: auto;
+    }
+    .sl-text {
+        padding-left: 1em;
+    }
+    .sl-text .title {
+        font-size: .8rem;
+    }
+    .sl-text .content {
+        font-size: .7rem;
+    }
     .footer {
         padding: 2em;
     }
     .footer .list-inline {
         display: block;
-        margin-top: 2em;
+        margin: 2em auto;
+        width: 250px;
     }
 }

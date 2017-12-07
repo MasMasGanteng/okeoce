@@ -53,7 +53,7 @@ $(document).ready(function () {
         "columns": [
             { "data": "id" , "name":"id"},
             { "data": "images", "render": function(data, type, row) {
-                return '<img src="'+data+'" />';
+                return '<img src="'+data+'" class="img-dash-table" />';
                 }
             },
             { "data": "url_img_product" , name:"url_img_product"},
