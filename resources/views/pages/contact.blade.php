@@ -3,7 +3,7 @@
 <style type="text/css">
     body {
         background: #79c6cc;
-        height: auto;
+        height: 100%;
         background-image: url(/image/refund-bg-1.png), url(/image/refund-bg-2.png);
         background-position: center left, bottom right;
         background-repeat: no-repeat;
