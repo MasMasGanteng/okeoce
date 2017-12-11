@@ -37,12 +37,17 @@
             <label>Description</label>
             <textarea class="form-control" id="description-input" name="description-input" rows="10">{{$description}}</textarea>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label>Upload Images</label>
             <img id="url_img_product" alt="gallery" src="/uploads/product/product/{{$url_img_product}}" {!! $url_img_product==null ? 'style="display:none"':'style="width:150px"' !!} >
             <input id="url_img_product-input" name="url_img_product-input" type="file" class="file" accept="image/*">
             <input type="hidden" id="url_img_product-file" name="url_img_product-file" value="{{$url_img_product}}">
             <button type="button" class="btn btn-effect-ripple btn-danger" {!! $url_img_product==null ? 'style="display:none"':'' !!} onclick="test('url_img_product')">Delete</button>
+        </div> -->
+        <div class="form-group">
+            <label>Upload Image</label>
+            <input class="img-product-view" id="url_img_product-input" name="url_img_product-input" type="file" class="file" accept="image/*">
+            <input type="hidden" id="url_img_product-file" name="url_img_product-file" value="{{$url_img_product}}">
         </div>
         <div class="form-group form-actions">
             <a href="/dashboard/ready_to_eat" type="button" class="btn btn-effect-ripple btn-danger">
@@ -70,14 +75,28 @@ function test(id){
     
 $(document).ready(function () {
 
-    $("#uri_img_ingredients-input").fileinput({
-        previewFileType: "image",
-        browseClass: "btn btn-success",
-        browseLabel: " Pick Image",
-        browseIcon: '<i class="glyphicon glyphicon-picture"></i>',
-        removeClass: "btn btn-danger",
-        removeLabel: "Delete",
-        removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
+    // $("#uri_img_ingredients-input").fileinput({
+    //     previewFileType: "image",
+    //     browseClass: "btn btn-success",
+    //     browseLabel: " Pick Image",
+    //     browseIcon: '<i class="glyphicon glyphicon-picture"></i>',
+    //     removeClass: "btn btn-danger",
+    //     removeLabel: "Delete",
+    //     removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
+    //     showUpload: false
+    // });
+
+    var producturl = '/uploads/product/product/{{$url_img_product}}';
+    $(".img-product-view").fileinput({
+        initialPreview: [producturl],
+        initialPreviewAsData: true,
+        // initialPreviewConfig: [
+        //     {downloadUrl: producturl, key: 1}
+        // ],
+        theme: "fa",
+        showCaption: false,
+        showDownload: false,
+        showDrag: false,
         showUpload: false
     });
 

@@ -1,10 +1,9 @@
 <div id="order_make_your_own" hidden>
-    
-        <div class="row no-gutters justify-content-center my-5">
-            <img class="img-fluid" src="image/myos-title.png">
-        </div>
+    <div class="text-center m-5">
+        <img class="img-fluid" src="image/myos-title.png">
+    </div>        
         <div class="row no-gutters justify-content-md-center">
-            <div class="col col-lg-4 pr-2">
+            <div class="col col-lg-4 m-2">
                 <div class="choose-roll">
                     <div class="cr-text">
                         Roll Kecil
@@ -19,7 +18,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col col-lg-4 pl-2">
+            <div class="col col-lg-4 m-2">
                 <div class="choose-roll">
                     <div class="cr-text">
                         Roll Besar
@@ -56,27 +55,28 @@
                             <span class="custom-control-description">Charge 7.000 untuk tambah 1 essential</span>
                         </label>
                     </div>
-                    <div class="row mx-0 text-center">
-                        <input type="number" id="limit_essential" hidden>
-                        @foreach($essential_list as $list)
-                        <div class="col col-lg-4">
-                            <div class="product-list">
-                                <div class="img-product">
-                                    <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
-                                </div>
-                                <div class="row mx-0">
-                                    <label class="btn-select" for="essential_checked">
-                                        {{$list->name}}
-                                    </label>
-                                    <div class="cr-checkbox">
-                                        <input type="text" id="essential_name{{$list->id}}" value="{{$list->name}}" hidden>
-                                        <input id="essential_checked{{$list->id}}" name="essential_checked" type="checkbox" value="{{$list->id}}">
-                                        <label for="essential_checked{{$list->id}}"></label>
+                    <div class="scroll-div">
+                        <div class="row mx-0 text-center scroll-gallery">
+                            <input type="number" id="limit_essential" hidden> @foreach($essential_list as $list)
+                            <div class="col col-md-3 col-lg-4 pb-3">
+                                <div class="product-list">
+                                    <div class="img-product d-flex align-items-end justify-content-center">
+                                        <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
+                                    </div>
+                                    <div class="row mx-0">
+                                        <label class="btn-select" for="essential_checked">
+                                            {{$list->name}}
+                                        </label>
+                                        <div class="cr-checkbox">
+                                            <input type="text" id="essential_name{{$list->id}}" value="{{$list->name}}" hidden>
+                                            <input id="essential_checked{{$list->id}}" name="essential_checked" type="checkbox" value="{{$list->id}}">
+                                            <label for="essential_checked{{$list->id}}"></label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
-                        @endforeach
                     </div>
                 </div>
                 <!-- section 2 -->
@@ -94,27 +94,29 @@
                             <span class="custom-control-description">Charge 18.000 untuk tambah 1 Specials</span>
                         </label>
                     </div>
-                    <div class="row mx-0 text-center">
-                        <input type="number" id="limit_special" value="1" hidden>
-                        @foreach($special_list as $list)
-                        <div class="col col-lg-4">
-                            <div class="product-list">
-                                <div class="img-product">
-                                    <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
-                                </div>
-                                <div class="row mx-0">
-                                    <label class="btn-select" for="special_checked">
-                                        {{$list->name}}
-                                    </label>
-                                    <div class="cr-checkbox">
-                                        <input type="text" id="special_name{{$list->id}}" value="{{$list->name}}" hidden>
-                                        <input id="special_checked{{$list->id}}" name="special_checked" type="checkbox" value="{{$list->id}}">
-                                        <label for="special_checked{{$list->id}}"></label>
+                    <div class="scroll-div">
+                        <div class="row mx-0 text-center scroll-gallery">
+                            <input type="number" id="limit_special" value="1" hidden>
+                            @foreach($special_list as $list)
+                            <div class="col col-md-4 col-lg-4 pb-3">
+                                <div class="product-list">
+                                    <div class="img-product">
+                                        <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
+                                    </div>
+                                    <div class="row mx-0">
+                                        <label class="btn-select" for="special_checked">
+                                            {{$list->name}}
+                                        </label>
+                                        <div class="cr-checkbox">
+                                            <input type="text" id="special_name{{$list->id}}" value="{{$list->name}}" hidden>
+                                            <input id="special_checked{{$list->id}}" name="special_checked" type="checkbox" value="{{$list->id}}">
+                                            <label for="special_checked{{$list->id}}"></label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
-                        @endforeach
                     </div>
                 </div>
                 <!-- section 3 -->
@@ -132,28 +134,30 @@
                             <span class="custom-control-description">Charge 18.000 untuk tambah 1 Sprinkle</span>
                         </label>
                     </div>
-                    <div class="row mx-0 text-center">
-                        <input type="number" id="limit_sprinkle" value="1" hidden>
-                        @foreach($sprinkle_list as $list)
-                        <div class="col col-lg-4">
-                            <div class="product-list">
-                                <div class="img-product">
-                                    <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
-                                </div>
-                                <div class="row mx-0">
-                                    <label class="btn-select" for="sprinkle_checked">
-                                        {{$list->name}}
-                                    </label>
-                                    <div class="cr-checkbox">
-                                        <input type="text" id="sprinkle_name{{$list->id}}" value="{{$list->name}}" hidden>
-                                        <input id="sprinkle_checked{{$list->id}}" name="sprinkle_checked" type="checkbox" value="{{$list->id}}">
-                                        <label for="sprinkle_checked{{$list->id}}"></label>
+                    <div class="scroll-div">
+                        <div class="row mx-0 text-center scroll-gallery">
+                            <input type="number" id="limit_sprinkle" value="1" hidden>
+                            @foreach($sprinkle_list as $list)
+                            <div class="col col-md-4 col-lg-4 pb-3">
+                                <div class="product-list">
+                                    <div class="img-product">
+                                        <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
+                                    </div>
+                                    <div class="row mx-0">
+                                        <label class="btn-select" for="sprinkle_checked">
+                                            {{$list->name}}
+                                        </label>
+                                        <div class="cr-checkbox">
+                                            <input type="text" id="sprinkle_name{{$list->id}}" value="{{$list->name}}" hidden>
+                                            <input id="sprinkle_checked{{$list->id}}" name="sprinkle_checked" type="checkbox" value="{{$list->id}}">
+                                            <label for="sprinkle_checked{{$list->id}}"></label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
-                        @endforeach
-                    </div>
+                    </div>                    
                 </div>
                 <!-- section 4 -->
                 <div id="house_sauce_list">
@@ -170,28 +174,30 @@
                             <span class="custom-control-description">Charge 18.000 untuk tambah 1 House Sauce</span>
                         </label>
                     </div>
-                    <div class="row mx-0 text-center">
-                        <input type="number" id="limit_sauce" value="1" hidden>
-                        @foreach($house_sauce_list as $list)
-                        <div class="col col-lg-4">
-                            <div class="product-list">
-                                <div class="img-product">
-                                    <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
-                                </div>
-                                <div class="row mx-0">
-                                    <label class="btn-select" for="house_sauce_checked">
-                                        {{$list->name}}
-                                    </label>
-                                    <div class="cr-checkbox">
-                                        <input type="text" id="house_sauce_name{{$list->id}}" value="{{$list->name}}" hidden>
-                                        <input id="house_sauce_checked{{$list->id}}" name="house_sauce_checked" type="checkbox" value="{{$list->id}}">
-                                        <label for="house_sauce_checked{{$list->id}}"></label>
+                    <div class="scroll-div">
+                        <div class="row mx-0 text-center scroll-gallery">
+                            <input type="number" id="limit_sauce" value="1" hidden>
+                            @foreach($house_sauce_list as $list)
+                            <div class="col col-md-4 col-lg-4 pb-3">
+                                <div class="product-list">
+                                    <div class="img-product">
+                                        <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
+                                    </div>
+                                    <div class="row mx-0">
+                                        <label class="btn-select" for="house_sauce_checked">
+                                            {{$list->name}}
+                                        </label>
+                                        <div class="cr-checkbox">
+                                            <input type="text" id="house_sauce_name{{$list->id}}" value="{{$list->name}}" hidden>
+                                            <input id="house_sauce_checked{{$list->id}}" name="house_sauce_checked" type="checkbox" value="{{$list->id}}">
+                                            <label for="house_sauce_checked{{$list->id}}"></label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
                         </div>
-                        @endforeach
-                    </div>
+                    </div>                    
                 </div>
                 <!-- <button class="btn btn-blue my-4" type="submit">DETAIL ORDER</button> -->
                 <button type="button" class="btn btn-blue my-4" data-toggle="modal" data-target="#detail_order">DETAIL ORDER</button>

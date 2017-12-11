@@ -21,7 +21,7 @@
         <!-- call to action -->
         <div class="row no-gutters mx-auto mt-4" style="max-width: 1233px;">
             <input type="text" id="user" name="user" value="{{$user}}" hidden>
-            <div class="col myos-div">
+            <div class="col-12 col-md-6 col-lg-6 myos-div">
                 <div class="row mx-0 align-items-center">
                     <div class="col-7 pl-0">
                     </div>
@@ -32,13 +32,13 @@
                     </div>
                 </div>
             </div>
-            <div class="col rtos-div">
+            <div class="col-12 col-md-6 col-lg-6 rtos-div">
                 <div class="row mx-0 align-items-center">
                     <div class="col-5 pl-0">
                     </div>
-                    <div class="col pl-4">
+                    <div class="col pl-5">
                         <a href="javascript:void(0)" >
-                            <img class="" src="image/rtos-link.png" alt="Ready to eat sushi" id="ready_to_eat">
+                            <img class="img-fluid" src="image/rtos-link.png" alt="Ready to eat sushi" id="ready_to_eat">
                         </a>
                     </div>
                 </div>

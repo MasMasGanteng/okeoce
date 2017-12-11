@@ -50,12 +50,17 @@
             <label>Description</label>
             <textarea class="form-control" id="description-input" name="description-input" rows="10">{{$description}}</textarea>
         </div>
-        <div class="form-group">
+        <!-- <div class="form-group">
             <label>Upload Images</label>
             <img id="url_img_ingredients" alt="gallery" src="/uploads/product/ingredients/{{$url_img_ingredients}}" {!! $url_img_ingredients==null ? 'style="display:none"':'style="width:150px"' !!} >
             <input id="url_img_ingredients-input" name="url_img_ingredients-input" type="file" class="file" accept="image/*">
             <input type="hidden" id="url_img_ingredients-file" name="url_img_ingredients-file" value="{{$url_img_ingredients}}">
             <button type="button" class="btn btn-effect-ripple btn-danger" {!! $url_img_ingredients==null ? 'style="display:none"':'' !!} onclick="test('url_img_ingredients')">Delete</button>
+        </div> -->
+        <div class="form-group">
+            <label>Upload Image</label>
+            <input class="img-ingredients-view" id="url_img_ingredients-input" name="url_img_ingredients-input" type="file" class="file" accept="image/*">
+            <input type="hidden" id="url_img_ingredients-file" name="url_img_ingredients-file" value="{{$url_img_ingredients}}">
         </div>
         <div class="form-group form-actions">
             <a href="/dashboard/banner" type="button" class="btn btn-effect-ripple btn-danger">
@@ -83,14 +88,28 @@ function test(id){
     
 $(document).ready(function () {
 
-    $("#uri_img_ingredients-input").fileinput({
-        previewFileType: "image",
-        browseClass: "btn btn-success",
-        browseLabel: " Pick Image",
-        browseIcon: '<i class="glyphicon glyphicon-picture"></i>',
-        removeClass: "btn btn-danger",
-        removeLabel: "Delete",
-        removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
+    // $("#uri_img_ingredients-input").fileinput({
+    //     previewFileType: "image",
+    //     browseClass: "btn btn-success",
+    //     browseLabel: " Pick Image",
+    //     browseIcon: '<i class="glyphicon glyphicon-picture"></i>',
+    //     removeClass: "btn btn-danger",
+    //     removeLabel: "Delete",
+    //     removeIcon: '<i class="glyphicon glyphicon-trash"></i>',
+    //     showUpload: false
+    // });
+
+    var ingredientsurl = '/uploads/product/ingredients/{{$url_img_ingredients}}';
+    $(".img-ingredients-view").fileinput({
+        initialPreview: [ingredientsurl],
+        initialPreviewAsData: true,
+        // initialPreviewConfig: [
+        //     {downloadUrl: ingredientsurl, key: 1}
+        // ],
+        theme: "fa",
+        showCaption: false,
+        showDownload: false,
+        showDrag: false,
         showUpload: false
     });
 
