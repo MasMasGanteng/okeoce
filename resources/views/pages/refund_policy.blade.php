@@ -1,33 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <style type="text/css">
-    body {
-        background: #fff8a0;
-        height: auto;
-        background-image: url(/image/refund-bg-1.png), url(/image/refund-bg-2.png);
-        background-position: center left, bottom right;
-        background-repeat: no-repeat;
-    }
-    .navbar-white {
-        background: #fff8a0;
-    }
-    .container {
-        padding: 4em 15px;
-    }
-    .container h3 {
-        margin-bottom: 2em;
-        font-weight: 700;
-    }
-    .container p, .container a {
-        font-weight: 700;
-        font-size: 1.2rem;
-    }
-    .container ol {
-        -webkit-padding-start: 20px;
-    }
-    .container ol li {
-        font-size: 1rem;
-    }
+    body{background:#fff8a0;height:auto;background-image:url(/image/refund-bg-1.png), url(/image/refund-bg-2.png);background-position:center left, bottom right;background-repeat:no-repeat}.navbar-white{background:#fff8a0}.container{padding:4em 15px}.container h3{margin-bottom:2em;font-weight:700}.container p,.container a{font-weight:700;font-size:1.2rem}.container ol{-webkit-padding-start:20px}.container ol li{font-size:1rem}@media only screen and (max-width: 576px){body{background-image:none}.container{padding:4em 2em}.container p,.container a{font-size:1.1rem}.container ol li{font-size:.9rem}}
 </style>
 <div class="container">
     <h3 class="font-blue text-center">REFUND POLICY</h4>

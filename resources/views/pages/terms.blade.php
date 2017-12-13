@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <style type="text/css">
-    body{background:url(/image/terms-bg-1.png) top right no-repeat,url(/image/terms-bg-2.png) center left no-repeat,url(/image/terms-bg-3.png) bottom right no-repeat #f17c89;height:auto;color:#fff}.container{padding:4em 15px}.container h4{margin-bottom:2em;font-weight:700}.container a,p:nth-of-type(odd){font-weight:700;font-size:.9rem}p:nth-of-type(even){margin-bottom:3em;font-size:.9rem}
+    body{background:url(/image/terms-bg-1.png) top right no-repeat,url(/image/terms-bg-2.png) center left no-repeat,url(/image/terms-bg-3.png) bottom right no-repeat #f17c89;height:auto;color:#fff}.container{padding:4em 15px}.container h4{margin-bottom:2em;font-weight:700}.container a,p:nth-of-type(odd){font-weight:700;font-size:.9rem}p:nth-of-type(even){margin-bottom:3em;font-size:.9rem}@media only screen and (max-width:768px){body{background-image:none}}
 </style>
 <div class="container">
     <h4 class="font-blue text-center">FREQUENTLY ASKED QUESTION</h4>

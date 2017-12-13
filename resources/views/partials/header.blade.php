@@ -1,9 +1,9 @@
 <nav class="navbar sticky-top navbar-expand-lg navbar-white">
     <a class="navbar-brand" href="/"><img class="img-fluid" src="image/baiza-logo.png" alt="baiza"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" id="navToggle">
         <span class="navbar-toggler-icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navToggleContent">
         <ul class="navbar-nav mx-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
