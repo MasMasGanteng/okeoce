@@ -655,7 +655,7 @@ a:focus {
     }
     #navToggleContent {
         height: 100vh;
-        background: #475f9deb;
+        background: rgba(71, 95, 157, 0.9);
         padding: 25px;
         position: fixed;
         top: 0;
@@ -664,7 +664,7 @@ a:focus {
         right: 0;
     }
     .nav-mobile-menu {
-        height: calc(100% - 108px);
+        height: calc(100% - 160px);
         align-items: center;
         justify-content: center;
     }
