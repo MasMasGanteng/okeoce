@@ -8,11 +8,11 @@
     <!-- navbar -->
     <nav class="navbar sticky-top navbar-expand-lg navbar-white">
         <a class="navbar-brand" href="/"><img class="img-fluid" src="image/baiza-logo.png" alt="baiza"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" id="navToggle">
+            <img src="image/hamburger-menu.png" alt="menu">
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto">
+        <div class="collapse navbar-collapse" id="navToggleContent">
+            <ul class="navbar-nav mx-auto nav-mobile-menu">
                 <li class="nav-item active">
                     <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
                 </li>
@@ -80,6 +80,17 @@
     //     $('.login-pop-up').removeClass('open');
     //     $('.register-pop-up').toggleClass('open');
     // });
+
+    $("#navToggle").click(function() {
+        $("#navToggleContent").slideToggle();
+        $(this).toggleClass('show');
+        if ($('#navToggle').hasClass('show')) {
+            $(this).find('img').attr('src', 'image/close-menu.png'); 
+        } else {
+            $(this).find('img').attr('src', 'image/hamburger-menu.png');
+        }
+    });
+
     $('.cart-overlay').click(function() {
         $('.cart-pop-up').toggleClass('open');
     });
