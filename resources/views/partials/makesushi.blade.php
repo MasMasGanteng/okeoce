@@ -1,7 +1,7 @@
 <div id="order_make_your_own" hidden>
     <div class="text-center m-5">
         <img class="img-fluid" src="image/myos-title.png">
-    </div>        
+    </div>
         <div class="row no-gutters justify-content-md-center">
             <div class="col col-lg-4 m-2">
                 <div class="choose-roll">
@@ -100,7 +100,7 @@
                             @foreach($special_list as $list)
                             <div class="col col-md-4 col-lg-4 pb-3">
                                 <div class="product-list">
-                                    <div class="img-product">
+                                    <div class="img-product d-flex align-items-end justify-content-center">
                                         <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
                                     </div>
                                     <div class="row mx-0">
@@ -140,7 +140,7 @@
                             @foreach($sprinkle_list as $list)
                             <div class="col col-md-4 col-lg-4 pb-3">
                                 <div class="product-list">
-                                    <div class="img-product">
+                                    <div class="img-product d-flex align-items-end justify-content-center">
                                         <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
                                     </div>
                                     <div class="row mx-0">
@@ -157,7 +157,7 @@
                             </div>
                             @endforeach
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <!-- section 4 -->
                 <div id="house_sauce_list">
@@ -180,7 +180,7 @@
                             @foreach($house_sauce_list as $list)
                             <div class="col col-md-4 col-lg-4 pb-3">
                                 <div class="product-list">
-                                    <div class="img-product">
+                                    <div class="img-product d-flex align-items-end justify-content-center">
                                         <img class="img-fluid" src="uploads/product/ingredients/{{$list->url_img_ingredients}}">
                                     </div>
                                     <div class="row mx-0">
@@ -197,7 +197,7 @@
                             </div>
                             @endforeach
                         </div>
-                    </div>                    
+                    </div>
                 </div>
                 <!-- <button class="btn btn-blue my-4" type="submit">DETAIL ORDER</button> -->
                 <button type="button" class="btn btn-blue my-4" data-toggle="modal" data-target="#detail_order">DETAIL ORDER</button>
@@ -450,12 +450,12 @@
                 $('#req_all').remove();
             }
         }
-        
+
         essential_input.each(function() {
            $("#modal_essential").append('<li>'+$("#essential_name"+this.value).val()+'</li>');
            $("#modal_essential").append('<input name="essential_choosed[]" type="checkbox" value="'+this.value+'" checked hidden>');
         });
-        
+
         special_input.each(function() {
            $("#modal_special").append('<li>'+$("#special_name"+this.value).val()+'</li>');
            $("#modal_special").append('<input name="special_choosed[]" type="checkbox" value="'+this.value+'" checked hidden>');
@@ -513,7 +513,7 @@
                 }else{
                     window.location.href = "/login";
                 }
-                
+
             });
         // }).on('error.form.bv', function(e) {
         //     $("#submit").prop('disabled', false);

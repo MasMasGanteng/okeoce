@@ -14,16 +14,22 @@
 //view homePage
 Route::get('/', 'HomeController@index');
 Route::post('/add_to_cart', 'HomeController@add_to_cart');
-//view  registerPage
+//view registerPage
 Route::get('/register', 'Auth\RegisterController@index');
-//view  productPage
+//view productPage
 Route::get('/product', 'front\ProductController@index');
-//view  promoPage
+//view promoPage
 Route::get('/promo', 'front\PromoController@index');
-//view  howroorderPage
+//view howroorderPage
 Route::get('/how_to_order', 'front\HowToOrderController@index');
-//view  aboutusPage
+//view aboutusPage
 Route::get('/about_us', 'front\AboutUsController@index');
+//view termsPage
+Route::get('/terms', 'front\TermsController@index');
+//view refundPage
+Route::get('/refund_policy', 'front\RefundPolicyController@index');
+//view contactPage
+Route::get('/contact', 'front\ContactController@index');
 
 //DetailOrder form
 //get html form data
