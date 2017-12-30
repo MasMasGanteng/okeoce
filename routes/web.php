@@ -108,4 +108,10 @@ Route::get('/dashboard/transaction/create', 'dashboard\selling\DashboardTransact
 Route::post('/dashboard/transaction/create', 'dashboard\selling\DashboardTransactionController@post_create');
 Route::get('/dashboard/transaction/delete', 'dashboard\selling\DashboardTransactionController@delete');
 
+Route::get('/redirect', 'FacebookAuthController@redirect');
+Route::get('/callback', 'FacebookAuthController@callback');
+
+Route::get('/redirect', 'GoogleAuthController@redirect');
+Route::get('/callback', 'GoogleAuthController@callback');
+
 Auth::routes();

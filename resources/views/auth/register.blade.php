@@ -6,10 +6,10 @@
         <h4 class="text-center"><b>REGISTER</b></h4>
         <div class="row my-4">
             <div class="col-6">
-                <button class="btn btn-blue btn-lg btn-block">FACEBOOK</button>
+                <a href="{{ URL('/redirect') }}" class="btn btn-info">Facebook</a>
             </div>
             <div class="col-6">
-                <button class="btn btn-peach btn-lg btn-block">GOOGLE</button>
+                <a href="{{ URL('/redirect') }}" class="btn btn-danger">Google</a>
             </div>
         </div>
         <p class="text-center">or</p>
