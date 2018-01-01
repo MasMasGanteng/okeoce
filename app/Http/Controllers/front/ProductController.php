@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
+use Mail;
 
-class ProductController 
+class ProductController
 {
     /**
      * Create a new controller instance.
@@ -16,7 +17,7 @@ class ProductController
      */
     public function __construct()
     {
-        //$this->middleware('auth');
+        // $this->middleware('auth');
     }
 
     /**
@@ -25,50 +26,109 @@ class ProductController
      */
     public function index()
     {
-		return view('pages/product');
+        $data['user']= Auth::user();
+        $data['banner_list'] = DB::select('select * from banner where status=1');
+        $data['product_list'] = DB::select('select * from product where status=1');
+        $data['essential_list'] = DB::select('select * from ingredients where status=1 and categories=1');
+        $data['sprinkle_list'] = DB::select('select * from ingredients where status=1 and categories=2');
+        $data['special_list'] = DB::select('select * from ingredients where status=1 and categories=3');
+        $data['house_sauce_list'] = DB::select('select * from ingredients where status=1 and categories=4');
+		return view('pages/product',$data);
     }
 
-	// public function map()
-	// {
-	// 	$data['username'] = '';
-	// 	if (Auth::check()) {
-	// 		$user = Auth::user();
-	// 		$data['username'] = Auth::user()->name;
-	// 	}
-	// 	return view('google_maps',$data);
-	// }
+    public function add_to_cart(Request $request){
+        $user = Auth::user();
+        if($user!=null){
+            $check_order_aktif = DB::select('select * from `order` where status=1 and id_user='.$user->id);
+            if($request->all()!=null && $request->input('id_product')==null){
+                if($check_order_aktif!=null){
+                    $lastInsertOrderDetail=DB::table('order_detail')->insertGetId([
+                        "id_order" => $check_order_aktif[0]->id,
+                        "id_product" => $request->input('product')
+                    ]);
+                }else{
+                    $lastInsertOrder=DB::table('order')->insertGetId([
+                        "status" => 1,
+                        "id_user" => $user->id
+                    ]);
 
- //    public function logout()
- //    {
- //        Auth::logout();
- //    }
+                    $lastInsertOrderDetail=DB::table('order_detail')->insertGetId([
+                        "id_order" => $lastInsertOrder,
+                        "id_product" => $request->input('product')
+                    ]);
+                }
 
-    // public function inbox()
-	// {
-	// 	$data['user'] = Auth::user();
-	// 	$data['pesan'] = DB::select('select a.kode,a.text_pesan,a.tgl_pesan_masuk,concat(b.nama_depan," ",b.nama_belakang) nama from bkt_02030205_pesan a,bkt_02010111_user b where a.kode_user='.$data['user']->id.' and a.kode_user_pengirim=b.id and status=0 order by a.kode desc');
-	// 	echo json_encode($data);
-	// }
+                $essential=$request->input('essential_choosed');
+                $special=$request->input('special_choosed');
+                $sprinkle=$request->input('sprinkle_choosed');
+                $house_sauce=$request->input('house_sauce_choosed');
 
-	// public function qs()
-	// {
-	// 	$user = Auth::user();
-	// 	$akses= $user->menu()->where('kode_apps', 5)->get();
-	// 	if(count($akses) > 0){
-	// 		foreach ($akses as $item) {
-	// 			$data['menu'][$item->kode_menu] =  'a' ;
-	// 			//if($item->kode_menu==10)
-	// 				//$data['detil'][$item->kode_menu_detil]='a';
-	// 		}
-	// 		if(!empty($data['menu'])){
-	// 		    $data['username'] = $user->name;
-	// 			return view('QS/main/index',$data);
-	// 		}
-	// 		else {
-	// 			return Redirect::to('/');
-	// 		}
-	// 	}else{
-	// 		return Redirect::to('/');
-	// 	}
-	// }
+                if($request->input('essential_choosed')!=null){
+                    DB::beginTransaction();
+                    foreach($essential as $value){
+                        DB::table('order_ingredients')->insert([
+                            "id_order_detail" => $lastInsertOrderDetail,
+                            "id_ingredients" => $value
+                        ]);
+                    }
+                    DB::commit();
+                }
+                
+                if($request->input('special_choosed')!=null){
+                    DB::beginTransaction();
+                    foreach($special as $value){
+                        DB::table('order_ingredients')->insert([
+                            "id_order_detail" => $lastInsertOrderDetail,
+                            "id_ingredients" => $value
+                        ]);
+                    }
+                    DB::commit();
+                }
+                
+
+                if($request->input('sprinkle_choosed')!=null){
+                    DB::beginTransaction();
+                    foreach($sprinkle as $value){
+                        DB::table('order_ingredients')->insert([
+                            "id_order_detail" => $lastInsertOrderDetail,
+                            "id_ingredients" => $value
+                        ]);
+                    }
+                    DB::commit();
+                }
+                
+
+                if($request->input('house_sauce_choosed')!=null){
+                    DB::beginTransaction();
+                    foreach($house_sauce as $value){
+                        DB::table('order_ingredients')->insert([
+                            "id_order_detail" => $lastInsertOrderDetail,
+                            "id_ingredients" => $value
+                        ]);
+                    }
+                    DB::commit();
+                }
+            }else{
+
+                if($check_order_aktif!=null){
+                    DB::table('order_detail')->insert([
+                        "id_order" => $check_order_aktif[0]->id,
+                        "id_product" => $request->input('id_product')
+                    ]);
+                }else{
+                    $lastInsertOrder=DB::table('order')->insertGetId([
+                        "status" => 1,
+                        "id_user" => $user->id
+                    ]);
+
+                    $lastInsertOrderDetail=DB::table('order_detail')->insertGetId([
+                        "id_order" => $lastInsertOrder,
+                        "id_product" => $request->input('id_product')
+                    ]);
+                }
+            }
+        }else{
+            Redirect::to('/');
+        }
+    }
 }

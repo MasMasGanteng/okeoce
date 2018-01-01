@@ -105,7 +105,7 @@
             </tr>
         </tfoot>
     </table>
-    <form>
+    <form id=form>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <input type="text" class="form-control" placeholder="NAMA PENERIMA">
@@ -119,30 +119,33 @@
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
-                <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                <select id="select-kode_kota-input" name="select-kode_kota-input" class="form-control select2" size="1" required>
+                    <option value>Please select</option>
+                    @if ($kode_kota_list!=null)
+                    @foreach ($kode_kota_list as $list)
+                        <option value="{{$list->kode}}" {!! $kode_kota==$list->kode ? 'selected':'' !!}>{{$list->nama}}</option>
+                    @endforeach
+                    @endif
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                <select id="select-kode_kec-input" name="select-kode_kec-input" class="form-control select2" size="1" required>
+                    <option value>Please select</option>
+                    @if ($kode_kec_list!=null)
+                    @foreach ($kode_kec_list as $list)
+                        <option value="{{$list->kode}}" {!! $kode_kec==$list->kode ? 'selected':'' !!}>{{$list->nama}}</option>
+                    @endforeach
+                    @endif
                 </select>
             </div>
             <div class="form-group col-md-4">
-                <select class="form-control">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option>
+                <select id="select-kode_kel-input" name="select-kode_kel-input" class="form-control select2" size="1" required>
+                    <option value>Please select</option>
+                    @if ($kode_kel_list!=null)
+                    @foreach ($kode_kel_list as $list)
+                        <option value="{{$list->kode}}" {!! $kode_kel==$list->kode ? 'selected':'' !!}>{{$list->nama}}</option>
+                    @endforeach
+                    @endif
                 </select>
             </div>
         </div>
@@ -150,12 +153,14 @@
             <textarea class="form-control" placeholder="ALAMAT" rows="3"></textarea>
         </div>
         <div class="text-center mt-5 mb-3">
-            <!-- <button type="submit" class="btn btn-blue btn-lg">PAYMENT</button> -->
-            <a href="/payment_method" class="btn btn-blue btn-lg">PAYMENT</a>
+            <button type="submit" class="btn btn-blue btn-lg">PAYMENT</button>
+            <!-- <a href="/payment_method" class="btn btn-blue btn-lg">PAYMENT</a> -->
         </div>
     </form>
 </div>
 @stop {{-- local scripts --}} @section('footer_scripts')
+
+<script src="{{asset('vendors/bootstrapvalidator/js/bootstrapValidator.min.js')}}" type="text/javascript"></script>
 <script>
     function delete_a(url){
         window.location = url;
@@ -215,6 +220,72 @@
     });
     $(document).ready(function(){
         total_harga();
+        $('#form').bootstrapValidator().on('success.form.bv', function(e) {
+            $('#form').on('submit', function (e) {
+                e.preventDefault();
+                var form_data = new FormData(this);
+                $.ajax({
+                    type: 'post',
+                    processData: false,
+                    contentType: false,
+                    "url": "/detail_order/create",
+                    data: form_data,
+                    beforeSend: function (){
+                        $("#submit").prop('disabled', true);
+                    },
+                    success: function () {
+                        alert('From Submitted.');
+                        window.location.href = "/payment_method";
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status);
+                        alert(thrownError);
+                        $("#submit").prop('disabled', false);
+                    }
+                });
+            });
+        });
+
+        var kota = $('#select-kode_kota-input');
+        var kec = $('#select-kode_kec-input');
+        var kel = $('#select-kode_kel-input');
+        var kota_id,kec_id,kel_id;
+
+        kota.change(function(){
+            kota_id=kota.val();
+            if(kota_id!=''){
+                kec.empty();
+                kec.append("<option value>Please select</option>");
+                $.ajax({
+                    type: 'get',
+                    "url": "/detail_order/select?kec="+kota_id,
+                    success: function (data) {
+                        data=JSON.parse(data)
+                        for (var i=0;i<data.length;i++){
+                            kec.append("<option value="+data[i].kode+" >"+data[i].nama+"</option>");
+                        }
+                    }
+                });
+            }
+        });
+        
+        kec.change(function(){
+            kec_id=kec.val();
+            if(kec_id!=''){
+                kel.empty();
+                kel.append("<option value>Please select</option>");
+                $.ajax({
+                    type: 'get',
+                    "url": "/detail_order/select?kel="+kec_id,
+                    success: function (data) {
+                        data=JSON.parse(data)
+                        for (var i=0;i<data.length;i++){
+                            kel.append("<option value="+data[i].kode+" >"+data[i].nama+"</option>");
+                        }
+                    }
+                });
+            }
+        });
     });
 </script>
 @stop

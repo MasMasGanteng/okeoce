@@ -16,33 +16,27 @@
     <li class="breadcrumb-item">
         <a href="/dashboard">Dashboard</a>
     </li>
-    <li class="breadcrumb-item active">Banner</li>
+    <li class="breadcrumb-item active">Transaction</li>
 </ol>
 <!-- table -->
 <div class="card mb-3">
-    <div class="card-header">
-        <div class="d-flex align-items-center">
-            Banner List
-            <a href="/dashboard/banner/create" class="btn btn-success ml-auto"><i class="fa fa-plus-circle fa-fw"></i>Add Banner</a>
-        </div>
-    </div>
     <div class="card-body">
         <div class="table-responsive">
             <table class="table table-bordered" width="1500px" cellspacing="0" id="tables">
                 <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Images</th>
-                        <th>Title</th>
-                        <th>Description</th>
-                        <th>Status</th>
+                        <th>User</th>
+                        <th>Price</th>
+                        <th>Payment</th>
+                        <th>Shipping</th>
+                        <th>Penerima</th>
                         <th>Action</th>
                     </tr>
                 </thead>
             </table>
         </div>
     </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 </div>
 <script src="{{asset('js/jquery-1.11.1.min.js')}}" type="text/javascript"></script>
 <script>
@@ -53,7 +47,7 @@
             "processing": true,
             "serverSide": true,
             "ajax":{
-                     "url": "/dashboard/banner",
+                     "url": "/dashboard/transaction",
                      "dataType": "json",
                      "type": "POST"
                    },
@@ -66,10 +60,11 @@
               },
             "columns": [
                 { "data": "id" , name:"id"},
-                { "data": "url_img_banner" , name:"url_img_banner"},
-                { "data": "title" , name:"title"},
-                { "data": "description" , name:"nama_kel"},
-                { "data": "status" , name:"status"},
+                { "data": "id_user" , name:"id_user"},
+                { "data": "price" , name:"price"},
+                { "data": "payment_method" , name:"payment_method"},
+                { "data": "shipping_method" , name:"shipping_method"},
+                { "data": "nama_penerima" , name:"nama_penerima"},
                 { "data": "option" , name:"option",orderable:false}
             ],
             "order": [[ 1, "desc" ]]

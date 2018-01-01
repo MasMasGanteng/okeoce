@@ -39,6 +39,27 @@
                 </div>
             </div>
         </div>
+        <div id="center_modal" class="modal fade animated position_modal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>You are about to delete this record</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">Cancel
+                        </button>
+                        <button type="button" id="dodol" onclick='delete_a();' class="btn btn-effect-ripple btn-primary">
+                            Submit
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Bootstrap core JavaScript-->
         <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/jquery/jquery.min.js"></script>
         <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -87,7 +87,26 @@ class DetailOrderController extends Controller
             where 
                 d.categories=4 and
                 a.id='.$data['order'][0]->id);
+
+        $data['kode_kota_list'] = DB::select('select* from kota where kode between 3171 and 3175 order by kode desc');
+        $data['kode_kec_list'] = [];
+        $data['kode_kel_list'] = [];
+        $data['kode_kota'] = null;
+        $data['kode_kec'] = null;
+        $data['kode_kel'] = null;
 		return view('pages/detail_order', $data);
+    }
+
+    public function select(Request $request)
+    {
+        if(($request->input('kec'))!=null){
+            $kec = DB::select('select kode, nama from kec where kode_kota='.$request->input('kec'));
+            echo json_encode($kec);
+        }
+        elseif(($request->input('kel'))!=null){
+            $kel = DB::select('select kode, nama from kel where kode_kec='.$request->input('kel'));
+            echo json_encode($kel);
+        }
     }
 
     public function delete(Request $request)

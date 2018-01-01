@@ -34,6 +34,10 @@ Route::get('/contact', 'front\ContactController@index');
 //DetailOrder form
 //get html form data
 Route::get('/detail_order', 'front\DetailOrderController@index');
+//insert order
+Route::get('/detail_order/create', 'front\DetailOrderController@post_create');
+//selectbox
+Route::get('/detail_order/select', 'front\DetailOrderController@select');
 //delete
 Route::get('/detail_order/delete', 'front\DetailOrderController@delete');
 
