@@ -15,13 +15,13 @@
                 <a class="nav-link" href="/promo">PROMO</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">HOW TO ORDER</a>
+                <a class="nav-link" href="/how_to_order">HOW TO ORDER</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/about_us">ABOUT US</a>
             </li>
         </ul>
-        <ul class="nav navbar-nav navbar-right">            
+        <ul class="nav navbar-nav navbar-right">
             <a href="https://www.facebook.com/baizasushi/" target="_blank"><div class="navbar-facebook"></div></a>
             <a href="https://www.instagram.com/baizasushi/" target="_blank"><div class="navbar-instagram"></div></a>
             <a href="/detail_order"><div class="navbar-cart"></div></a>

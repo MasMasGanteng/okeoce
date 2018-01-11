@@ -433,6 +433,11 @@ a:focus {
     height: 125px;
 }
 
+.product-list .img-product .img-fluid {
+    max-height: 100%;
+    object-fit: contain;
+}
+
 .product-list .btn-select {
     width: calc(100% - 30px);
     float: left;
@@ -702,6 +707,10 @@ a:focus {
         background-size: 9rem;
         padding-top: 1.8em;
         padding-bottom: 1.8em;
+    }
+    .product-myos-div, .product-rtos-div {
+      background-size: 35%;
+    padding: 2em 1em;
     }
     .cr-text .desc {
         font-size: .7rem;

@@ -23,7 +23,7 @@
                     <a class="nav-link" href="/promo">PROMO</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">HOW TO ORDER</a>
+                    <a class="nav-link" href="/how_to_order">HOW TO ORDER</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/about_us">ABOUT US</a>
@@ -85,7 +85,7 @@
         $("#navToggleContent").slideToggle();
         $(this).toggleClass('show');
         if ($('#navToggle').hasClass('show')) {
-            $(this).find('img').attr('src', 'image/close-menu.png'); 
+            $(this).find('img').attr('src', 'image/close-menu.png');
         } else {
             $(this).find('img').attr('src', 'image/hamburger-menu.png');
         }
