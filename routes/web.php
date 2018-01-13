@@ -35,7 +35,7 @@ Route::get('/contact', 'front\ContactController@index');
 //get html form data
 Route::get('/detail_order', 'front\DetailOrderController@index');
 //insert order
-Route::get('/detail_order/create', 'front\DetailOrderController@post_create');
+Route::post('/detail_order/create', 'front\DetailOrderController@post_create');
 //selectbox
 Route::get('/detail_order/select', 'front\DetailOrderController@select');
 //delete
@@ -45,13 +45,13 @@ Route::get('/detail_order/delete', 'front\DetailOrderController@delete');
 //get html form data
 Route::get('/payment_method', 'front\PaymentMethodController@index');
 //get data for datatable
-Route::post('/payment_method', 'front\PaymentMethodController@post');
+Route::post('/payment_method/create', 'front\PaymentMethodController@post_create');
 
 //PaymentConfirmation form
 //get html form data
 Route::get('/payment_confirmation', 'front\PaymentConfirmationController@index');
 //get data for datatable
-Route::post('/payment_confirmation', 'front\PaymentConfirmationController@post');
+Route::post('/payment_confirmation/create', 'front\PaymentConfirmationController@post');
 
 //PaymentConfirmationSuccess form
 //get html form data

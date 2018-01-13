@@ -12,7 +12,7 @@
             TOTAL
         </div>
         <div class="col text-right">
-            <b>250000</b>
+            <b>{{$price}}</b>
         </div>
     </div>
     <nav class="nav nav-tabs baiza-nav" id="myTab" role="tablist">
@@ -29,7 +29,50 @@
     </div>
     <div class="text-center mt-5 mb-3">
         <!-- <button type="submit" class="btn btn-blue btn-lg">CONFIRM PAYMENT</button> -->
-        <a href="/payment_confirmation" class="btn btn-blue btn-lg">CONFIRM PAYMENT</a>
+        <form id="form">
+            <input type="hidden" id="id" name="id" value="{{$id}}">
+            <input type="hidden" id="payment_method" name="payment_method" value="1">
+            <button type="submit" class="btn btn-blue btn-lg">CONFIRM PAYMENT</button>
+        </form>
     </div>
 </div>
+@stop
+{{-- local scripts --}} @section('footer_scripts')
+<script src="{{asset('vendors/bootstrapvalidator/js/bootstrapValidator.min.js')}}" type="text/javascript"></script>
+<script>
+    $('#nav-home-tab').on('click', function(){
+        $('#payment_method').val(1);
+    });
+    $('#nav-profile-tab').on('click', function(){
+        $('#payment_method').val(2);
+    });
+
+    $(document).ready(function(){
+        $('#form').bootstrapValidator().on('success.form.bv', function(e) {
+            $('#form').on('submit', function (e) {
+                e.preventDefault();
+                var form_data = new FormData(this);
+                $.ajax({
+                    type: 'post',
+                    processData: false,
+                    contentType: false,
+                    "url": "/payment_method/create",
+                    data: form_data,
+                    beforeSend: function (){
+                        $("#submit").prop('disabled', true);
+                    },
+                    success: function (data) {
+                        alert('From Submitted.');
+                        window.location.href = "/detail_order";
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status);
+                        alert(thrownError);
+                        $("#submit").prop('disabled', false);
+                    }
+                });
+            });
+        });
+    });
+</script>
 @stop
