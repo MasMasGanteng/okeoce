@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
+use Mail;
 
 class PaymentMethodController extends Controller
 {
@@ -37,13 +38,18 @@ class PaymentMethodController extends Controller
     }
 
     public function post_create(Request $request){
-        
+        $user = Auth::user();
         if($request->input('id')!=null){
             DB::table('order')->where('id', $request->input('id'))
             ->update([
                 'payment_method' => $request->input('payment_method'),
                 'status' => 2
             ]);
+
+            Mail::raw('Order anda sudah kami terima, silahkan melakukan pembayaran dan selanjutnya konfirmasi pembayaran di web.', function ($message) use ($user) {
+                $message->from(env('MAIL_USERNAME'), 'Baiza Order');
+                $message->to($user->email)->subject('Order sudah diterima');;
+            });
         }
     }
 }
