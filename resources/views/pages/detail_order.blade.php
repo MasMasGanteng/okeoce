@@ -105,16 +105,18 @@
             </tr>
         </tfoot>
     </table>
-    <form id=form>
+    <form id="form">
+        <input type="hidden" id="id" name="id" value="{{$id}}">
+        <input type="hidden" id="total_order_price" name="total_order_price">
         <div class="form-row">
             <div class="form-group col-md-4">
-                <input type="text" class="form-control" placeholder="NAMA PENERIMA">
+                <input type="text" class="form-control" name="nama_penerima" placeholder="NAMA PENERIMA" value="{{$nama_penerima}}">
             </div>
             <div class="form-group col-md-4">
-                <input type="number" class="form-control" placeholder="NO HP PENERIMA">
+                <input type="number" class="form-control" name="phone_number" placeholder="NO HP PENERIMA" value="{{$phone_number}}">
             </div>
             <div class="form-group col-md-4">
-                <input type="number" class="form-control" placeholder="KODE POS">
+                <input type="number" class="form-control" name="kode_pos" placeholder="KODE POS" value="{{$kode_pos}}">
             </div>
         </div>
         <div class="form-row">
@@ -150,10 +152,10 @@
             </div>
         </div>
         <div class="form-group">
-            <textarea class="form-control" placeholder="ALAMAT" rows="3"></textarea>
+            <textarea class="form-control" name="address" placeholder="ALAMAT" rows="3">{{$address}}</textarea>
         </div>
         <div class="text-center mt-5 mb-3">
-            <button type="submit" class="btn btn-blue btn-lg">PAYMENT</button>
+            <button type="submit" class="btn btn-blue btn-lg" {{!! $id!=null?'':'disabled' !!}}>PAYMENT</button>
             <!-- <a href="/payment_method" class="btn btn-blue btn-lg">PAYMENT</a> -->
         </div>
     </form>
@@ -162,6 +164,7 @@
 
 <script src="{{asset('vendors/bootstrapvalidator/js/bootstrapValidator.min.js')}}" type="text/javascript"></script>
 <script>
+    var id = $('#id').val(); 
     function delete_a(url){
         window.location = url;
     };
@@ -204,7 +207,12 @@
             }
         }
 
-        var set = total.toString();
+        var unique_number = Math.floor((Math.random() * 1000) + 1);
+        if(id==''){
+            unique_number=0;
+        }
+        var set = (total+unique_number).toString();
+        $('#total_order_price').val(total+unique_number);
         set += '';
         x = set.split('.');
         x1 = x[0];
@@ -233,9 +241,9 @@
                     beforeSend: function (){
                         $("#submit").prop('disabled', true);
                     },
-                    success: function () {
+                    success: function (data) {
                         alert('From Submitted.');
-                        window.location.href = "/payment_method";
+                        window.location.href = "/payment_method?id="+data;
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(xhr.status);
