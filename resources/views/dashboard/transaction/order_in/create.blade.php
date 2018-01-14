@@ -1,4 +1,6 @@
 @extends('layouts.dashboard')
+{{-- local styles --}} @section('header_styles')
+@stop
 @section('content')
 <div class="container full-container">
     <div class="font-blue h5 mt-3 mb-4">
@@ -84,50 +86,45 @@
     </table>
     <form id=form>
         <div class="form-row">
-            <div class="form-group col-md-4">
-                <input type="text" class="form-control" placeholder="NAMA PENERIMA">
+           <div class="form-group col-md-4">
+                <input type="hidden" class="form-control" name="id" id="id" value="{{$id}}">
+                <input type="text" class="form-control" placeholder="NAMA PENERIMA" value="{{$nama_penerima}}">
             </div>
             <div class="form-group col-md-4">
-                <input type="number" class="form-control" placeholder="NO HP PENERIMA">
+                <input type="number" class="form-control" placeholder="NO HP PENERIMA" value="{{$phone_number}}">
             </div>
             <div class="form-group col-md-4">
-                <input type="number" class="form-control" placeholder="KODE POS">
+                <input type="number" class="form-control" placeholder="KODE POS" value="{{$kode_pos}}">
             </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
                 <select id="select-kode_kota-input" name="select-kode_kota-input" class="form-control select2" size="1" required>
                     <option value>Please select</option>
-                    @if ($kode_kota_list!=null)
                     @foreach ($kode_kota_list as $list)
                         <option value="{{$list->kode}}" {!! $kode_kota==$list->kode ? 'selected':'' !!}>{{$list->nama}}</option>
                     @endforeach
-                    @endif
                 </select>
             </div>
             <div class="form-group col-md-4">
                 <select id="select-kode_kec-input" name="select-kode_kec-input" class="form-control select2" size="1" required>
                     <option value>Please select</option>
-                    @if ($kode_kec_list!=null)
                     @foreach ($kode_kec_list as $list)
                         <option value="{{$list->kode}}" {!! $kode_kec==$list->kode ? 'selected':'' !!}>{{$list->nama}}</option>
                     @endforeach
-                    @endif
                 </select>
             </div>
             <div class="form-group col-md-4">
                 <select id="select-kode_kel-input" name="select-kode_kel-input" class="form-control select2" size="1" required>
                     <option value>Please select</option>
-                    @if ($kode_kel_list!=null)
                     @foreach ($kode_kel_list as $list)
                         <option value="{{$list->kode}}" {!! $kode_kel==$list->kode ? 'selected':'' !!}>{{$list->nama}}</option>
                     @endforeach
-                    @endif
                 </select>
             </div>
         </div>
         <div class="form-group">
-            <textarea class="form-control" placeholder="ALAMAT" rows="3"></textarea>
+            <textarea class="form-control" placeholder="ALAMAT" rows="3">{{$address}}</textarea>
         </div>
         <div class="text-center mt-5 mb-3">
             <button type="submit" class="btn btn-blue btn-lg">PAYMENT</button>
@@ -135,26 +132,25 @@
     </form>
 </div>
 @stop {{-- local scripts --}} @section('footer_scripts')
-
-<script src="{{asset('vendors/bootstrapvalidator/js/bootstrapValidator.min.js')}}" type="text/javascript"></script>
 <script>
     $(document).ready(function(){
         $('#form').bootstrapValidator().on('success.form.bv', function(e) {
             $('#form').on('submit', function (e) {
                 e.preventDefault();
                 var form_data = new FormData(this);
+                var id = $('#id').val();
                 $.ajax({
                     type: 'post',
                     processData: false,
                     contentType: false,
-                    "url": "/detail_order/create",
+                    "url": "/dashboard/order_in/create",
                     data: form_data,
                     beforeSend: function (){
                         $("#submit").prop('disabled', true);
                     },
                     success: function () {
                         alert('From Submitted.');
-                        window.location.href = "/payment_method";
+                        window.location.href = "/dashboard/order_in/create?id="+id;
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(xhr.status);

@@ -186,13 +186,16 @@ class DashboardOrderInController extends Controller
                 where 
                     d.categories=4 and
                     a.id='.$data['order'][0]->id);
-
-            $data['kode_kota_list'] = DB::select('select* from kota where kode between 3171 and 3175 order by kode desc');
-            $data['kode_kec_list'] = [];
-            $data['kode_kel_list'] = [];
-            $data['kode_kota'] = null;
-            $data['kode_kec'] = null;
-            $data['kode_kel'] = null;
+            $data['kode_kota'] = $rowData[0]->kode_kota;
+            $data['kode_kec'] = $rowData[0]->kode_kec;
+            $data['kode_kel'] = $rowData[0]->kode_kel;
+            $data['address'] = $rowData[0]->address;
+            $data['kode_pos'] = $rowData[0]->kode_pos;
+            $data['phone_number'] = $rowData[0]->phone_number;
+            $data['nama_penerima'] = $rowData[0]->nama_penerima;
+            $data['kode_kota_list'] = DB::select('select * from kota where kode ='.$rowData[0]->kode_kota);
+            $data['kode_kec_list'] = DB::select('select * from kec where kode ='.$rowData[0]->kode_kec);
+            $data['kode_kel_list'] = DB::select('select * from kel where kode ='.$rowData[0]->kode_kel);;
             $data['price'] = $rowData[0]->price;
         return view('dashboard/transaction/order_in/create', $data);
         }
@@ -201,26 +204,14 @@ class DashboardOrderInController extends Controller
     public function post_create(Request $request)
     {
         if ($request->input('id')!=null){
-            DB::table('banner')->where('id', $request->input('id'))
-            ->update(['title' => $request->input('title-input'),
-                'url_img_banner' => $url_img_banner,
-                'description' => $request->input('description-input'),
-                'status' => $request->input('status-input')
-                ]);
-        }else{
-            DB::table('banner')->insert(
-                ['title' => $request->input('title-input'),
-                'url_img_banner' => $url_img_banner,
-                'description' => $request->input('description-input'),
-                'status' => $request->input('status-input'),
-                'created_by' => Auth::user()->id
-                ]);
+            DB::table('order')->where('id', $request->input('id'))
+            ->update(['status' => 4 ]);
         }
     }
 
     public function delete(Request $request)
     {
-        DB::table('banner')->where('id', $request->input('id'))->delete();
-        return Redirect::to('/dashboard/order');
+        DB::table('order')->where('id', $request->input('id'))->delete();
+        return Redirect::to('/dashboard/order_in');
     }
 }
