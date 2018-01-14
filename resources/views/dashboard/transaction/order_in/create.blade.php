@@ -10,7 +10,6 @@
                 <th scope="col">Nama Barang</th>
                 <th scope="col">Jumlah</th>
                 <th scope="col">Harga</th>
-                <th scope="col">Option</th>
             </tr>
         </thead>
         <tbody>
@@ -66,29 +65,7 @@
                     <span id="price{{$op->id_order_detail}}">{{'Rp. '.number_format($op->price,2,",",".")}}</span>
                     <input id="price_hidden{{$op->id_order_detail}}" type="number" min="1" value="{{$op->price}}" hidden>
                 </td>
-                <td><button id="cancel{{$op->id_order_detail}}" data-toggle="modal" data-target="#center_modal{{$op->id_order_detail}}" class="btn btn-peach btn-lg">Cancel</button></td>
             </tr>
-            
-            <div id="center_modal{{$op->id_order_detail}}" class="modal fade animated" role="dialog">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Cancel</h4>
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                        </div>
-                        <div class="modal-body">
-                            <p>You are about to cancel this order.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-effect-ripple btn-danger" data-dismiss="modal">Back
-                            </button>
-                            <button type="button" id="dodol" onclick='delete_a("/detail_order/delete?id={{$op->id_order_detail}}");' data-dismiss="modal" class="btn btn-effect-ripple btn-primary">
-                                Ok
-                            </button>
-
-                        </div>
-                    </div>
-                </div>
             </div>
             @endforeach
         </tbody>
@@ -100,7 +77,7 @@
                 <th scope="col"></th>
                 <th scope="col"><span class="font-blue">Total</span></th>
                 <th class="total_order_rp" scope="col">
-                    <span id="total"></span>
+                    <span id="total">{{'Rp. '.number_format($price,2,",",".")}}</span>
                 </th>
             </tr>
         </tfoot>
@@ -154,7 +131,6 @@
         </div>
         <div class="text-center mt-5 mb-3">
             <button type="submit" class="btn btn-blue btn-lg">PAYMENT</button>
-            <!-- <a href="/payment_method" class="btn btn-blue btn-lg">PAYMENT</a> -->
         </div>
     </form>
 </div>
@@ -162,64 +138,7 @@
 
 <script src="{{asset('vendors/bootstrapvalidator/js/bootstrapValidator.min.js')}}" type="text/javascript"></script>
 <script>
-    function delete_a(url){
-        window.location = url;
-    };
-    function calculate(id_product){
-        var jml = parseInt($('#jml'+id_product).val()) || 0;
-        var harga = parseInt($('#price_hidden'+id_product).val()) || 0;
-        var total = jml * harga;
-        var set = total.toString();
-        set += '';
-        x = set.split('.');
-        x1 = x[0];
-        x2 = ',00';
-        var rgx = /(\d+)(\d{3})/;
-        while (rgx.test(x1)) {
-            x1 = x1.replace(rgx, '$1' + '.' + '$2');
-        }
-        $('#price'+id_product).text('Rp. '+(x1 + x2));
-    };
-
-    function total_harga(){
-        var dataRows = $("#order_table tbody tr");
-
-        var jml = new Array();
-        var price = new Array();
-        var total = 0;
-
-        dataRows.each(function(){
-            $(this).find('.jml_product_order input').each(function(i){
-                jml.push(parseInt($(this).val()) || 0);
-            });
-            $(this).find('.price_product_default input').each(function(i){
-                price.push(parseInt($(this).val()) || 0);
-            });
-        });
-
-
-        if(jml.length==price.length){
-            for(i=0;i<jml.length;i++){
-                total+=(jml[i]*price[i]);
-            }
-        }
-
-        var set = total.toString();
-        set += '';
-        x = set.split('.');
-        x1 = x[0];
-        x2 = ',00';
-        var rgx = /(\d+)(\d{3})/;
-        while (rgx.test(x1)) {
-            x1 = x1.replace(rgx, '$1' + '.' + '$2');
-        }
-        $('#total').text('Rp. '+(x1 + x2));
-    };
-    $('#order_table').on('input', 'input', function () {
-        total_harga();
-    });
     $(document).ready(function(){
-        total_harga();
         $('#form').bootstrapValidator().on('success.form.bv', function(e) {
             $('#form').on('submit', function (e) {
                 e.preventDefault();
@@ -244,47 +163,6 @@
                     }
                 });
             });
-        });
-
-        var kota = $('#select-kode_kota-input');
-        var kec = $('#select-kode_kec-input');
-        var kel = $('#select-kode_kel-input');
-        var kota_id,kec_id,kel_id;
-
-        kota.change(function(){
-            kota_id=kota.val();
-            if(kota_id!=''){
-                kec.empty();
-                kec.append("<option value>Please select</option>");
-                $.ajax({
-                    type: 'get',
-                    "url": "/detail_order/select?kec="+kota_id,
-                    success: function (data) {
-                        data=JSON.parse(data)
-                        for (var i=0;i<data.length;i++){
-                            kec.append("<option value="+data[i].kode+" >"+data[i].nama+"</option>");
-                        }
-                    }
-                });
-            }
-        });
-        
-        kec.change(function(){
-            kec_id=kec.val();
-            if(kec_id!=''){
-                kel.empty();
-                kel.append("<option value>Please select</option>");
-                $.ajax({
-                    type: 'get',
-                    "url": "/detail_order/select?kel="+kec_id,
-                    success: function (data) {
-                        data=JSON.parse(data)
-                        for (var i=0;i<data.length;i++){
-                            kel.append("<option value="+data[i].kode+" >"+data[i].nama+"</option>");
-                        }
-                    }
-                });
-            }
         });
     });
 </script>

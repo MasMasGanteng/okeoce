@@ -6,10 +6,27 @@
     <!-- Left Menu -->
     <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="leftAccordion">            
+            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Selling">
+                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSelling" data-parent="#leftAccordion">
+                        <i class="fa fa-fw fa-dollar"></i>
+                        <span class="nav-link-text">Transaction</span>
+                    </a>
+                <ul class="sidenav-second-level collapse" id="collapseSelling">
+                    <li>
+                        <a href="/dashboard/order_in">New Order</a>
+                    </li>
+                    <li>
+                        <a href="/dashboard/order_progress">On Progress</a>
+                    </li>
+                    <li>
+                        <a href="/dashboard/order_success">Success Order</a>
+                    </li>
+                </ul>
+            </li>
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Product">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseProduct" data-parent="#leftAccordion">
                         <i class="fa fa-fw fa-archive"></i>
-                        <span class="nav-link-text">Product</span>
+                        <span class="nav-link-text"> Add Product</span>
                     </a>
                 <ul class="sidenav-second-level collapse" id="collapseProduct">
                     <li>
@@ -23,7 +40,7 @@
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Front">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseFront" data-parent="#leftAccordion">
                         <i class="fa fa-fw fa-eye"></i>
-                        <span class="nav-link-text">Front</span>
+                        <span class="nav-link-text">Content Management</span>
                     </a>
                 <ul class="sidenav-second-level collapse" id="collapseFront">
                     <li>
@@ -34,20 +51,6 @@
                     </li>
                     <li>
                         <a href="/dashboard/faq">FaQ</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Selling">
-                <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSelling" data-parent="#leftAccordion">
-                        <i class="fa fa-fw fa-dollar"></i>
-                        <span class="nav-link-text">Selling</span>
-                    </a>
-                <ul class="sidenav-second-level collapse" id="collapseSelling">
-                    <li>
-                        <a href="/dashboard/order">Order</a>
-                    </li>
-                    <li>
-                        <a href="/dashboard/transaction">Transaction</a>
                     </li>
                 </ul>
             </li>

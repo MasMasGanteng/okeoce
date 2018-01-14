@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\dashboard\front;
+namespace App\Http\Controllers\dashboard\content_management;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -26,7 +26,7 @@ class DashboardPromoController extends Controller
      */
     public function index()
     {
-        return view('dashboard/promo/index');
+        return view('dashboard/content_management/promo/index');
     }
 
     public function Post(Request $request)
@@ -109,9 +109,9 @@ class DashboardPromoController extends Controller
 
     public function create(Request $request)
     {
-        // $user = Auth::user();
-        // if (Auth::check()){
-        //     $data['username'] = $user->name;
+        $user = Auth::user();
+        if (Auth::check()){
+            $data['username'] = $user->name;
             $data['banner_list'] = DB::select('select * from banner');
             $data['id']=$request->input('id');
             if($data['id']!=null){
@@ -125,7 +125,7 @@ class DashboardPromoController extends Controller
                 $data['end_date'] = $rowData[0]->end_date;
                 $data['created_time'] = $rowData[0]->created_time;
                 $data['created_by'] = $rowData[0]->created_by;
-                return view('dashboard/promo/create',$data);
+                return view('dashboard/content_management/promo/create',$data);
             }else if($data['id']==null){
                 $data['title'] = null;
                 $data['id_banner'] = null;
@@ -136,14 +136,13 @@ class DashboardPromoController extends Controller
                 $data['location'] = null;
                 $data['created_time'] = null;
                 $data['created_by'] = null;
-                return view('dashboard/promo/create',$data);
+                return view('dashboard/content_management/promo/create',$data);
+            }else {
+                return Redirect::to('/');
             }
-        //     }else {
-        //         return Redirect::to('/');
-        //     }
-        // }else{
-        //     return Redirect::to('/');
-        // }
+        }else{
+            return Redirect::to('/');
+        }
     }
 
     public function post_create(Request $request)
