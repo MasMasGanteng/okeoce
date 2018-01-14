@@ -37,6 +37,7 @@ class DetailOrderController extends Controller
             $data['kode_kota'] =  $data['order'][0]->kode_kota;
             $data['kode_kec'] =  $data['order'][0]->kode_kec;
             $data['kode_kel'] =  $data['order'][0]->kode_kel;
+            $data['up'] =  rand(1,1000);
             $data['order_product'] = DB::select('
                 select 
                     b.*,
@@ -118,6 +119,7 @@ class DetailOrderController extends Controller
             $data['kode_kota'] =  null;
             $data['kode_kec'] =  null;
             $data['kode_kel'] =  null;
+            $data['up'] =  0;
             $data['order_product'] = [];
             $data['order_ingredient_essential'] = [];
             $data['order_ingredient_special'] = [];
@@ -145,7 +147,6 @@ class DetailOrderController extends Controller
     }
 
     public function post_create(Request $request){
-        
         if($request->input('id')!=null){
             DB::table('order')->where('id', $request->input('id'))
             ->update([
@@ -156,7 +157,8 @@ class DetailOrderController extends Controller
                 'phone_number' => $request->input('phone_number'),
                 'kode_kota' => $request->input('select-kode_kota-input'),
                 'kode_kec' => $request->input('select-kode_kec-input'),
-                'kode_kel' => $request->input('select-kode_kel-input')
+                'kode_kel' => $request->input('select-kode_kel-input'),
+                'unique_price' => $request->input('up')
             ]);
 
             echo $request->input('id');

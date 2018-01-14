@@ -108,6 +108,7 @@
     <form id="form">
         <input type="hidden" id="id" name="id" value="{{$id}}">
         <input type="hidden" id="total_order_price" name="total_order_price">
+        <input type="hidden" id="up" name="up">
         <div class="form-row">
             <div class="form-group col-md-4">
                 <input type="text" class="form-control" name="nama_penerima" placeholder="NAMA PENERIMA" value="{{$nama_penerima}}">
@@ -207,10 +208,7 @@
             }
         }
 
-        var unique_number = Math.floor((Math.random() * 1000) + 1);
-        if(id==''){
-            unique_number=0;
-        }
+        var unique_number = {!! $up !!};
         var set = (total+unique_number).toString();
         $('#total_order_price').val(total+unique_number);
         set += '';
@@ -232,6 +230,7 @@
             $('#form').on('submit', function (e) {
                 e.preventDefault();
                 var form_data = new FormData(this);
+                form_data.append('up',{!! $up !!});
                 $.ajax({
                     type: 'post',
                     processData: false,
