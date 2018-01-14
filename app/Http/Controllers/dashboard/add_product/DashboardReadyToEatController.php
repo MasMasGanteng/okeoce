@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\dashboard\product;
+namespace App\Http\Controllers\dashboard\add_product;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -26,7 +26,7 @@ class DashboardReadyToEatController extends Controller
      */
     public function index()
     {
-        return view('dashboard/ready_to_eat/index');
+        return view('dashboard/add_product/ready_to_eat/index');
     }
 
     public function post(Request $request)
@@ -101,9 +101,9 @@ class DashboardReadyToEatController extends Controller
 
     public function create(Request $request)
     {
-        // $user = Auth::user();
-        // if (Auth::check()){
-        //     $data['username'] = $user->name;
+        $user = Auth::user();
+        if (Auth::check()){
+            $data['username'] = $user->name;
             $data['id']=$request->input('id');
             if($data['id']!=null){
                 $rowData = DB::select('select * from product where id='.$data['id']);
@@ -114,7 +114,7 @@ class DashboardReadyToEatController extends Controller
                 $data['status'] = $rowData[0]->status;
                 $data['created_time'] = $rowData[0]->created_time;
                 $data['created_by'] = $rowData[0]->created_by;
-                return view('dashboard/ready_to_eat/create',$data);
+                return view('dashboard/add_product/ready_to_eat/create',$data);
             }else if($data['id']==null){
                 $data['name'] = null;
                 $data['url_img_product'] = null;
@@ -123,14 +123,13 @@ class DashboardReadyToEatController extends Controller
                 $data['status'] = null;
                 $data['created_time'] = null;
                 $data['created_by'] = null;
-                return view('dashboard/ready_to_eat/create',$data);
+                return view('dashboard/add_product/ready_to_eat/create',$data);
+            }else {
+                return Redirect::to('/');
             }
-        //     }else {
-        //         return Redirect::to('/');
-        //     }
-        // }else{
-        //     return Redirect::to('/');
-        // }
+        }else{
+            return Redirect::to('/');
+        }
     }
 
     public function post_create(Request $request)

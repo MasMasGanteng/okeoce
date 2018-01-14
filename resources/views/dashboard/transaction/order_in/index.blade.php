@@ -25,21 +25,17 @@
             <table class="table table-bordered" width="1500px" cellspacing="0" id="tables">
                 <thead>
                     <tr>
-                        <th rowspan="2">ID</th>
-                        <th rowspan="2">User</th>
-                        <th rowspan="2">Price</th>
-                        <th rowspan="2">Payment</th>
-                        <th rowspan="2">Shipping</th>
-                        <th rowspan="2">Penerima</th>
-                        <th rowspan="2">Address</th>
-                        <th rowspan="2">Phone</th>
-                        <th rowspan="2">Order Time</th>
-                        <th rowspan="2">Action</th>
-                        <th colspan="2">To Do</th>
-                    </tr>
-                    <tr>
-                        <th></th>
-                        <th></th>
+                        <th>ID</th>
+                        <th>Status</th>
+                        <th>User</th>
+                        <th>Price</th>
+                        <th>Payment</th>
+                        <th>Shipping</th>
+                        <th>Penerima</th>
+                        <th>Address</th>
+                        <th>Phone</th>
+                        <th>Order Time</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
             </table>
@@ -55,7 +51,7 @@
             "processing": true,
             "serverSide": true,
             "ajax":{
-                     "url": "/dashboard/order",
+                     "url": "/dashboard/order_in",
                      "dataType": "json",
                      "type": "POST"
                    },
@@ -68,6 +64,7 @@
               },
             "columns": [
                 { "data": "id" , name:"id"},
+                { "data": "status" , name:"status"},
                 { "data": "id_user" , name:"id_user"},
                 { "data": "price" , name:"price"},
                 { "data": "payment_method" , name:"payment_method"},
