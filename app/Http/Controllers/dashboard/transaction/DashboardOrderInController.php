@@ -55,13 +55,20 @@ class DashboardOrderInController extends Controller
                             when a.status = "4" then "Proceed"
                             when a.status = "5" then "Done"
                        end status_convert,
+                       case 
+                            when a.payment_method = "1" then "Bank Transfer"
+                            when a.payment_method = "2" then "Klik BCA"
+                        end payment,
+                        case 
+                            when a.shipping_method = "1" then "Gojek"
+                        end shipping,
                        b.name
                     from `order` a 
                         left join users b on a.id_user = b.id
-                    where a.status = "2") b';
+                    where a.status = "3") b';
         $totalData = DB::select('select count(1) cnt from `order` a 
                                     left join users b on a.id_user = b.id
-                                where a.status = "2"');
+                                where a.status = "3"');
         $totalFiltered = $totalData[0]->cnt;
         $limit = $request->input('length');
         $start = $request->input('start');
@@ -97,15 +104,13 @@ class DashboardOrderInController extends Controller
                 $nestedData['status'] = $post->status_convert;
                 $nestedData['id_user'] = $post->name;
                 $nestedData['price'] = $post->price;
-                $nestedData['payment_method'] = $post->payment_method;
-                $nestedData['shipping_method'] = $post->shipping_method;
+                $nestedData['payment_method'] = $post->payment;
+                $nestedData['shipping_method'] = $post->shipping;
                 $nestedData['nama_penerima'] = $post->nama_penerima;
                 $nestedData['address'] = $post->address;
                 $nestedData['phone_number'] = $post->phone_number;
                 $nestedData['order_time'] = $post->order_time;
-                $nestedData['option'] = "&emsp;<a href='{$url_show}' title='show' ><span class='fa fa-fw fa-search'></span></a>
-                                            &emsp;<a href='{$url_edit}' title='EDIT' ><span class='fa fa-fw fa-edit'></span></a>
-                                            &emsp;<a href='#' onclick='delete_func(\"{$url_delete}\");'><span class='fa fa-fw fa-trash-o'></span></a>";
+                $nestedData['option'] = "&emsp;<a href='{$url_show}' title='show' ><span class='fa fa-fw fa-search'></span></a>";
                 $data[] = $nestedData;
             }
         }

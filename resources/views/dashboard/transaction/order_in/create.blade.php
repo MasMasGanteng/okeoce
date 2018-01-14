@@ -127,7 +127,7 @@
             <textarea class="form-control" placeholder="ALAMAT" rows="3">{{$address}}</textarea>
         </div>
         <div class="text-center mt-5 mb-3">
-            <button type="submit" class="btn btn-blue btn-lg">PAYMENT</button>
+            <button type="submit" class="btn btn-blue btn-lg">Proceed</button>
         </div>
     </form>
 </div>
@@ -150,7 +150,7 @@
                     },
                     success: function () {
                         alert('From Submitted.');
-                        window.location.href = "/dashboard/order_in/create?id="+id;
+                        window.location.href = "/dashboard/order_progress";
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(xhr.status);

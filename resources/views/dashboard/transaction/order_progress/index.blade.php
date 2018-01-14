@@ -41,7 +41,7 @@
             "processing": true,
             "serverSide": true,
             "ajax":{
-                     "url": "/dashboard/order_success",
+                     "url": "/dashboard/order_progress",
                      "dataType": "json",
                      "type": "POST"
                    },
