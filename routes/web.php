@@ -24,6 +24,8 @@ Route::get('/promo', 'front\PromoController@index');
 Route::get('/how_to_order', 'front\HowToOrderController@index');
 //view aboutusPage
 Route::get('/about_us', 'front\AboutUsController@index');
+//view faqPage
+Route::get('/faq', 'front\FaqController@index');
 //view termsPage
 Route::get('/terms', 'front\TermsController@index');
 //view refundPage
