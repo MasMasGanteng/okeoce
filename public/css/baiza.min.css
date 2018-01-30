@@ -45,6 +45,15 @@ a:focus {
     font-weight: normal;
 }
 
+.navbar-expand-lg .navbar-nav .dropdown-menu {
+    min-width: 13rem;
+}
+
+.navbar-expand-lg .navbar-nav .dropdown-menu li a {
+    padding: .75rem .5rem;
+    display: flex; 
+}
+
 .baiza-nav .nav-link {
     border: 1px solid #424242;
     border-radius: 0;
@@ -54,7 +63,6 @@ a:focus {
     margin-right: 1.2em;
     width: 15em;
     text-align: center;
-
     font-size: .8rem;
 }
 
@@ -329,14 +337,16 @@ a:focus {
 }
 
 .custom-control {
+    display: inline-flex;
     align-items: center;
+    justify-content: center
 }
 
-.custom-control-input:checked~.custom-control-indicator {
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before, .custom-control-input:checked~.custom-control-indicator {
     background-color: #f37b8a;
 }
 
-.custom-checkbox .custom-control-indicator {
+.custom-checkbox .custom-control-label::before, .custom-checkbox .custom-control-indicator {
     border-radius: 0;
 }
 
@@ -548,24 +558,32 @@ a:focus {
 
 /* table */
 
-.baiza-table thead th {
+.baiza-table thead th, .baiza-table-order thead th {
     color: #475f9d;
+}
+
+.baiza-table tbody tr, .baiza-table-order tbody tr {
+    border-bottom: 1px solid #dee2e6;
 }
 
 .baiza-table thead th:nth-child(2n+0),
 .baiza-table tbody tr td:nth-child(2n+0),
 .baiza-table tfoot th:nth-child(2n+0) {
     text-align: center;
+    vertical-align: middle;
 }
 
 .baiza-table thead th:nth-child(3n+0),
 .baiza-table tbody tr td:nth-child(3n+0),
 .baiza-table tfoot th:nth-child(3n+0) {
-    text-align: right;
+    text-align: center;
+    vertical-align: middle;
 }
 
 .baiza-table td,
-.baiza-table th {
+.baiza-table th,
+.baiza-table-order td,
+.baiza-table-order th {
     border-top: none;
 }
 
@@ -581,7 +599,19 @@ a:focus {
 .baiza-table ul li {
     margin-bottom: .4em;
 }
-
+.baiza-table-order td {
+    font-size: 1em;
+}
+.baiza-table-order td .price {
+    font-size: .85em;
+}
+.baiza-table-order td div span b {
+    font-size: 1.2em;
+}   
+.baiza-table-order td div span {
+    margin-bottom: .5rem;
+    font-size: .8em;
+}
 .flex-div {
     display: flex;
     align-items: center;
@@ -669,7 +699,7 @@ a:focus {
         right: 0;
     }
     .nav-mobile-menu {
-        height: calc(100% - 160px);
+        height: calc(100% - 100px);
         align-items: center;
         justify-content: center;
     }
@@ -737,7 +767,8 @@ a:focus {
         width: -webkit-max-content;
     }
     .scroll-div .scroll-gallery .col {
-        padding: .5rem;
+        width: 16em;
+        padding: 0.2rem;
     }
     .sushi-list {
         height: auto;

@@ -28,6 +28,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/about_us">ABOUT US</a>
                 </li>
+                <li class="nav-item d-sm-block d-md-none">
+                    <a class="nav-link" href="/order_history">ORDER HISTORY</a>
+                </li>
+                @guest
+                <li class="nav-item d-sm-block d-md-none">
+                    <a class="nav-link" href="{{ route('login') }}">LOGIN</a>
+                </li>
+                @else
+                <li class="nav-item d-sm-block d-md-none">
+                    <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();document.getElementById('logout-form').submit();">LOGOUT</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+                </li>
+                @endguest
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <a href="https://www.facebook.com/baizasushi/" target="_blank">
@@ -40,12 +53,16 @@
                     <div class="navbar-cart"></div>
                 </a>
                 @guest
-                <a href="{{ route('login') }}" class="btn btn-blue my-2 my-sm-0">LOGIN</a> @else
-                <li class="dropdown">
+                <a href="{{ route('login') }}" class="btn btn-blue my-2 my-sm-0 d-none d-md-block">LOGIN</a>
+                @else
+                <li class="dropdown d-none d-md-block">
                     <a href="#" class="btn btn-blue dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                         {{ Auth::user()->name }}
                     </a>
                     <ul class="dropdown-menu dropdown-menu-right">
+                        <li>
+                            <a href="/order_history" class="mx-3">Order History</a>
+                        </li>
                         <li>
                             <a href="{{ route('logout') }}" class="mx-3" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout
                             </a>
@@ -66,10 +83,9 @@
     @include('partials.footer')
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script src="{{ asset('js/app.js') }}"></script>
     @yield('footer_scripts')
     <script type="text/javascript">
