@@ -20,7 +20,7 @@
             		<td><div class="price">BSRE001</div></td>
             		<td>
             			<div class="mb-3">
-            				<span>Date : 30-01-2018</span>
+            				<span class="text-danger">Date : 30-01-2018</span>
             			</div>
             			<div class="d-flex flex-column mb-2">
             				<span><b>Sosis Fried Roll</b></span>
@@ -51,7 +51,7 @@
             		<td><div class="price">BSRE002</div></td>
             		<td>
             			<div class="mb-3">
-            				<span>Date : 30-01-2018</span>
+            				<span class="text-danger">Date : 30-01-2018</span>
             			</div>
             			<div class="d-flex flex-column mb-2">
             				<span><b>Sosis Fried Roll</b></span>
@@ -92,7 +92,7 @@
             		<td><div class="price">BSRE003</div></td>
             		<td>
             			<div class="mb-3">
-            				<span>Date : 30-01-2018</span>
+            				<span class="text-danger">Date : 30-01-2018</span>
             			</div>
             			<div class="d-flex flex-column mb-2">
             				<span><b>Roll Kecil</b></span>
