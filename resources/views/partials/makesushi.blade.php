@@ -49,11 +49,10 @@
                         <div class="myos-sect-sub-title" id="essential_roll_besar">
                             5 Essentials
                         </div>
-                        <label class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" name="add_essential">
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description">Charge 7.000 untuk tambah 1 essential</span>
-                        </label>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="add_essential" id="add_essential">
+                            <label class="custom-control-label" for="add_essential">Charge 7.000 untuk tambah 1 essential</label>
+                        </div>
                     </div>
                     <div class="scroll-div">
                         <div class="row mx-0 text-center scroll-gallery">
@@ -88,11 +87,15 @@
                         <div class="myos-sect-sub-title">
                             1 Specials
                         </div>
-                        <label class="custom-control custom-checkbox">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="add_special" id="add_special">
+                            <label class="custom-control-label" for="add_special">Charge 18.000 untuk tambah 1 special</label>
+                        </div>
+                        <!-- <label class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" name="add_special">
                             <span class="custom-control-indicator"></span>
                             <span class="custom-control-description">Charge 18.000 untuk tambah 1 Specials</span>
-                        </label>
+                        </label> -->
                     </div>
                     <div class="scroll-div">
                         <div class="row mx-0 text-center scroll-gallery">
@@ -128,11 +131,15 @@
                         <div class="myos-sect-sub-title">
                             1 Sprinkle
                         </div>
-                        <label class="custom-control custom-checkbox">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="add_sprinkle" id="add_sprinkle">
+                            <label class="custom-control-label" for="add_sprinkle">Charge 18.000 untuk tambah 1 sprinkle</label>
+                        </div>
+                        <!-- <label class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" name="add_sprinkle">
                             <span class="custom-control-indicator"></span>
                             <span class="custom-control-description">Charge 18.000 untuk tambah 1 Sprinkle</span>
-                        </label>
+                        </label> -->
                     </div>
                     <div class="scroll-div">
                         <div class="row mx-0 text-center scroll-gallery">
@@ -168,11 +175,15 @@
                         <div class="myos-sect-sub-title">
                             1 House Sauce
                         </div>
-                        <label class="custom-control custom-checkbox">
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" name="add_sauce" id="add_sauce">
+                            <label class="custom-control-label" for="add_sauce">Charge 18.000 untuk tambah 1 House Sauce</label>
+                        </div>
+                        <!-- <label class="custom-control custom-checkbox">
                             <input type="checkbox" class="custom-control-input" name="add_sauce">
                             <span class="custom-control-indicator"></span>
                             <span class="custom-control-description">Charge 18.000 untuk tambah 1 House Sauce</span>
-                        </label>
+                        </label> -->
                     </div>
                     <div class="scroll-div">
                         <div class="row mx-0 text-center scroll-gallery">
@@ -201,10 +212,9 @@
                 </div>
                 <!-- <button class="btn btn-blue my-4" type="submit">DETAIL ORDER</button> -->
                 <button type="button" class="btn btn-blue my-4" data-toggle="modal" data-target="#detail_order">DETAIL ORDER</button>
-                <!-- <a href="/detail_order" class="btn btn-blue my-4">DETAIL ORDER</a> -->
                 <!-- Modal -->
                 <div class="modal fade" id="detail_order" role="dialog">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog modal-dialog-centered">
                     <!-- Modal content-->
                         <div class="modal-content">
                             <div class="modal-header">
