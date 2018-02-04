@@ -22,6 +22,7 @@ return array(
     'App\\Http\\Controllers\\dashboard\\content_management\\DashboardFaqController' => $baseDir . '/app/Http/Controllers/dashboard/content_management/DashboardFaqController.php',
     'App\\Http\\Controllers\\dashboard\\content_management\\DashboardPromoController' => $baseDir . '/app/Http/Controllers/dashboard/content_management/DashboardPromoController.php',
     'App\\Http\\Controllers\\dashboard\\transaction\\DashboardOrderInController' => $baseDir . '/app/Http/Controllers/dashboard/transaction/DashboardOrderInController.php',
+    'App\\Http\\Controllers\\dashboard\\transaction\\DashboardOrderPendingController' => $baseDir . '/app/Http/Controllers/dashboard/transaction/DashboardOrderPendingController.php',
     'App\\Http\\Controllers\\dashboard\\transaction\\DashboardOrderProgressController' => $baseDir . '/app/Http/Controllers/dashboard/transaction/DashboardOrderProgressController.php',
     'App\\Http\\Controllers\\dashboard\\transaction\\DashboardOrderSuccessController' => $baseDir . '/app/Http/Controllers/dashboard/transaction/DashboardOrderSuccessController.php',
     'App\\Http\\Controllers\\front\\AboutUsController' => $baseDir . '/app/Http/Controllers/front/AboutUsController.php',
@@ -50,13 +51,6 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
-<<<<<<< HEAD
-=======
-    'App\\Services\\SocialFacebookAccountService' => $baseDir . '/app/Services/SocialFacebookAccountService.php',
-    'App\\Services\\SocialGoogleAccountService' => $baseDir . '/app/Services/SocialGoogleAccountService.php',
-    'App\\SocialFacebookAccounts' => $baseDir . '/app/SocialFacebookAccounts.php',
-    'App\\SocialGoogleAccounts' => $baseDir . '/app/SocialGoogleAccounts.php',
->>>>>>> 9e18f8784eb3701b75724576072805430cc2c344
     'App\\User' => $baseDir . '/app/User.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',

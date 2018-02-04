@@ -352,6 +352,7 @@ class ComposerStaticInit4027bd277d641feb7e4435790b29525f
         'App\\Http\\Controllers\\dashboard\\content_management\\DashboardFaqController' => __DIR__ . '/../..' . '/app/Http/Controllers/dashboard/content_management/DashboardFaqController.php',
         'App\\Http\\Controllers\\dashboard\\content_management\\DashboardPromoController' => __DIR__ . '/../..' . '/app/Http/Controllers/dashboard/content_management/DashboardPromoController.php',
         'App\\Http\\Controllers\\dashboard\\transaction\\DashboardOrderInController' => __DIR__ . '/../..' . '/app/Http/Controllers/dashboard/transaction/DashboardOrderInController.php',
+        'App\\Http\\Controllers\\dashboard\\transaction\\DashboardOrderPendingController' => __DIR__ . '/../..' . '/app/Http/Controllers/dashboard/transaction/DashboardOrderPendingController.php',
         'App\\Http\\Controllers\\dashboard\\transaction\\DashboardOrderProgressController' => __DIR__ . '/../..' . '/app/Http/Controllers/dashboard/transaction/DashboardOrderProgressController.php',
         'App\\Http\\Controllers\\dashboard\\transaction\\DashboardOrderSuccessController' => __DIR__ . '/../..' . '/app/Http/Controllers/dashboard/transaction/DashboardOrderSuccessController.php',
         'App\\Http\\Controllers\\front\\AboutUsController' => __DIR__ . '/../..' . '/app/Http/Controllers/front/AboutUsController.php',
@@ -380,13 +381,6 @@ class ComposerStaticInit4027bd277d641feb7e4435790b29525f
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
-<<<<<<< HEAD
-=======
-        'App\\Services\\SocialFacebookAccountService' => __DIR__ . '/../..' . '/app/Services/SocialFacebookAccountService.php',
-        'App\\Services\\SocialGoogleAccountService' => __DIR__ . '/../..' . '/app/Services/SocialGoogleAccountService.php',
-        'App\\SocialFacebookAccounts' => __DIR__ . '/../..' . '/app/SocialFacebookAccounts.php',
-        'App\\SocialGoogleAccounts' => __DIR__ . '/../..' . '/app/SocialGoogleAccounts.php',
->>>>>>> 9e18f8784eb3701b75724576072805430cc2c344
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
