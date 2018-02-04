@@ -5,7 +5,7 @@
         <img class="d-block w-100" src="uploads/front/banner/{{$list->url_img_banner}}">
         <div class="promo-detail">
             <div class="title">
-                {{$list->title}}<br>
+                <div class="h5">{{$list->title}}</div>
                 Berlaku Hingga<br>
                 {{$list->end_date}}
             </div>

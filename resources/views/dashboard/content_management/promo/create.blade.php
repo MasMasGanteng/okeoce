@@ -81,8 +81,12 @@ function test(id){
     return false;
     }
 
-CKEDITOR.replace( 'description-input' );
+// CKEDITOR.replace( 'description-input' );
 CKEDITOR.replace( 'location-input' );
+
+$(document).ready(function() {
+  $('#description-input').summernote();
+});
 
 $(document).ready(function () {
 

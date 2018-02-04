@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <a class="navbar-brand" href="/dashboard">
-        <img class="img-fluid" src="{{{URL::asset('image/baiza-logo-white.png')}}}" alt="baiza" style="height: 30px;"> <!-- <span class="ml-3">Dashboard</span> -->
+        <img class="img-fluid" src="{{{URL::asset('image/baiza-logo-white.png')}}}" alt="baiza" style="height: 30px;"> <span class="ml-3">Dashboard</span>
     </a>
     <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
