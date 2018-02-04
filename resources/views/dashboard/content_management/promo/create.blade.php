@@ -2,8 +2,6 @@
 {{-- local styles --}} @section('header_styles')
 <link href="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/css/bootstrapValidator.min.css" rel="stylesheet">
 <link href="{{asset('vendors/bootstrap-fileinput/css/fileinput.min.css')}}" media="all" rel="stylesheet" type="text/css"/>
-
-<link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
 @stop
 @section('content')
 <!-- breadcrumb -->
@@ -49,18 +47,13 @@
         </div>
         <div class="form-group">
             <label>Description</label>
-            <div class="panel-body">
-                <div class="bootstrap-admin-panel-content summer_noted">
-                    <textarea id="summernote" name="summernote"></textarea>
-                </div>
-            </div>
-            <textarea class="form-control" name="description" id="description" rows="10" cols="80">
+            <textarea name="description-input" id="description-input" rows="10">
                 {{$description}}
             </textarea>
         </div>
         <div class="form-group">
             <label>Locations</label>
-            <textarea class="form-control" name="location" id="location" rows="10" cols="80">
+            <textarea name="location-input" id="location-input" rows="10">
                 {{$location}}
             </textarea>
         </div>
@@ -78,7 +71,6 @@
     </form>
 </div>
 @stop {{-- local scripts --}} @section('footer_scripts')
-<script type="text/javascript" src="{{asset('vendors/summernote/summernote.min.js')}}"></script>
 <script>
 function test(id){
     console.log(id)
@@ -87,19 +79,23 @@ function test(id){
     var elem2 = $('#'+id+'-file');
     elem2.removeAttr('value');
     return false;
-    };
+    }
 
 $(document).ready(function() {
-  $('#description-input').summernote();
+  $('#description-input').summernote({
+        height: 300
+  });
+  $('#location-input').summernote({
+    height: 300
+  });
 });
 
 $(document).ready(function () {
+
     $('#form-validation').bootstrapValidator().on('success.form.bv', function(e) {
         $('#form-validation').on('submit', function (e) {
             e.preventDefault();
             var form_data = new FormData(this);
-            form_data.append('description', description);
-            form_data.append('location', location);
             $.ajax({
                 type: 'post',
                 processData: false,
@@ -111,11 +107,7 @@ $(document).ready(function () {
                 },
                 success: function () {
                     alert('From Submitted.');
-                    // window.location.href = "/dashboard/promo";
-                    console.log(description);
-                    console.log(location);
-                    console.log('aaaa');
-
+                    window.location.href = "/dashboard/promo";
                 },
                 error: function (xhr, ajaxOptions, thrownError) {
                     alert(xhr.status);
@@ -131,8 +123,5 @@ $(document).ready(function () {
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 <script src="{{asset('vendors/bootstrap-fileinput/js/fileinput.min.js')}}" type="text/javascript"></script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
 
 @stop

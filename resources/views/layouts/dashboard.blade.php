@@ -93,7 +93,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/themes/fa/theme.min.js"></script>
         <!-- summernote -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.min.js"></script>
-        <!-- <script src="/vendor/ckeditor/ckeditor/ckeditor.js"></script> -->
         <!-- validator -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
         @yield('footer_scripts')

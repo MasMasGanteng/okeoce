@@ -28,7 +28,7 @@ class DashboardController extends Controller
     {
 		$user = Auth::user();
         if ($user->flag_admin == 1) {
-            return view('layouts/dashboard');
+            return view('dashboard/index');
         }else{
             return Redirect::to('/');
         }
