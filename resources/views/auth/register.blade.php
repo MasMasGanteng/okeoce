@@ -9,7 +9,7 @@
                 <a href="{{ URL('/redirect') }}" class="btn btn-blue btn-lg btn-block">Facebook</a>
             </div>
             <div class="col-6">
-                <a href="{{ URL('/redirect') }}" class="btn btn-peach btn-lg btn-block">Google</a>
+                <a href="{{ URL('/redirect') }}" class="btn btn-danger btn-lg btn-block">Google</a>
             </div>
         </div>
         <p class="text-center">or</p>
