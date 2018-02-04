@@ -37,11 +37,12 @@ class DetailOrderController extends Controller
             $data['kode_kota'] =  $data['order'][0]->kode_kota;
             $data['kode_kec'] =  $data['order'][0]->kode_kec;
             $data['kode_kel'] =  $data['order'][0]->kode_kel;
-            $data['up'] =  rand(1,1000);
+            $data['up'] =  $data['order'][0]->unique_price;
             $data['order_product'] = DB::select('
                 select 
                     b.*,
-                    a.id id_order_detail
+                    a.id id_order_detail,
+                    a.jumlah
                 from order_detail a 
                     left join product b on a.id_product=b.id
                 where 
@@ -70,7 +71,7 @@ class DetailOrderController extends Controller
                     left join ingredients d on c.id_ingredients=d.id
                     left join product e on b.id_product=e.id    
                 where 
-                    d.categories=2 and
+                    d.categories=3 and
                     a.id='.$data['order'][0]->id);
             $data['order_ingredient_sprinkle'] = DB::select('
                 select 
@@ -83,7 +84,7 @@ class DetailOrderController extends Controller
                     left join ingredients d on c.id_ingredients=d.id
                     left join product e on b.id_product=e.id
                 where 
-                    d.categories=3 and
+                    d.categories=2 and
                     a.id='.$data['order'][0]->id);
             $data['order_ingredient_house_sauce'] = DB::select('
                 select 
@@ -157,10 +158,18 @@ class DetailOrderController extends Controller
                 'phone_number' => $request->input('phone_number'),
                 'kode_kota' => $request->input('select-kode_kota-input'),
                 'kode_kec' => $request->input('select-kode_kec-input'),
-                'kode_kel' => $request->input('select-kode_kel-input'),
-                'unique_price' => $request->input('up')
+                'kode_kel' => $request->input('select-kode_kel-input')
             ]);
 
+            $order_detail = DB::select('select * from order_detail where id_order='.$request->input('id'));
+            DB::beginTransaction();
+            foreach($order_detail as $od){
+                DB::table('order_detail')->where('id', $od->id)
+                ->update([
+                    'jumlah' => intval($request->input('jml'.$od->id))
+                ]);
+            }
+            DB::commit();
             echo $request->input('id');
         }
     }

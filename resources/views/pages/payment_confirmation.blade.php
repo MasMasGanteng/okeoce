@@ -5,7 +5,8 @@
         <div class="font-blue h5 mt-3 mb-5 text-center">
             <b>PAYMENT CONFIRMATION</b>
         </div>
-        <form>
+        <form id="form">
+            <input type="hidden" id="" name="">
             <div class="form-group">
                 <label for="payment_bank">Nama Bank :</label>
                 <select class="form-control" id="payment_bank">
@@ -14,11 +15,11 @@
             </div>
             <div class="form-group">
                 <label for="payment_user">Nama :</label>
-                <input type="text" class="form-control" id="payment_user" placeholder="Contoh : John Doe">
+                <input type="text" class="form-control" id="payment_user" name="payment_user" placeholder="Contoh : John Doe">
             </div>
             <div class="form-group">
                 <label for="payment_account_number">No. Rekening :</label>
-                <input type="text" class="form-control" id="payment_account_number" placeholder="Contoh : 123456789">
+                <input type="tel" class="form-control" id="payment_account_number" name="payment_account_number" min="0" placeholder="Contoh : 123456789">
             </div>
             <div class="form-group">
                 <label for="payment_account_number">Total Pembayaran :</label>
@@ -26,7 +27,7 @@
                     <div class="input-group-prepend">
                         <div class="input-group-text">Rp</div>
                     </div>
-                    <input type="text" class="form-control" id="payment_account_number" placeholder="Contoh : 1500000">
+                    <input type="number" class="form-control" id="payment_amount" name="payment_amount" min="0" placeholder="Contoh : 1500000">
                 </div>
             </div>
             <div class="text-center mt-5">

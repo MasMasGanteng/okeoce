@@ -19,6 +19,7 @@
                 <tr>
                     <td>
                         <p><b>{{$op->name}}</b></p>
+                        @if(in_array($op->id,array(3,4)))
                         <ul>
                             <li>Essential</li>
                             <ol type="1">
@@ -53,9 +54,10 @@
                                 @endif @endforeach
                             </ol>
                         </ul>
+                        @endif
                     </td>
                     <td class="jml_product_order">
-                        <input class="form-control" id="jml{{$op->id_order_detail}}" type="number" min="1" oninput="calculate({{$op->id_order_detail}})" value="1" required>
+                        <input class="form-control" id="jml{{$op->id_order_detail}}" type="number" min="1" oninput="calculate({{$op->id_order_detail}})" value="{{$op->jumlah}}" required>
                     </td>
                     <td class="price_product_default">
                         <span id="price{{$op->id_order_detail}}">{{'Rp. '.number_format($op->price,2,",",".")}}</span>
@@ -110,12 +112,13 @@
             <input type="hidden" id="id" name="id" value="{{$id}}">
             <input type="hidden" id="total_order_price" name="total_order_price">
             <input type="hidden" id="up" name="up">
+            <input type="hidden" id="jml_all_id" name="jml_all_id">
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <input type="text" class="form-control" name="nama_penerima" placeholder="NAMA PENERIMA" value="{{$nama_penerima}}">
+                    <input type="text" class="form-control" name="nama_penerima" placeholder="NAMA PENERIMA" value="{{$nama_penerima}}" required>
                 </div>
                 <div class="form-group col-md-4">
-                    <input type="number" class="form-control" name="phone_number" placeholder="NO HP PENERIMA" value="{{$phone_number}}">
+                    <input type="tel" class="form-control" name="phone_number" placeholder="NO HP PENERIMA" value="{{$phone_number}}" required>
                 </div>
                 <div class="form-group col-md-4">
                     <input type="number" class="form-control" name="kode_pos" placeholder="KODE POS" value="{{$kode_pos}}">
@@ -227,6 +230,10 @@
                 e.preventDefault();
                 var form_data = new FormData(this);
                 form_data.append('up',{!! $up !!});
+                var order_detail = {!! json_encode($order_product) !!};
+                for(i=0;i<order_detail.length;i++){
+                    form_data.append('jml'+order_detail[i].id_order_detail, parseInt($('#jml'+order_detail[i].id_order_detail).val()) || 1);
+                }
                 $.ajax({
                     type: 'post',
                     processData: false,

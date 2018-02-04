@@ -5,7 +5,7 @@
         <b>RIWAYAT PEMESANAN</b>
     </div>
     <div class="table-responsive">
-    	<table class="table baiza-table-order">
+    	<table class="table baiza-table-order" id="order_h">
     		<thead>
                 <tr class="header">
                 	<th scope="col">No. Order</th>
@@ -15,8 +15,8 @@
                     <th scope="col">Status</th>
                 </tr>
             </thead>
-            <tbody>
-            	<tr>
+            <!-- <tbody> -->
+            	<!-- <tr>
             		<td><div class="price">BSRE001</div></td>
             		<td>
             			<div class="mb-3">
@@ -46,8 +46,8 @@
             		<td>
             			<a href="/payment_confirmation" class="btn btn-blue btn-block">Konfirmasi</a>
             		</td>
-            	</tr>
-            	<tr>
+            	</tr> -->
+            	<!-- <tr>
             		<td><div class="price">BSRE002</div></td>
             		<td>
             			<div class="mb-3">
@@ -122,8 +122,8 @@
             			<button class="btn btn-success btn-block" disabled>Sukses</button>
             			<button class="btn btn-danger btn-block" disabled>Gagal</button>
             		</td>
-            	</tr>
-            </tbody>
+            	</tr> -->
+            <!-- </tbody> -->
     	</table>
     </div>
 </div>
@@ -131,5 +131,35 @@
 
 {{-- local scripts --}}
 @section('footer_scripts')
+<script>
+    $(document).ready(function () {
+        var table = $('#order_h').DataTable({
+            // dom: 'Bflrtip',
 
+            "processing": true,
+            "serverSide": true,
+            "ajax":{
+                     "url": "/order_history",
+                     "dataType": "json",
+                     "type": "POST"
+                   },
+
+            "columns": [
+                { "data": "order_code" , "name":"order_code"},
+                { "data": "detail_order" , name:"detail_order"},
+                { "data": "detail_pengiriman" , name:"detail_pengiriman"},
+                { "data": "total" , name:"total"},
+                { "data": "option" , name:"option"}
+            ],
+            "searching": false,
+            "ordering": false
+        });
+        // $('#tables_filter input').unbind();
+        // $('#tables_filter input').bind('keyup', function(e) {
+        //     if(e.keyCode == 13) {
+        //         table.search(this.value).draw();
+        //     }
+        // });
+    });
+</script>
 @stop
