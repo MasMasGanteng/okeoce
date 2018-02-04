@@ -1,23 +1,67 @@
-/* .navbar-dark {
-	background: #f37b8a;
+@import url('https://fonts.googleapis.com/css?family=Encode+Sans');
+
+body, h4, h5, h6 {
+    font-family: 'Encode Sans', sans-serif !important;
+    letter-spacing: .1rem;    
 }
+
+.btn, body {
+    font-size: .85rem;
+}
+
+.btn-teal {
+    color: #fff;
+    background-color: #79c6cc;
+    border-color: #79c6cc;
+}
+
+.btn-teal:hover {
+    color: #fff;
+    background-color: #68acb1;
+    border-color: #68acb1;
+}
+
+ .navbar-dark {
+     background: #79c6cc;
+     color: #fff;
+ }
+
 .navbar-brand img {
-	height: 30px;
+    height: 30px;
 }
+
 .navbar-brand span {
-	text-transform: uppercase;
+    text-transform: uppercase;
     letter-spacing: .4rem;
     font-size: 1rem;
     font-weight: 600;
 }
+
 img.img-dash-table {
     width: 100px;
     height: 100px;
     object-fit: cover;
 }
-#mainNav .navbar-collapse .navbar-sidenav {
-	margin-top: 59px;
+
+.krajee-default .file-preview-image {
+    max-width: 160px;
+    object-fit: contain;
 }
-#mainNav .navbar-collapse .navbar-sidenav, #mainNav.fixed-top.navbar-dark .sidenav-toggler {
-	background: #f37b8a!important;
-} */
+
+#mainNav .navbar-collapse .navbar-sidenav {
+    margin-top: 59px;
+    padding-top: 15px;
+    height: calc(100vh - 105px);
+}
+#mainNav.fixed-top .sidenav-toggler {
+    margin-top: calc(100vh - 45px);
+}
+#mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item > .nav-link,
+#mainNav .navbar-collapse .navbar-nav .nav-item .nav-link,
+#mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a, #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-third-level > li > a {
+    font-size: .8rem;
+    color: #fff;    
+}
+#mainNav .navbar-collapse .navbar-sidenav, #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level, #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-third-level {
+    background: #68acb1!important;
+} 

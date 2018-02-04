@@ -23,7 +23,7 @@
         <a class="scroll-to-top rounded" href="#page-top"><i class="fa fa-angle-up"></i></a>
         <!-- Logout Modal-->
         <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
@@ -34,13 +34,18 @@
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                        <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}</form>
+
+
                     </div>
                 </div>
             </div>
         </div>
         <div id="center_modal" class="modal fade animated position_modal" role="dialog">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
@@ -72,7 +77,6 @@
         <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/js/sb-admin.min.js"></script>
         <!-- Custom scripts for this page-->
         <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/js/sb-admin-datatables.min.js"></script>
-        <script src="https://cdn.ckeditor.com/4.7.3/basic/ckeditor.js"></script>
         <!-- piexif.min.js is only needed for restoring exif data in resized images and when you wish to resize images before upload. This must be loaded before fileinput.min.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/plugins/piexif.min.js" type="text/javascript"></script>
         <!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview. This must be loaded before fileinput.min.js -->
@@ -87,20 +91,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/fileinput.min.js"></script>
         <!-- optionally uncomment line below for loading your theme assets for a theme like Font Awesome (`fa`) -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/themes/fa/theme.min.js"></script>
-        <!-- ckeditor -->
-        <script src="/vendor/ckeditor/ckeditor/ckeditor.js"></script>
+        <!-- summernote -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.min.js"></script>
         <!-- validator -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
         @yield('footer_scripts')
-        <!-- <script>
-        CKEDITOR.replace('editor1');
-        $(document).ready(function() {
-            $("#input-fa-1").fileinput({
-                theme: "fa",
-                uploadUrl: "/file-upload-batch/2"
-            });
-        });
-        </script> -->
     </div>
 </body>
 

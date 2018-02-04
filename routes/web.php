@@ -110,6 +110,13 @@ Route::get('/dashboard/faq/delete', 'dashboard\content_management\DashboardFaqCo
 
 
 //T R A N S A C T I O N
+//dashboard/order_pendingPage
+Route::get('/dashboard/order_pending', 'dashboard\transaction\DashboardOrderPendingController@index');
+Route::post('/dashboard/order_pending', 'dashboard\transaction\DashboardOrderPendingController@post');
+Route::get('/dashboard/order_pending/create', 'dashboard\transaction\DashboardOrderPendingController@create');
+Route::post('/dashboard/order_pending/create', 'dashboard\transaction\DashboardOrderPendingController@post_create');
+Route::get('/dashboard/order_pending/delete', 'dashboard\transaction\DashboardOrderPendingController@delete');
+
 //dashboard/order_inPage
 Route::get('/dashboard/order_in', 'dashboard\transaction\DashboardOrderInController@index');
 Route::post('/dashboard/order_in', 'dashboard\transaction\DashboardOrderInController@post');
@@ -131,10 +138,9 @@ Route::get('/dashboard/order_success/create', 'dashboard\transaction\DashboardOr
 Route::post('/dashboard/order_success/create', 'dashboard\transaction\DashboardOrderSuccessController@post_create');
 Route::get('/dashboard/order_success/delete', 'dashboard\transaction\DashboardOrderSuccessController@delete');
 
-Route::get('/redirect', 'FacebookAuthController@redirect');
-Route::get('/callback', 'FacebookAuthController@callback');
-
-Route::get('/redirect', 'GoogleAuthController@redirect');
-Route::get('/callback', 'GoogleAuthController@callback');
+Route::group(['prefix' => 'social-media', 'namespace' => 'Auth'], function(){
+    Route::get('register/{provider}', 'SocialiteController@register');
+    Route::get('registered/{provider}', 'SocialiteController@registered');
+});
 
 Auth::routes();

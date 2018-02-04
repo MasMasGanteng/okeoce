@@ -47,13 +47,13 @@
         </div>
         <div class="form-group">
             <label>Description</label>
-            <textarea name="description-input" id="description-input" rows="10" cols="80">
+            <textarea name="description-input" id="description-input" rows="10">
                 {{$description}}
             </textarea>
         </div>
         <div class="form-group">
             <label>Locations</label>
-            <textarea name="location-input" id="location-input" rows="10" cols="80">
+            <textarea name="location-input" id="location-input" rows="10">
                 {{$location}}
             </textarea>
         </div>
@@ -81,8 +81,14 @@ function test(id){
     return false;
     }
 
-CKEDITOR.replace( 'description-input' );
-CKEDITOR.replace( 'location-input' );
+$(document).ready(function() {
+  $('#description-input').summernote({
+        height: 300
+  });
+  $('#location-input').summernote({
+    height: 300
+  });
+});
 
 $(document).ready(function () {
 
@@ -90,6 +96,8 @@ $(document).ready(function () {
         $('#form-validation').on('submit', function (e) {
             e.preventDefault();
             var form_data = new FormData(this);
+            form_data.append('description', $('#description-input').val());
+            form_data.append('location', $('#location-input').val());
             $.ajax({
                 type: 'post',
                 processData: false,

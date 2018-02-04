@@ -5,6 +5,11 @@
 </style>
 <div class="container">
     <h4 class="font-blue text-center">FREQUENTLY ASKED QUESTION</h4>
+    @foreach($faq_list as $list)
+        <div class="d-flex d-inline">Q : {!! $list->question !!}</div>
+        <div class="d-flex d-inline">A : {!! $list->ask !!}</div>
+    @endforeach
+
     <p>Q : Saya pengguna baru dan belum pernah memesan sebelumnya di Baiza Sushi, bagaimana cara mendaftar?</p>
     <p>A : Klik "Sign Up" di bagian pojok kanan atas pada layar. Masukkan keterangan yang diperlukan dan setujui Syarat dan Ketentuan. Akun Anda akan segera siap digunakan.</p>
     <p>Q : Bagaimana cara saya menambah alamat baru pada akun saya?</p>

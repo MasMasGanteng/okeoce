@@ -26,6 +26,11 @@ class DashboardController extends Controller
      */
     public function index()
     {
-		return view('layouts/dashboard');
+		$user = Auth::user();
+        if ($user->flag_admin == 1) {
+            return view('dashboard/index');
+        }else{
+            return Redirect::to('/');
+        }
     }
 }

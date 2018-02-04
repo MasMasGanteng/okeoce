@@ -84,8 +84,8 @@
             			<div class="price">Rp. 105.000</div>
             		</td>
             		<td>
-            			<button class="btn btn-warning btn-block">On Progress</button>
-            			<button class="btn btn-info btn-block">On Delivery</button>
+            			<button class="btn btn-warning btn-block" disabled>On Progress</button>
+            			<button class="btn btn-info btn-block" disabled>On Delivery</button>
             		</td>
             	</tr>
             	<tr>
@@ -119,8 +119,8 @@
             			<div class="price">Rp. 75.000</div>
             		</td>
             		<td>
-            			<button class="btn btn-success btn-block">Sukses</button>
-            			<button class="btn btn-danger btn-block">Gagal</button>
+            			<button class="btn btn-success btn-block" disabled>Sukses</button>
+            			<button class="btn btn-danger btn-block" disabled>Gagal</button>
             		</td>
             	</tr> -->
             <!-- </tbody> -->
