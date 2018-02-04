@@ -28,7 +28,7 @@ class HomeController extends Controller
     {
         $data['user']= Auth::user();
         $data['banner_list'] = DB::select('select * from banner where status=1');
-        $data['product_list'] = DB::select('select * from product where status=1');
+        $data['product_list'] = DB::select('select * from product where status=1 and id not in ("3","4")');
         $data['essential_list'] = DB::select('select * from ingredients where status=1 and categories=1');
         $data['sprinkle_list'] = DB::select('select * from ingredients where status=1 and categories=2');
         $data['special_list'] = DB::select('select * from ingredients where status=1 and categories=3');
@@ -40,21 +40,33 @@ class HomeController extends Controller
         $user = Auth::user();
         if($user!=null){
             $check_order_aktif = DB::select('select * from `order` where status=1 and id_user='.$user->id);
+
+            date_default_timezone_set('Asia/Jakarta');
+            $date = date('dmY');
+            $user_seq = sprintf('%04u', $user->id);
+            $unique_price = rand(1,1000);
+            $order_code = $date.$user_seq.$unique_price;
+
             if($request->all()!=null && $request->input('id_product')==null){
                 if($check_order_aktif!=null){
+                    
                     $lastInsertOrderDetail=DB::table('order_detail')->insertGetId([
                         "id_order" => $check_order_aktif[0]->id,
-                        "id_product" => $request->input('product')
+                        "id_product" => $request->input('product'),
+                        "jumlah" => 1
                     ]);
                 }else{
                     $lastInsertOrder=DB::table('order')->insertGetId([
                         "status" => 1,
+                        "order_code" => $order_code,
+                        "unique_price" => $unique_price,
                         "id_user" => $user->id
                     ]);
 
                     $lastInsertOrderDetail=DB::table('order_detail')->insertGetId([
                         "id_order" => $lastInsertOrder,
-                        "id_product" => $request->input('product')
+                        "id_product" => $request->input('product'),
+                        "jumlah" => 1
                     ]);
                 }
 
@@ -113,17 +125,21 @@ class HomeController extends Controller
                 if($check_order_aktif!=null){
                     DB::table('order_detail')->insert([
                         "id_order" => $check_order_aktif[0]->id,
-                        "id_product" => $request->input('id_product')
+                        "id_product" => $request->input('id_product'),
+                        "jumlah" => 1
                     ]);
                 }else{
                     $lastInsertOrder=DB::table('order')->insertGetId([
                         "status" => 1,
+                        "order_code" => $order_code,
+                        "unique_price" => $unique_price,
                         "id_user" => $user->id
                     ]);
 
                     $lastInsertOrderDetail=DB::table('order_detail')->insertGetId([
                         "id_order" => $lastInsertOrder,
-                        "id_product" => $request->input('id_product')
+                        "id_product" => $request->input('id_product'),
+                        "jumlah" => 1
                     ]);
                 }
             }
