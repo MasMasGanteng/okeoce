@@ -127,10 +127,9 @@ Route::get('/dashboard/order_success/create', 'dashboard\transaction\DashboardOr
 Route::post('/dashboard/order_success/create', 'dashboard\transaction\DashboardOrderSuccessController@post_create');
 Route::get('/dashboard/order_success/delete', 'dashboard\transaction\DashboardOrderSuccessController@delete');
 
-Route::get('/redirect', 'FacebookAuthController@redirect');
-Route::get('/callback', 'FacebookAuthController@callback');
-
-Route::get('/redirect', 'GoogleAuthController@redirect');
-Route::get('/callback', 'GoogleAuthController@callback');
+Route::group(['prefix' => 'social-media', 'namespace' => 'Auth'], function(){
+    Route::get('register/{provider}', 'SocialiteController@register');
+    Route::get('registered/{provider}', 'SocialiteController@registered');
+});
 
 Auth::routes();

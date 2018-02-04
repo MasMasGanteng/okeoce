@@ -38,13 +38,13 @@ return [
     'facebook' => [
         'client_id' => '1743681079059145',
         'client_secret' => '33d1a96a84c97d71ef2bf050d9fe2b54',
-        'redirect' => 'http://localhost:8000/callback',
+        'redirect' => 'http://localhost:8000/social-media/registered/facebook',
     ],
 
     'google' => [
          'client_id' => env('1067955128684-css1sofpblgl8us9sddq98btdckbbr.apps.googleusercontent.com'),
          'client_secret' => env('NHTgS98vMj6LCH5BQQz0b7'),
-         'redirect' => env('http://localhost:8000/callback'),
+         'redirect' => env('http://localhost:8000/social-media/registered/google'),
      ],
 
 ];
