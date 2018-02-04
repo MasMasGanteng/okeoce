@@ -11,11 +11,11 @@
             </div>
             <div class="content">
                 Syarat & ketentuan:<br>
-                {{$list->description}}
+                {!!$list->description!!}
             </div>
             <div class="contact">
                 Lokasi & Contact :<br>
-                {{$list->location}}
+                {!!$list->location!!}
             </div>
         </div>
         <button class="btn btn-blue btn-toggle-promo" id="{{$list->id}}" type="button">DETAIL PROMO</button>
