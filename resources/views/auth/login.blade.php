@@ -17,39 +17,30 @@
             <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
                 <input id="email" type="email" class="form-control" name="email" placeholder="EMAIL" value="{{ old('email') }}" required autofocus>
                 @if ($errors->has('email'))
-                <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
+                <small class="form-text text-muted">{{ $errors->first('email') }}</small>
+                @endif
             </div>
             <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                 <input id="password" type="password" class="form-control" name="password" placeholder="PASSWORD" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
+                @if ($errors->has('password'))
+                <span class="help-block">
+                    <strong>{{ $errors->first('password') }}</strong>
+                </span>
+                @endif
             </div>
-
             <div class="form-group">
                 <div class="row no-gutters">
                     <div class="col-6">
-                        <label class="custom-control custom-checkbox">
-                            <input type="checkbox" class="custom-control-input" type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}>
-                            <span class="custom-control-indicator"></span>
-                            <span class="custom-control-description">Remember Me</span>
-                        </label>
-                            </div>
-                            <div class="col-6 text-right">
-            <a href="{{ route('password.request') }}">
-                                    Forgot Password?
-                                </a>
-                            </div>
-                </div>
-
+                        <div class="custom-control custom-checkbox">
+                            <input id="remember_session" type="checkbox" class="custom-control-input" type="checkbox" name="remember" {{ old( 'remember') ? 'checked' : '' }}>
+                            <label class="custom-control-label" for="remember_session">Remember Me</label>
                         </div>
-
+                    </div>
+                    <div class="col-6 text-right">
+                        <a href="{{ route('password.request') }}">Forgot Password?</a>
+                    </div>
+                </div>
+            </div>
             <button type="submit" class="btn btn-blue btn-block btn-lg">LOGIN</button>
         </form>
         <p class="text-center">

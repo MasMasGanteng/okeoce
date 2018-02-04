@@ -32,6 +32,8 @@ Route::get('/terms', 'front\TermsController@index');
 Route::get('/refund_policy', 'front\RefundPolicyController@index');
 //view contactPage
 Route::get('/contact', 'front\ContactController@index');
+//view orderHistory
+Route::get('/order_history', 'front\OrderHistoryController@index');
 
 //DetailOrder form
 //get html form data

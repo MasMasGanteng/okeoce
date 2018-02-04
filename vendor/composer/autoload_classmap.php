@@ -29,6 +29,7 @@ return array(
     'App\\Http\\Controllers\\front\\DetailOrderController' => $baseDir . '/app/Http/Controllers/front/DetailOrderController.php',
     'App\\Http\\Controllers\\front\\FaqController' => $baseDir . '/app/Http/Controllers/front/FaqController.php',
     'App\\Http\\Controllers\\front\\HowToOrderController' => $baseDir . '/app/Http/Controllers/front/HowToOrderController.php',
+    'App\\Http\\Controllers\\front\\OrderHistoryController' => $baseDir . '/app/Http/Controllers/front/OrderHistoryController.php',
     'App\\Http\\Controllers\\front\\PaymentConfirmationController' => $baseDir . '/app/Http/Controllers/front/PaymentConfirmationController.php',
     'App\\Http\\Controllers\\front\\PaymentConfirmationSuccessController' => $baseDir . '/app/Http/Controllers/front/PaymentConfirmationSuccessController.php',
     'App\\Http\\Controllers\\front\\PaymentMethodController' => $baseDir . '/app/Http/Controllers/front/PaymentMethodController.php',
@@ -49,6 +50,13 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+<<<<<<< HEAD
+=======
+    'App\\Services\\SocialFacebookAccountService' => $baseDir . '/app/Services/SocialFacebookAccountService.php',
+    'App\\Services\\SocialGoogleAccountService' => $baseDir . '/app/Services/SocialGoogleAccountService.php',
+    'App\\SocialFacebookAccounts' => $baseDir . '/app/SocialFacebookAccounts.php',
+    'App\\SocialGoogleAccounts' => $baseDir . '/app/SocialGoogleAccounts.php',
+>>>>>>> 9e18f8784eb3701b75724576072805430cc2c344
     'App\\User' => $baseDir . '/app/User.php',
     'Carbon\\Carbon' => $vendorDir . '/nesbot/carbon/src/Carbon/Carbon.php',
     'Carbon\\CarbonInterval' => $vendorDir . '/nesbot/carbon/src/Carbon/CarbonInterval.php',

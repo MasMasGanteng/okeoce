@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <style type="text/css">
-    .navbar-white,body{background:#fff8a0}body{height:auto}.footer{margin-top:0}@media (min-width:768px){body{height:100%}.about-container{height:calc(100% - 20em)}}
+    .navbar-white,body{background:#fff8a0}body{height:auto}.footer{margin-top:0}@media (min-width:768px){body{height:100%}}
 </style>
 <div class="container-fluid about-container">
     <!-- call to action -->

@@ -48,8 +48,10 @@ class DashboardReadyToEatController extends Controller
                         when status = 1 then "Aktif"
                         when status = 0 then "Tidak Aktif"
                     end status
-                from product';
-        $totalData = DB::select('select count(1) cnt from product');
+                from product
+                where id not in ("3", "4")';
+        $totalData = DB::select('select count(1) cnt from product
+                where id not in ("3", "4")');
         $totalFiltered = $totalData[0]->cnt;
         $limit = $request->input('length');
         $start = $request->input('start');

@@ -91,8 +91,7 @@ class DashboardPromoController extends Controller
                 $nestedData['end_date'] = $post->end_date;
                 $nestedData['created_time'] = $post->created_time;
                 $nestedData['created_by'] = $post->created_by;
-                $nestedData['option'] = "&emsp;<a href='{$url_edit}' title='EDIT' ><span class='fa fa-fw fa-edit'></span></a>
-                                          &emsp;<a href='#' onclick='delete_func(\"{$url_delete}\");'><span class='fa fa-fw fa-trash-o'></span></a>";
+                $nestedData['option'] = "<a href='{$url_edit}' title='EDIT' class='btn btn-sm btn-info'><span class='fa fa-fw fa-pencil'></span></a>&nbsp;<a href='#' onclick='delete_func(\"{$url_delete}\");' class='btn btn-sm btn-danger'><span class='fa fa-fw fa-close'></span></a>";
                 $data[] = $nestedData;
             }
         }
@@ -147,15 +146,16 @@ class DashboardPromoController extends Controller
 
     public function post_create(Request $request)
     {
-
+        $user = Auth::user();
+        var_dump($request->all());
         if ($request->input('id')!=null){
             DB::table('promo')->where('id', $request->input('id'))
             ->update(['title' => $request->input('title-input'),
                 'id_banner' => $request->input('select-id_banner-input'),
                 'start_date' => $request->input('start_date-input'),
                 'end_date' => $request->input('end_date-input'),
-                'location' => $request->input('location-input'),
-                'description' => $request->input('description-input'),
+                'location' => $request->input('location'),
+                'description' => $request->input('description'),
                 'status' => $request->input('select-status-input')
                 ]);
         }else{
@@ -164,11 +164,11 @@ class DashboardPromoController extends Controller
                 'id_banner' => $request->input('select-id_banner-input'),
                 'start_date' => $request->input('start_date-input'),
                 'end_date' => $request->input('end_date-input'),
-                'location' => $request->input('location-input'),
-                'description' => $request->input('description-input'),
+                'location' => $request->input('location'),
+                'description' => $request->input('description'),
                 'status' => $request->input('select-status-input'),
                 // 'created_by' => Auth::user()->id
-                'created_by' => 1
+                'created_by' => $user->id
                 ]);
         }
     }

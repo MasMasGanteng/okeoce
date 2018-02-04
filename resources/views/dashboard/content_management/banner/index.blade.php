@@ -35,7 +35,6 @@
             </table>
         </div>
     </div>
-    <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
 </div>
 <script src="{{asset('js/jquery-1.11.1.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/custom_js/alert.js')}}" type="text/javascript"></script>
@@ -77,15 +76,3 @@ $(document).ready(function () {
 });
 </script>
 @stop
-
-
-
-
-
-
-
-
-
-
-
-

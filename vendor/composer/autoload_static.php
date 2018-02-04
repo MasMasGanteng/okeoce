@@ -359,6 +359,7 @@ class ComposerStaticInit4027bd277d641feb7e4435790b29525f
         'App\\Http\\Controllers\\front\\DetailOrderController' => __DIR__ . '/../..' . '/app/Http/Controllers/front/DetailOrderController.php',
         'App\\Http\\Controllers\\front\\FaqController' => __DIR__ . '/../..' . '/app/Http/Controllers/front/FaqController.php',
         'App\\Http\\Controllers\\front\\HowToOrderController' => __DIR__ . '/../..' . '/app/Http/Controllers/front/HowToOrderController.php',
+        'App\\Http\\Controllers\\front\\OrderHistoryController' => __DIR__ . '/../..' . '/app/Http/Controllers/front/OrderHistoryController.php',
         'App\\Http\\Controllers\\front\\PaymentConfirmationController' => __DIR__ . '/../..' . '/app/Http/Controllers/front/PaymentConfirmationController.php',
         'App\\Http\\Controllers\\front\\PaymentConfirmationSuccessController' => __DIR__ . '/../..' . '/app/Http/Controllers/front/PaymentConfirmationSuccessController.php',
         'App\\Http\\Controllers\\front\\PaymentMethodController' => __DIR__ . '/../..' . '/app/Http/Controllers/front/PaymentMethodController.php',
@@ -379,6 +380,13 @@ class ComposerStaticInit4027bd277d641feb7e4435790b29525f
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+<<<<<<< HEAD
+=======
+        'App\\Services\\SocialFacebookAccountService' => __DIR__ . '/../..' . '/app/Services/SocialFacebookAccountService.php',
+        'App\\Services\\SocialGoogleAccountService' => __DIR__ . '/../..' . '/app/Services/SocialGoogleAccountService.php',
+        'App\\SocialFacebookAccounts' => __DIR__ . '/../..' . '/app/SocialFacebookAccounts.php',
+        'App\\SocialGoogleAccounts' => __DIR__ . '/../..' . '/app/SocialGoogleAccounts.php',
+>>>>>>> 9e18f8784eb3701b75724576072805430cc2c344
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
