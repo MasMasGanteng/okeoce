@@ -25,6 +25,9 @@ class FaqController
      */
     public function index()
     {
-		return view('pages/faq');
+        $data['faq_list'] = DB::select('select * from faq where status = 1');
+		return view('pages/faq', $data);
     }
+
+
 }

@@ -96,6 +96,8 @@ $(document).ready(function () {
         $('#form-validation').on('submit', function (e) {
             e.preventDefault();
             var form_data = new FormData(this);
+            form_data.append('description', $('#description-input').val());
+            form_data.append('location', $('#location-input').val());
             $.ajax({
                 type: 'post',
                 processData: false,
