@@ -34,6 +34,8 @@ Route::get('/refund_policy', 'front\RefundPolicyController@index');
 Route::get('/contact', 'front\ContactController@index');
 //view orderHistory
 Route::get('/order_history', 'front\OrderHistoryController@index');
+//datatable orderHistory
+Route::post('/order_history', 'front\OrderHistoryController@post');
 
 //DetailOrder form
 //get html form data

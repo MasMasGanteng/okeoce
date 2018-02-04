@@ -15,6 +15,9 @@
                     </a>
                 <ul class="sidenav-second-level collapse" id="collapseSelling">
                     <li>
+                        <a href="/dashboard/order_pending">Waiting Payment</a>
+                    </li>
+                    <li>
                         <a href="/dashboard/order_in">New Order</a>
                     </li>
                     <li>

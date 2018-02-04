@@ -23,8 +23,13 @@ class PaymentConfirmationController
      * Show the application dashboard.
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-		return view('pages/payment_confirmation');
+        if($request->input('id')!=null){
+            $data['id'] = $request->input('id');
+            return view('pages/payment_confirmation', $data);
+        }else{
+            return Redirect::to('/error');
+        }
     }
 }
