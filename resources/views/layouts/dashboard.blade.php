@@ -34,7 +34,12 @@
                     <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
                     <div class="modal-footer">
                         <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                        <a class="btn btn-primary" href="login.html">Logout</a>
+                        <a class="btn btn-primary" href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            {{ csrf_field() }}</form>
+
+
                     </div>
                 </div>
             </div>
@@ -72,7 +77,6 @@
         <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/js/sb-admin.min.js"></script>
         <!-- Custom scripts for this page-->
         <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/js/sb-admin-datatables.min.js"></script>
-        <script src="https://cdn.ckeditor.com/4.7.3/basic/ckeditor.js"></script>
         <!-- piexif.min.js is only needed for restoring exif data in resized images and when you wish to resize images before upload. This must be loaded before fileinput.min.js -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/js/plugins/piexif.min.js" type="text/javascript"></script>
         <!-- sortable.min.js is only needed if you wish to sort / rearrange files in initial preview. This must be loaded before fileinput.min.js -->
@@ -93,15 +97,6 @@
         <!-- validator -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
         @yield('footer_scripts')
-        <!-- <script>
-        CKEDITOR.replace('editor1');
-        $(document).ready(function() {
-            $("#input-fa-1").fileinput({
-                theme: "fa",
-                uploadUrl: "/file-upload-batch/2"
-            });
-        });
-        </script> -->
     </div>
 </body>
 
