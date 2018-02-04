@@ -99,23 +99,23 @@
     <div class="row mx-0">
 		<div class="ml-auto mt-5 d-flex align-items-center justify-content-end" style="width: 400px;">
 			<div class="col">Sushi List :</div>
-			<div class="col d-flex flex-column text-center" style="background: #75c8ce;">
+			<div class="col d-flex flex-column text-center py-2" style="background: #75c8ce;">
 				<a href="dashboard/make_sushi" class="text-white">
 					<small>
 						Make Your Own
 					</small>
-					<div class="h4">
+					<div class="h4 mb-0">
 						1000
 					</div>
 				</a>
 					
 				</div>
-				<div class="col d-flex flex-column text-center" style="background: #f37b8a;">
+				<div class="col d-flex flex-column text-center py-2" style="background: #f37b8a;">
 					<a href="/dashboard/ready_to_eat" class="text-white">
 						<small>
 						Ready to Eat
 					</small>
-					<div class="h4">
+					<div class="h4 mb-0">
 						1000
 					</div>
 					</a>
