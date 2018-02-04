@@ -42,8 +42,8 @@ return [
     ],
 
     'google' => [
-         'client_id' => env('1067955128684-css1sofpblgl8us9sddq98btdckbbr.apps.googleusercontent.com'),
-         'client_secret' => env('NHTgS98vMj6LCH5BQQz0b7'),
+         'client_id' => env('183283899862-ltapi88c32i2uii0gnmqtebvql97rppo.apps.googleusercontent.com'),
+         'client_secret' => env('kjaTZYkCppVVTRXb4EtKhB34'),
          'redirect' => env('http://localhost:8000/social-media/registered/google'),
      ],
 
