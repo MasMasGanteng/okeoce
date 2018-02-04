@@ -127,7 +127,7 @@
             <textarea class="form-control" placeholder="ALAMAT" rows="3">{{$address}}</textarea>
         </div>
         <div class="text-center mt-5 mb-3">
-            <button type="submit" class="btn btn-blue btn-lg">Done</button>
+            <button type="submit" class="btn btn-info btn-lg">Done</button>
         </div>
     </form>
 </div>

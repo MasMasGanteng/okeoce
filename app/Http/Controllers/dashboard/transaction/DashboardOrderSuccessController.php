@@ -81,11 +81,25 @@ class DashboardOrderSuccessController extends Controller
         else {
             $search = $request->input('search.value');
             $posts=DB::select($query. ' where (
-                nama like "%'.$search.'%"
+                id like "%'.$search.'%" or
+                name like "%'.$search.'%" or
+                price like "%'.$search.'%" or
+                shipping_method like "%'.$search.'%" or
+                payment_method like "%'.$search.'%" or
+                nama_penerima like "%'.$search.'%" or
+                id like "%'.$search.'%" or
+                phone_number like "%'.$search.'%"
                 )
                 order by '.$order.' '.$dir.' limit '.$start.','.$limit);
             $totalFiltered=DB::select('select count(1) cnt from ('.$query. ' where (
-                nama like "%'.$search.'%" 
+                id like "%'.$search.'%" or
+                name like "%'.$search.'%" or
+                price like "%'.$search.'%" or
+                shipping_method like "%'.$search.'%" or
+                payment_method like "%'.$search.'%" or
+                nama_penerima like "%'.$search.'%" or
+                id like "%'.$search.'%" or
+                phone_number like "%'.$search.'%"
                 )) a');
             $totalFiltered=$totalFiltered[0]->cnt;
         }

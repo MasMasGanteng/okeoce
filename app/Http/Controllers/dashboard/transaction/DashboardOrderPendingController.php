@@ -50,7 +50,7 @@ class DashboardOrderPendingController extends Controller
                         case 
                             when a.status = "0" then "Canceled"
                             when a.status = "1" then "On Cart"
-                            when a.status = "2" then "Pending"
+                            when a.status = "2" then "Waiting Payment & Confirmation"
                             when a.status = "3" then "Confirmed Payment"
                             when a.status = "4" then "Proceed"
                             when a.status = "5" then "Done"
@@ -65,10 +65,10 @@ class DashboardOrderPendingController extends Controller
                        b.name
                     from `order` a 
                         left join users b on a.id_user = b.id
-                    where a.status = "3") b';
+                    where a.status = "2") b';
         $totalData = DB::select('select count(1) cnt from `order` a 
                                     left join users b on a.id_user = b.id
-                                where a.status = "3"');
+                                where a.status = "2"');
         $totalFiltered = $totalData[0]->cnt;
         $limit = $request->input('length');
         $start = $request->input('start');
@@ -81,11 +81,25 @@ class DashboardOrderPendingController extends Controller
         else {
             $search = $request->input('search.value');
             $posts=DB::select($query. ' where (
-                nama like "%'.$search.'%"
+                id like "%'.$search.'%" or
+                name like "%'.$search.'%" or
+                price like "%'.$search.'%" or
+                shipping_method like "%'.$search.'%" or
+                payment_method like "%'.$search.'%" or
+                nama_penerima like "%'.$search.'%" or
+                id like "%'.$search.'%" or
+                phone_number like "%'.$search.'%"
                 )
                 order by '.$order.' '.$dir.' limit '.$start.','.$limit);
             $totalFiltered=DB::select('select count(1) cnt from ('.$query. ' where (
-                nama like "%'.$search.'%" 
+                id like "%'.$search.'%" or
+                name like "%'.$search.'%" or
+                price like "%'.$search.'%" or
+                shipping_method like "%'.$search.'%" or
+                payment_method like "%'.$search.'%" or
+                nama_penerima like "%'.$search.'%" or
+                id like "%'.$search.'%" or
+                phone_number like "%'.$search.'%"
                 )) a');
             $totalFiltered=$totalFiltered[0]->cnt;
         }
@@ -210,7 +224,7 @@ class DashboardOrderPendingController extends Controller
     {
         if ($request->input('id')!=null){
             DB::table('order')->where('id', $request->input('id'))
-            ->update(['status' => 4 ]);
+            ->update(['status' => 3 ]);
         }
     }
 
