@@ -115,13 +115,13 @@
             <input type="hidden" id="jml_all_id" name="jml_all_id">
             <div class="form-row">
                 <div class="form-group col-md-4">
-                    <input type="text" class="form-control" name="nama_penerima" placeholder="NAMA PENERIMA" value="{{$nama_penerima}}" required>
+                    <input type="text" class="form-control" name="nama_penerima" placeholder="NAMA PENERIMA" maxlength="100" value="{{$nama_penerima}}" required>
                 </div>
                 <div class="form-group col-md-4">
-                    <input type="tel" class="form-control" name="phone_number" placeholder="NO HP PENERIMA" value="{{$phone_number}}" required>
+                    <input type="tel" class="form-control" name="phone_number" placeholder="NO HP PENERIMA" maxlength="20" value="{{$phone_number}}" required>
                 </div>
                 <div class="form-group col-md-4">
-                    <input type="number" class="form-control" name="kode_pos" placeholder="KODE POS" value="{{$kode_pos}}">
+                    <input type="number" class="form-control" name="kode_pos" placeholder="KODE POS" min="0" maxlength="5" value="{{$kode_pos}}">
                 </div>
             </div>
             <div class="form-row">
