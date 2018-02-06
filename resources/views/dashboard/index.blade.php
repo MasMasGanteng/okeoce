@@ -35,7 +35,7 @@
 		</div>
 	</div>
     <div class="row">
-        <div class="col-3">
+        <div class="col">
             <div class="card">
                 <div class="card-body">
                     <div class="row mx-0 d-flex d-inline mb-3 align-items-center justify-content-center">
@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col">
             <div class="card">
                 <div class="card-body">
                     <div class="row mx-0 d-flex d-inline mb-3 align-items-center justify-content-center">
@@ -65,7 +65,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col">
             <div class="card">
                 <div class="card-body">
                     <div class="row mx-0 d-flex d-inline mb-3 align-items-center justify-content-center">
@@ -80,38 +80,36 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="row">
-        <div class="col-3">
+        <div class="col">
             <div class="card">
                 <div class="card-body">
                     <div class="row mx-0 d-flex d-inline mb-3 align-items-center justify-content-center">
-                    	<p class="mb-0">
-                    		Success Order
-                    	</p>
-                    	<div class="ml-auto h4">
-                    		{{$cnt_success}}
-                    	</div>
+                        <p class="mb-0">
+                            Success Order
+                        </p>
+                        <div class="ml-auto h4">
+                            {{$cnt_success}}
+                        </div>
                     </div>
                     <a href="/dashboard/succes_order" class="btn btn-teal btn-block">View Details</a>
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <!-- <div class="col">
             <div class="card">
                 <div class="card-body">
                     <div class="row mx-0 d-flex d-inline mb-3 align-items-center justify-content-center">
-                    	<p class="mb-0">
-                    		Cancel Order
-                    	</p>
-                    	<div class="ml-auto h4">
-                    		{{$cnt_cancel}}
-                    	</div>
+                        <p class="mb-0">
+                            Cancel Order
+                        </p>
+                        <div class="ml-auto h4">
+                            {{$cnt_cancel}}
+                        </div>
                     </div>
                     <a href="/dashboard/canceled_order" class="btn btn-teal btn-block">View Details</a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="row mx-0">
 		<div class="ml-auto mt-5 d-flex align-items-center justify-content-end" style="width: 400px;">
