@@ -24,9 +24,15 @@ class DashboardFaqController extends Controller
      * Show the application dashboard.
      * @return \Illuminate\Http\Response
      */
+    
     public function index()
     {
-        return view('dashboard/content_management/faq/index');
+        $user = Auth::user();
+        if ($user->flag_admin == 1) {
+            return view('dashboard/content_management/faq/index');
+        }else{
+            return Redirect::to('/');
+        }
     }
 
     public function Post(Request $request)

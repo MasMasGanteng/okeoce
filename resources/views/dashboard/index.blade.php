@@ -20,7 +20,7 @@
 						Transaction
 					</small>
 					<div class="h4">
-						1000
+						{{$cnt_transaction}}
 					</div>
 				</div>
 				<div class="col-3 d-flex flex-column text-center">
@@ -28,73 +28,88 @@
 						New User
 					</small>
 					<div class="h4">
-						1000
+						{{$cnt_user}}
 					</div>
 				</div>				
 			</div>
 		</div>
 	</div>
     <div class="row">
-        <div class="col-3">
+        <div class="col">
             <div class="card">
                 <div class="card-body">
                     <div class="row mx-0 d-flex d-inline mb-3 align-items-center justify-content-center">
-                    	<p class="mb-0">
-                    		New Order
-                    	</p>
-                    	<div class="ml-auto h4">
-                    		2000
-                    	</div>
+                        <p class="mb-0">
+                            Waiting Payment
+                        </p>
+                        <div class="ml-auto h4">
+                            {{$cnt_pending}}
+                        </div>
+                    </div>
+                    <a href="/dashboard/order_pending" class="btn btn-teal btn-block">View Details</a>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row mx-0 d-flex d-inline mb-3 align-items-center justify-content-center">
+                        <p class="mb-0">
+                            New Order
+                        </p>
+                        <div class="ml-auto h4">
+                            {{$cnt_new}}
+                        </div>
                     </div>
                     <a href="/dashboard/order_in" class="btn btn-teal btn-block">View Details</a>
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col">
             <div class="card">
                 <div class="card-body">
                     <div class="row mx-0 d-flex d-inline mb-3 align-items-center justify-content-center">
-                    	<p class="mb-0">
-                    		On Progress
-                    	</p>
-                    	<div class="ml-auto h4">
-                    		2000
-                    	</div>
+                        <p class="mb-0">
+                            On Progress
+                        </p>
+                        <div class="ml-auto h4">
+                            {{$cnt_progress}}
+                        </div>
                     </div>
                     <a href="/dashboard/order_progress" class="btn btn-teal btn-block">View Details</a>
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <div class="col">
             <div class="card">
                 <div class="card-body">
                     <div class="row mx-0 d-flex d-inline mb-3 align-items-center justify-content-center">
-                    	<p class="mb-0">
-                    		Success Order
-                    	</p>
-                    	<div class="ml-auto h4">
-                    		2000
-                    	</div>
+                        <p class="mb-0">
+                            Success Order
+                        </p>
+                        <div class="ml-auto h4">
+                            {{$cnt_success}}
+                        </div>
                     </div>
                     <a href="/dashboard/succes_order" class="btn btn-teal btn-block">View Details</a>
                 </div>
             </div>
         </div>
-        <div class="col-3">
+        <!-- <div class="col">
             <div class="card">
                 <div class="card-body">
                     <div class="row mx-0 d-flex d-inline mb-3 align-items-center justify-content-center">
-                    	<p class="mb-0">
-                    		Cancel Order
-                    	</p>
-                    	<div class="ml-auto h4">
-                    		2000
-                    	</div>
+                        <p class="mb-0">
+                            Cancel Order
+                        </p>
+                        <div class="ml-auto h4">
+                            {{$cnt_cancel}}
+                        </div>
                     </div>
-                    <a href="#" class="btn btn-teal btn-block">View Details</a>
+                    <a href="/dashboard/canceled_order" class="btn btn-teal btn-block">View Details</a>
                 </div>
             </div>
-        </div>
+        </div> -->
     </div>
     <div class="row mx-0">
 		<div class="ml-auto mt-5 d-flex align-items-center justify-content-end" style="width: 400px;">
@@ -105,7 +120,7 @@
 						Make Your Own
 					</small>
 					<div class="h4 mb-0">
-						1000
+						{{$cnt_make}}
 					</div>
 				</a>
 					
@@ -116,7 +131,7 @@
 						Ready to Eat
 					</small>
 					<div class="h4 mb-0">
-						1000
+						{{$cnt_ready}}
 					</div>
 					</a>
 					

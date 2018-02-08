@@ -24,9 +24,15 @@ class DashboardReadyToEatController extends Controller
      * Show the application dashboard.
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        return view('dashboard/add_product/ready_to_eat/index');
+        $user = Auth::user();
+        if ($user->flag_admin == 1) {
+            return view('dashboard/add_product/ready_to_eat/index');
+        }else{
+            return Redirect::to('/');
+        }
     }
 
     public function post(Request $request)

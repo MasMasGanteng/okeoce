@@ -19,7 +19,7 @@
             <div class="h4 font-weight-bold mb-3 mt-5">
                 Tentang Baiza
             </div>
-            <div class="h6">
+            <div class="h6 mb-4">
                 Terlahirnya Baiza Sushi pada 21 Januari 2016. Merupakan representasi dari para penggemar makanan jepang/ sushi yang menginginkan kehalalan dari produk makanan tersebut. Atas permasalahan tersebut baiza sushi hadir untuk mengakomodir kebutuhan penggemar sushi yang menginginkan makanan ini berlabel halal. Makanan sushi sudah tidak asing lagi di lidah orang indonesia, saat ini merupakan maknan ringan namun memiliki nilai gizi yang sangat baik untuk dikonsumsi ,selain itu juga harganya sangat terjangkau untuk semu kalangan.
             </div>
         </div>

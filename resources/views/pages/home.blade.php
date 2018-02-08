@@ -13,7 +13,9 @@
             <div class="carousel-inner">
                 @foreach($banner_list as $index => $banner)
                 <div class="carousel-item @if($index == 0) {{ 'active' }} @endif">
-                    <img class="d-block w-100" src="uploads/front/banner/{{$banner->url_img_banner}}" alt="{{$banner->description}}">
+                    <a href="/promo">
+                        <img class="d-block w-100" src="uploads/front/banner/{{$banner->url_img_banner}}" alt="{{$banner->description}}">
+                    </a>
                 </div>
                 @endforeach
             </div>

@@ -24,9 +24,15 @@ class DashboardOrderSuccessController extends Controller
      * Show the application dashboard.
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        return view('dashboard/transaction/order_success/index');
+        $user = Auth::user();
+        if ($user->flag_admin == 1) {
+            return view('dashboard/transaction/order_success/index');
+        }else{
+            return Redirect::to('/');
+        }
     }
 
     public function Post(Request $request)

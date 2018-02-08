@@ -28,14 +28,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/about_us">ABOUT US</a>
                 </li>
-                <li class="nav-item d-sm-block d-md-none">
-                    <a class="nav-link" href="/order_history">ORDER HISTORY</a>
-                </li>
                 @guest
                 <li class="nav-item d-sm-block d-md-none">
                     <a class="nav-link" href="{{ route('login') }}">LOGIN</a>
                 </li>
                 @else
+                <li class="nav-item d-sm-block d-md-none">
+                    <a class="nav-link" href="/order_history">ORDER HISTORY</a>
+                </li>
                 <li class="nav-item d-sm-block d-md-none">
                     <a href="{{ route('logout') }}" class="nav-link" onclick="event.preventDefault();document.getElementById('logout-form').submit();">LOGOUT</a>
                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
