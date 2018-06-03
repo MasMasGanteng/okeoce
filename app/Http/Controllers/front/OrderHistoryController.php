@@ -159,7 +159,7 @@ class OrderHistoryController
 
                 $option = '';
                 if($post->status==2){
-                    $option .= "<a href='{{$url_edit}}' class='btn btn-blue btn-block'>Konfirmasi</a>";
+                    $option .= "<a href='{$url_edit}' class='btn btn-blue btn-block'>Konfirmasi</a>";
                 }else if($post->status==3){
                     $option .= "<button class='btn btn-warning btn-block'>On Progress</button>";
                 }

@@ -4372,5 +4372,236 @@
             "text",
             "wysiwyg"
         ]
+    },
+    {
+        "name": "mashape/unirest-php",
+        "version": "v3.0.4",
+        "version_normalized": "3.0.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Mashape/unirest-php.git",
+            "reference": "842c0f242dfaaf85f16b72e217bf7f7c19ab12cb"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Mashape/unirest-php/zipball/842c0f242dfaaf85f16b72e217bf7f7c19ab12cb",
+            "reference": "842c0f242dfaaf85f16b72e217bf7f7c19ab12cb",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "codeclimate/php-test-reporter": "0.1.*",
+            "phpunit/phpunit": "~4.4"
+        },
+        "suggest": {
+            "ext-json": "Allows using JSON Bodies for sending and parsing requests"
+        },
+        "time": "2016-08-11T17:49:21+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Unirest\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "description": "Unirest PHP",
+        "homepage": "https://github.com/Mashape/unirest-php",
+        "keywords": [
+            "client",
+            "curl",
+            "http",
+            "https",
+            "rest"
+        ]
+    },
+    {
+        "name": "odenktools/php-bca",
+        "version": "v2.1.1",
+        "version_normalized": "2.1.1.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/odenktools/php-bca.git",
+            "reference": "2420466bb085556f96571cee58771b8b95c5e61e"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/odenktools/php-bca/zipball/2420466bb085556f96571cee58771b8b95c5e61e",
+            "reference": "2420466bb085556f96571cee58771b8b95c5e61e",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "mashape/unirest-php": "3.0.4",
+            "nesbot/carbon": "~1.18",
+            "php": ">=5.4"
+        },
+        "require-dev": {
+            "phpunit/phpunit": "~4"
+        },
+        "time": "2018-03-10T16:52:28+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Bca\\": "lib/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "odenktools",
+                "email": "odenktools86@gmail.com",
+                "homepage": "https://odenktools.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "Library REST API Untuk Develop BCA Payment",
+        "homepage": "https://github.com/odenktools/php-bca",
+        "keywords": [
+            "Banking",
+            "bca",
+            "php",
+            "rest"
+        ]
+    },
+    {
+        "name": "graham-campbell/manager",
+        "version": "v3.0.0",
+        "version_normalized": "3.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/GrahamCampbell/Laravel-Manager.git",
+            "reference": "bf9da58aa32676209961558eaac5d6625f6f1399"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/GrahamCampbell/Laravel-Manager/zipball/bf9da58aa32676209961558eaac5d6625f6f1399",
+            "reference": "bf9da58aa32676209961558eaac5d6625f6f1399",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/contracts": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
+            "illuminate/support": "5.1.*|5.2.*|5.3.*|5.4.*|5.5.*",
+            "php": "^7.0"
+        },
+        "require-dev": {
+            "graham-campbell/analyzer": "^1.1",
+            "graham-campbell/testbench-core": "^2.0",
+            "mockery/mockery": "dev-master#c90a17247147543081e4d00f46911e422b49e583",
+            "phpunit/phpunit": "^6.0"
+        },
+        "time": "2017-08-06T17:54:13+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "3.0-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "GrahamCampbell\\Manager\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Graham Campbell",
+                "email": "graham@alt-three.com"
+            }
+        ],
+        "description": "Manager Provides Some Manager Functionality For Laravel 5",
+        "keywords": [
+            "Graham Campbell",
+            "GrahamCampbell",
+            "Laravel Manager",
+            "Laravel-Manager",
+            "connector",
+            "framework",
+            "interface",
+            "laravel",
+            "manager"
+        ]
+    },
+    {
+        "name": "odenktools/laravel-bca",
+        "version": "2.0.0",
+        "version_normalized": "2.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/odenktools/laravel-bca.git",
+            "reference": "d6dd0c57eef0fc42a2e61b4c8d98d325841c4111"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/odenktools/laravel-bca/zipball/d6dd0c57eef0fc42a2e61b4c8d98d325841c4111",
+            "reference": "d6dd0c57eef0fc42a2e61b4c8d98d325841c4111",
+            "shasum": ""
+        },
+        "require": {
+            "ext-curl": "*",
+            "graham-campbell/manager": "^2.4 || ^3.0",
+            "illuminate/contracts": "5.2.* || 5.3.* || 5.4.* || 5.5.*",
+            "illuminate/support": "5.2.* || 5.3.* || 5.4.* || 5.5.*",
+            "illuminate/validation": "5.2.* || 5.3.* || 5.4.* || 5.5.*",
+            "odenktools/php-bca": "2.*",
+            "php": "^5.5.9 || ^5.6.4 || ^7.0"
+        },
+        "require-dev": {
+            "graham-campbell/testbench": "^3.2",
+            "mockery/mockery": "^0.9.5 || ~1.0",
+            "phpunit/phpunit": "~4.0 || ^5.4 || ~6.0"
+        },
+        "time": "2017-10-28T00:46:31+00:00",
+        "type": "library",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Odenktools\\Bca\\BcaServiceProvider"
+                ],
+                "aliases": {
+                    "Bca": "Odenktools\\Bca\\Facades\\Bca"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Odenktools\\Bca\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "odenktools",
+                "email": "odenktools86@gmail.com",
+                "homepage": "https://odenktools.com",
+                "role": "Developer"
+            }
+        ],
+        "description": "Library REST API Untuk Develop BCA Payment",
+        "homepage": "https://github.com/odenktools/laravel-bca",
+        "keywords": [
+            "Banking",
+            "bca",
+            "php",
+            "rest"
+        ]
     }
 ]

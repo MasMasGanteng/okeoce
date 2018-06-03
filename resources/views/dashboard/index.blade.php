@@ -91,7 +91,7 @@
                             {{$cnt_success}}
                         </div>
                     </div>
-                    <a href="/dashboard/succes_order" class="btn btn-teal btn-block">View Details</a>
+                    <a href="/dashboard/success_order" class="btn btn-teal btn-block">View Details</a>
                 </div>
             </div>
         </div>

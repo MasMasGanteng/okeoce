@@ -5,6 +5,7 @@ namespace App\Http\Controllers\front;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Bca;
 use Redirect;
 
 class PaymentConfirmationController 
@@ -32,4 +33,15 @@ class PaymentConfirmationController
             return Redirect::to('/error');
         }
     }
+    
+    public function bca_check(Request $request)
+    {
+        
+            // Request Login dan dapatkan nilai OAUTH
+            $response = \Bca::httpAuth();
+
+            // LIHAT HASIL OUTPUT
+            echo json_encode($response);
+    }
+    
 }

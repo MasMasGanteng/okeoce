@@ -67,6 +67,10 @@ class ComposerStaticInit4027bd277d641feb7e4435790b29525f
             'Psr\\Container\\' => 14,
             'PhpParser\\' => 10,
         ),
+        'O' => 
+        array (
+            'Odenktools\\Bca\\' => 15,
+        ),
         'M' => 
         array (
             'Monolog\\' => 8,
@@ -87,6 +91,7 @@ class ComposerStaticInit4027bd277d641feb7e4435790b29525f
             'GuzzleHttp\\Psr7\\' => 16,
             'GuzzleHttp\\Promise\\' => 19,
             'GuzzleHttp\\' => 11,
+            'GrahamCampbell\\Manager\\' => 23,
         ),
         'F' => 
         array (
@@ -218,6 +223,10 @@ class ComposerStaticInit4027bd277d641feb7e4435790b29525f
         array (
             0 => __DIR__ . '/..' . '/nikic/php-parser/lib/PhpParser',
         ),
+        'Odenktools\\Bca\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/odenktools/laravel-bca/src',
+        ),
         'Monolog\\' => 
         array (
             0 => __DIR__ . '/..' . '/monolog/monolog/src/Monolog',
@@ -253,6 +262,10 @@ class ComposerStaticInit4027bd277d641feb7e4435790b29525f
         'GuzzleHttp\\' => 
         array (
             0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'GrahamCampbell\\Manager\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/graham-campbell/manager/src',
         ),
         'Fideloper\\Proxy\\' => 
         array (
@@ -297,6 +310,13 @@ class ComposerStaticInit4027bd277d641feb7e4435790b29525f
     );
 
     public static $prefixesPsr0 = array (
+        'U' => 
+        array (
+            'Unirest\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/mashape/unirest-php/src',
+            ),
+        ),
         'P' => 
         array (
             'Prophecy\\' => 
@@ -331,6 +351,13 @@ class ComposerStaticInit4027bd277d641feb7e4435790b29525f
             'Doctrine\\Common\\Lexer\\' => 
             array (
                 0 => __DIR__ . '/..' . '/doctrine/lexer/lib',
+            ),
+        ),
+        'B' => 
+        array (
+            'Bca\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/odenktools/php-bca/lib',
             ),
         ),
     );
@@ -382,6 +409,9 @@ class ComposerStaticInit4027bd277d641feb7e4435790b29525f
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'App\\User' => __DIR__ . '/../..' . '/app/User.php',
+        'Bca\\BcaHttp' => __DIR__ . '/..' . '/odenktools/php-bca/lib/Bca/BcaHttp.php',
+        'Bca\\BcaHttpException' => __DIR__ . '/..' . '/odenktools/php-bca/lib/Bca/BcaHttpException.php',
+        'Bca\\BcaHttpInstance' => __DIR__ . '/..' . '/odenktools/php-bca/lib/Bca/BcaHttpInstance.php',
         'Carbon\\Carbon' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Carbon.php',
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
@@ -936,6 +966,9 @@ class ComposerStaticInit4027bd277d641feb7e4435790b29525f
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
+        'GrahamCampbell\\Manager\\AbstractManager' => __DIR__ . '/..' . '/graham-campbell/manager/src/AbstractManager.php',
+        'GrahamCampbell\\Manager\\ConnectorInterface' => __DIR__ . '/..' . '/graham-campbell/manager/src/ConnectorInterface.php',
+        'GrahamCampbell\\Manager\\ManagerInterface' => __DIR__ . '/..' . '/graham-campbell/manager/src/ManagerInterface.php',
         'GuzzleHttp\\Client' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Client.php',
         'GuzzleHttp\\ClientInterface' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/ClientInterface.php',
         'GuzzleHttp\\Cookie\\CookieJar' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/Cookie/CookieJar.php',
@@ -2094,6 +2127,10 @@ class ComposerStaticInit4027bd277d641feb7e4435790b29525f
         'Monolog\\Processor\\UidProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/UidProcessor.php',
         'Monolog\\Processor\\WebProcessor' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Processor/WebProcessor.php',
         'Monolog\\Registry' => __DIR__ . '/..' . '/monolog/monolog/src/Monolog/Registry.php',
+        'Odenktools\\Bca\\BcaFactory' => __DIR__ . '/..' . '/odenktools/laravel-bca/src/BcaFactory.php',
+        'Odenktools\\Bca\\BcaManager' => __DIR__ . '/..' . '/odenktools/laravel-bca/src/BcaManager.php',
+        'Odenktools\\Bca\\BcaServiceProvider' => __DIR__ . '/..' . '/odenktools/laravel-bca/src/BcaServiceProvider.php',
+        'Odenktools\\Bca\\Facades\\Bca' => __DIR__ . '/..' . '/odenktools/laravel-bca/src/Facades/Bca.php',
         'PHPUnit\\Exception' => __DIR__ . '/..' . '/phpunit/phpunit/src/Exception.php',
         'PHPUnit\\Framework\\Assert' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert.php',
         'PHPUnit\\Framework\\AssertionFailedError' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/AssertionFailedError.php',
@@ -3655,6 +3692,11 @@ class ComposerStaticInit4027bd277d641feb7e4435790b29525f
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Property\\Property' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Property/Property.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Processor' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Processor.php',
         'TijsVerkoyen\\CssToInlineStyles\\Css\\Rule\\Rule' => __DIR__ . '/..' . '/tijsverkoyen/css-to-inline-styles/src/Css/Rule/Rule.php',
+        'Unirest\\Exception' => __DIR__ . '/..' . '/mashape/unirest-php/src/Unirest/Exception.php',
+        'Unirest\\Method' => __DIR__ . '/..' . '/mashape/unirest-php/src/Unirest/Method.php',
+        'Unirest\\Request' => __DIR__ . '/..' . '/mashape/unirest-php/src/Unirest/Request.php',
+        'Unirest\\Request\\Body' => __DIR__ . '/..' . '/mashape/unirest-php/src/Unirest/Request/Body.php',
+        'Unirest\\Response' => __DIR__ . '/..' . '/mashape/unirest-php/src/Unirest/Response.php',
         'Webmozart\\Assert\\Assert' => __DIR__ . '/..' . '/webmozart/assert/src/Assert.php',
         'Whoops\\Exception\\ErrorException' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/ErrorException.php',
         'Whoops\\Exception\\Formatter' => __DIR__ . '/..' . '/filp/whoops/src/Whoops/Exception/Formatter.php',

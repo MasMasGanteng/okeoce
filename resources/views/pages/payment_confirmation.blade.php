@@ -31,8 +31,7 @@
                 </div>
             </div>
             <div class="text-center mt-5">
-                <!-- <button type="submit" class="btn btn-blue btn-lg">CONFIRM</button> -->
-                <a href="/thank_you" class="btn btn-blue btn-block btn-lg">CONFIRM PAYMENT</a>
+                <a href="/payment_confirmation/check" class="btn btn-blue btn-block btn-lg">CONFIRM PAYMENT</a>
             </div>
         </form>
     </div>

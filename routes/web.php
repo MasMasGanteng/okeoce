@@ -58,6 +58,7 @@ Route::post('/payment_method/create', 'front\PaymentMethodController@post_create
 Route::get('/payment_confirmation', 'front\PaymentConfirmationController@index');
 //get data for datatable
 Route::post('/payment_confirmation/create', 'front\PaymentConfirmationController@post');
+Route::get('/payment_confirmation/check', 'front\PaymentConfirmationController@bca_check');
 
 //PaymentConfirmationSuccess form
 //get html form data
