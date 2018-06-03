@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 class SocialiteController extends Controller
 {
     use SocialCheckService;
+    
     public function register($provider)
     {
         return Socialite::driver($provider)->redirect();
@@ -25,7 +26,7 @@ class SocialiteController extends Controller
             $user = $this->checkUser($userProvider, $provider);
             auth()->login($user);
             return redirect()
-                ->to('/home');
+                ->to('/');
             // $user->token;
         } catch (Exception $e) {
             return redirect()
