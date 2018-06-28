@@ -6,7 +6,7 @@
     <li class="breadcrumb-item">
         <a href="/dashboard">Dashboard</a>
     </li>
-    <li class="breadcrumb-item active">Order On Progress</li>
+    <li class="breadcrumb-item active">Order On Progress From Baiza</li>
 </ol>
 <!-- table -->
 <div class="card mb-3">
