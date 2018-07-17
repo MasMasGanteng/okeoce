@@ -1,7 +1,7 @@
 @extends('layouts.master')
 @section('content')
 <style type="text/css">
-    body{height:100%;background-image:url(/image/refund-bg-1.png), url(/image/refund-bg-2.png);background-position:center left, bottom right;background-repeat:no-repeat}.contact-container{display:flex;justify-content:center;align-items:center;font-size:1.4rem}.contact-container .content .h3{text-align:center;font-weight:700}.contact-container .content .bold{font-weight:600}@media only screen and (max-width: 576px){body{background-image:none;height:auto}.contact-container{font-size:1rem}}
+    body{height:auto;background-image:url(/image/refund-bg-1.png), url(/image/refund-bg-2.png);background-position:bottom left, top right;background-repeat:no-repeat}.contact-container{display:flex;justify-content:center;align-items:center;font-size:1.4rem}.contact-container .content .h3{text-align:center;font-weight:700}.contact-container .content .bold{font-weight:600}@media only screen and (max-width: 576px){body{background-image:none;height:auto}.contact-container{font-size:1rem}}
 </style>
 <div class="container contact-container">
     <div class="content col-lg-6 col-md-8 col-12">
