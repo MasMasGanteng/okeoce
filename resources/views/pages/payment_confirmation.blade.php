@@ -32,6 +32,7 @@
             </div>
             <div class="text-center mt-5">
                 <a href="/payment_confirmation/check" class="btn btn-blue btn-block btn-lg">CONFIRM PAYMENT</a>
+                <a href="https://wa.me/6287881604062" class="btn btn-blue btn-block btn-lg">CONFIRM PAYMENT VIA WHATSAPP</a>
             </div>
         </form>
     </div>
