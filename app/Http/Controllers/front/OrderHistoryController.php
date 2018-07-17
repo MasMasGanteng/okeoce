@@ -155,7 +155,7 @@ class OrderHistoryController
                             '.$post->phone_number.'
                         </span>
                     </div>';
-                $nestedData['total'] = 'Rp. '.number_format($post->price,2,",",".");
+                $nestedData['total'] = 'Rp. '.number_format($post->price,2,",",".")."<br/><span style='font-size:10px;' class='text-danger'>(Harga Sudah Termasuk Ongkos Kirim)</span>";
 
                 $option = '';
                 if($post->status==2){

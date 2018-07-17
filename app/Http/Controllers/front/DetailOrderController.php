@@ -100,7 +100,7 @@ class DetailOrderController extends Controller
                     d.categories=4 and
                     a.id='.$data['order'][0]->id);
 
-            $data['kode_kota_list'] = DB::select('select* from kota where kode between 3171 and 3175 order by kode desc');
+            $data['kode_kota_list'] = DB::select('select * from kota where kode in (3171, 3172,3173,3174,3175,3216,3603,3671) order by kode asc');
             if($data['order'][0]->kode_kota != null){
                 $data['kode_kec_list'] = DB::select('select a.* from kec a left join kota b on b.kode=a.kode_kota where a.kode_kota='.$data['order'][0]->kode_kota);
             }else{

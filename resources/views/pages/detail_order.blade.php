@@ -95,6 +95,16 @@
                 </tr>
                 <tr class="total">
                     <th scope="col"></th>
+                    <th scope="col"><span class="font-blue">Ongkos Kirim</span></th>
+                    <th class="ongkir_rp" scope="col">
+                        <span id="ongkir"></span>
+                    </th>
+                </tr>
+                <tr class="spasi">
+                    <th scope="col"></th>
+                </tr>
+                <tr class="total">
+                    <th scope="col"></th>
                     <th scope="col"><span class="font-blue">Total</span></th>
                     <th class="total_order_rp" scope="col">
                         <span id="total"></span>
@@ -276,6 +286,38 @@
                         }
                     }
                 });
+                if(kota_id == 3171 || kota_id == 3173){
+                    $('#ongkir').text('Rp. 25.000,00');
+                    
+                    var ongkir = 25000;
+                    var totals = $('#total').text();
+                    var totals_rp = totals.substr(4,6);
+                    var totals_ongkir = parseInt(totals_rp.replace('.','')) + ongkir;
+
+                    $('#total').text('Rp. '+totals_ongkir);
+                    $('#total_order_price').val(totals_ongkir);
+
+                }else if(kota_id == 3172 || kota_id == 3174 || kota_id == 3175){
+                    $('#ongkir').text('Rp. 30.000,00');
+
+                    var ongkir = 30000;
+                    var totals = $('#total').text();
+                    var totals_rp = totals.substr(4,6);
+                    var totals_ongkir = parseInt(totals_rp.replace('.','')) + ongkir;
+                    $('#total_order_price').val(totals_ongkir);
+
+                    $('#total').text('Rp. '+totals_ongkir);
+                }else if(kota_id == 3216 || kota_id == 3603 || kota_id ==  3671){
+                    $('#ongkir').text('Rp. 40.000,00');
+
+                    var ongkir = 40000;
+                    var totals = $('#total').text();
+                    var totals_rp = totals.substr(4,6);
+                    var totals_ongkir = parseInt(totals_rp.replace('.','')) + ongkir;
+
+                    $('#total').text('Rp. '+totals_ongkir);
+                    $('#total_order_price').val(totals_ongkir);
+                }
             }
         });
         

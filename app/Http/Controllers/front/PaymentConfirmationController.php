@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
+use DateTime;
+use Formatter;
 
 class PaymentConfirmationController 
 {
@@ -48,10 +50,9 @@ class PaymentConfirmationController
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => "grant_type=client_credentials",
             CURLOPT_HTTPHEADER => array(
-            "authorization: Basic YjY2OTI1ZGUtZDhlYy00NzZlLWExNzAtNmNmMDZjODYzYjc4OmVmYzcxY2VkLWIwZTctNGI0Ny04MjcwLTNjMjQ4Mjk3NjRhYQ==",
+            "authorization: Basic YjA5NWFjOWQtMmQyMS00MmEzLWE3MGMtNDc4MWY0NTcwNzA0OmJlZGQxZjhkLTNiZDYtNGQ0YS04Y2I0LWU2MWRiNDE2OTFjOQ==",
             "cache-control: no-cache",
-            "content-type: application/x-www-form-urlencoded",
-            "postman-token: f2c6fde4-e6fd-1e5d-d587-c3d0f69db601"
+            "content-type: application/x-www-form-urlencoded"
             ),
         ));
 
@@ -64,45 +65,35 @@ class PaymentConfirmationController
             echo "cURL Error #:" . $err;
         } else {
             $array = json_decode($response, true);
-            // $token = var_dump($array['access_token']);
-            // return Redirect::to('/phayment_confirmation/check_mutasi', $token);
-
             $data = json_decode($response);
             $token = $data->access_token;
 
             date_default_timezone_set('Asia/Jakarta');
-            $timestamp = date('c');
-            $StartDate = "2018-06-01";
-            $EndDate = "2018-06-03";
 
-            $create = 'GET:/banking/v3/corporates/h2hauto009/accounts/0353202038/statements?StartDate='.$StartDate.'&EndDate='.$EndDate.':'.$token.':e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855:'.$timestamp;
+            $StartDate = "2018-07-01";
+            $EndDate = "2018-07-03";
             
+            $date = date('c');
+            $timestamp = substr($date, 0,19).'.000+07:00';
 
-            $signature = hash_hmac('sha256', 'GET:/banking/v3/corporates/h2hauto009/accounts/0353202038/statements?StartDate='.$StartDate.'&EndDate='.$EndDate.':'.$token.':e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855:'.$timestamp, 'f6068d37-0fd8-456a-bced-61ac35af53da');
-
-            // $create = 'GET:/banking/v3/corporates/h2hauto009/accounts/0353202038/statements?EndDate='.$EndDate.'&StartDate='.$StartDate.':'.$token.':Lowercase(HexEncode(SHA-256(RequestBody))):'.$timestamp;
+            $api_key = 'dcc99ba6-3b2f-479b-9f85-86a09ccaaacf';
             
-
-            // $signature= hash_hmac('sha256', 'GET:/banking/v3/corporates/h2hauto009/accounts/0353202038/statements?EndDate='.$EndDate.'&StartDate='.$StartDate.':'.$token.':Lowercase(HexEncode(SHA-256(RequestBody))):'.$timestamp, 'f6068d37-0fd8-456a-bced-61ac35af53da');
-
-            $sha256 = 'Lowercase(HexEncode(SHA-256(RequestBody)))';
-
+            $api_secret = '5e636b16-df7f-4a53-afbe-497e6fe07edc';
 
             $authorization = 'Bearer '.$token;
 
-            // echo $response;
-            echo $token;
-            // echo $timestamp;
-            echo $create;
-            // echo $signature;
-            // echo $sha256;
-            // echo $authorization;
+            $body = '';
+            $body_sexy = strtolower(hash('sha256', $body));
+
+            $create = 'GET:/banking/v3/corporates/h2hauto008/accounts/0613005827/statements?EndDate='.$EndDate.'&StartDate='.$StartDate.':'.$token.':'.$body_sexy.':'.$timestamp;
+            
+            $signature = hash_hmac('SHA256', $create, $api_secret);
         
             $curl1 = curl_init();
 
             curl_setopt_array($curl1, array(
                 CURLOPT_PORT => "443",
-                CURLOPT_URL => "https://devapi.klikbca.com:443/banking/v3/corporates/h2hauto009/accounts/0353202038/statements?StartDate=2018-06-01&EndDate=2018-06-21",
+                CURLOPT_URL => "https://devapi.klikbca.com:443/banking/v3/corporates/h2hauto008/accounts/0613005827/statements?EndDate=".$EndDate."&StartDate=".$StartDate,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
                 CURLOPT_MAXREDIRS => 10,
@@ -110,10 +101,10 @@ class PaymentConfirmationController
                 CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
                 CURLOPT_CUSTOMREQUEST => "GET",
                 CURLOPT_HTTPHEADER => array(
-                "Authorization: Bearer ".$token,
+                "Authorization: ".$authorization,
                 "Content-Type: application/json",
                 "Origin: baizasushi.com",
-                "X-BCA-Key: 34bec438-9911-494c-9e29-d0041f941eec",
+                "X-BCA-Key: ".$api_key,
                 "X-BCA-Signature: ".$signature,
                 "X-BCA-Timestamp: ".$timestamp
                 ),
@@ -125,9 +116,66 @@ class PaymentConfirmationController
             curl_close($curl1);
 
             if ($err1) {
+                echo 'TOKEN :    ';
+                echo $token;
+                echo '<br>';
+                echo '<br>';
+                
+                echo 'STRING :    ';
+                echo $create;
+                echo '<br>';
+                echo '<br>';
+
+                echo 'SIGNATURE :    ';
+                echo $signature;
+                echo '<br>';
+                echo '<br>';
+
+                echo $timestamp;
+                echo '<br>';
+                echo '<br>';
+
+                echo $body_sexy;
+                echo '<br>';
+                echo '<br>';
+
+                echo $authorization;
+                echo '<br>';
+                echo '<br>';
+
               echo "cURL Error #:" . $err1;
             } else {
+                echo 'TOKEN :    ';
+                echo $token;
+                echo '<br>';
+                echo '<br>';
+                
+                echo 'STRING :    ';
+                echo $create;
+                echo '<br>';
+                echo '<br>';
+
+                echo 'SIGNATURE :    ';
+                echo $signature;
+                echo '<br>';
+                echo '<br>';
+
+                echo $timestamp;
+                echo '<br>';
+                echo '<br>';
+
+                echo $body_sexy;
+                echo '<br>';
+                echo '<br>';
+
+                echo $authorization;
+                echo '<br>';
+                echo '<br>';
+
               echo $response1;
+                echo '<br>';
+                echo '<br>';
+
             }
         }
     }
