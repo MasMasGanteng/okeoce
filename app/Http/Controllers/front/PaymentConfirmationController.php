@@ -37,7 +37,6 @@ class PaymentConfirmationController
     
     public function bca_get_token(Request $request)
     {
-        
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -116,67 +115,62 @@ class PaymentConfirmationController
             curl_close($curl1);
 
             if ($err1) {
-                echo 'TOKEN :    ';
-                echo $token;
-                echo '<br>';
-                echo '<br>';
-                
-                echo 'STRING :    ';
-                echo $create;
-                echo '<br>';
-                echo '<br>';
-
-                echo 'SIGNATURE :    ';
-                echo $signature;
-                echo '<br>';
-                echo '<br>';
-
-                echo $timestamp;
-                echo '<br>';
-                echo '<br>';
-
-                echo $body_sexy;
-                echo '<br>';
-                echo '<br>';
-
-                echo $authorization;
-                echo '<br>';
-                echo '<br>';
-
-              echo "cURL Error #:" . $err1;
+                echo "cURL Error #:" . $err1;
             } else {
-                echo 'TOKEN :    ';
-                echo $token;
-                echo '<br>';
-                echo '<br>';
+                // echo 'TOKEN :    ';
+                // echo $token;
+                // echo '<br>';
+                // echo '<br>';
                 
-                echo 'STRING :    ';
-                echo $create;
-                echo '<br>';
-                echo '<br>';
+                // echo 'STRING :    ';
+                // echo $create;
+                // echo '<br>';
+                // echo '<br>';
 
-                echo 'SIGNATURE :    ';
-                echo $signature;
-                echo '<br>';
-                echo '<br>';
+                // echo 'SIGNATURE :    ';
+                // echo $signature;
+                // echo '<br>';
+                // echo '<br>';
 
-                echo $timestamp;
-                echo '<br>';
-                echo '<br>';
+                // echo $timestamp;
+                // echo '<br>';
+                // echo '<br>';
 
-                echo $body_sexy;
-                echo '<br>';
-                echo '<br>';
+                // echo $body_sexy;
+                // echo '<br>';
+                // echo '<br>';
 
-                echo $authorization;
-                echo '<br>';
-                echo '<br>';
+                // echo $authorization;
+                // echo '<br>';
+                // echo '<br>';
 
-              echo $response1;
-                echo '<br>';
-                echo '<br>';
+                // echo $response1;
+                // echo '<br>';
+                // echo '<br>';
 
+                $content = json_decode($response1);
+
+                foreach($content->Data as $data ){
+                    $amount = $data->TransactionAmount;
+                    $references = $data->Trailer;
+
+                    if ($request->input('payment_amount')==$amount){
+                        DB::table('order')->where('price', $request->input('payment_amount'))->where('id', $request->input('order_id'))
+                        ->update(['status' => 3 ]);
+                    }
+                }
             }
         }
+
+        DB::table('confirmation')->insert([
+            'order_id' => $request->input('order_id'),
+            'bank' => $request->input('payment_bank'),
+            'account' => $request->input('payment_user'),
+            'account_number' => $request->input('payment_account_number'),
+            'amount' => $request->input('payment_amount'),
+            'references' => $request->input('payment_references'),
+            'url_img' => $request->input('url_img'),
+            'created_by' => Auth::user()->id
+        ]);
     }
 }

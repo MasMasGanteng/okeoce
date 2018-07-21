@@ -65,7 +65,7 @@
                 { "data": "order_time" , name:"order_time"},
                 { "data": "option" , name:"option",orderable:false}
             ],
-            "order": [[ 1, "desc" ]]
+            "order": [[ 0, "desc" ]]
         });
         $('#tables_filter input').unbind();
         $('#tables_filter input').bind('keyup', function(e) {

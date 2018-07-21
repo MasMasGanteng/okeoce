@@ -143,14 +143,14 @@
                     type: 'post',
                     processData: false,
                     contentType: false,
-                    "url": "/dashboard/order_in/create",
+                    "url": "/dashboard/order_progress/create",
                     data: form_data,
                     beforeSend: function (){
                         $("#submit").prop('disabled', true);
                     },
                     success: function () {
                         alert('From Submitted.');
-                        window.location.href = "/dashboard/order_progress";
+                        window.location.href = "/dashboard/order_success";
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(xhr.status);
