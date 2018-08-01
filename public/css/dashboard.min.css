@@ -21,9 +21,13 @@ body, h4, h5, h6 {
     border-color: #68acb1;
 }
 
- .navbar-dark {
+ .baiza-dash-nav {
      background: #79c6cc;
      color: #fff;
+ }
+
+ .baiza-dash-nav a {
+    color: #fff;
  }
 
 .navbar-brand img {
@@ -48,20 +52,32 @@ img.img-dash-table {
     object-fit: contain;
 }
 
-#mainNav .navbar-collapse .navbar-sidenav {
-    margin-top: 59px;
-    padding-top: 15px;
-    height: calc(100vh - 105px);
+footer.sticky-footer {
+    align-items: center;
 }
-#mainNav.fixed-top .sidenav-toggler {
-    margin-top: calc(100vh - 45px);
-}
-#mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item > .nav-link,
-#mainNav .navbar-collapse .navbar-nav .nav-item .nav-link,
-#mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level > li > a, #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-third-level > li > a {
-    font-size: .8rem;
-    color: #fff;    
-}
-#mainNav .navbar-collapse .navbar-sidenav, #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level, #mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-third-level {
+
+#leftAccordion {
     background: #68acb1!important;
 } 
+
+#leftAccordion .nav-item .nav-link span, .sidebar .nav-item .nav-link .fa {
+    font-size: .8rem;
+    color: #fff;
+}
+
+#leftAccordion .sidenav-second-level {
+    list-style-type: none;
+}
+
+#leftAccordion .sidenav-second-level li {
+    margin-bottom: .8rem;
+}
+#leftAccordion .sidenav-second-level a {
+    color: #fff;
+    font-size: .8rem;
+}
+
+#leftAccordion .sidenav-second-level a:hover {
+    text-decoration: none;
+    color: #f2f2f2;
+}

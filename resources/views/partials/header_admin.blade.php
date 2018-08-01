@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-    <a class="navbar-brand" href="/dashboard">
+<nav class="navbar navbar-expand baiza-dash-nav static-top" id="mainNav">
+    <a class="navbar-brand mr-1" href="/dashboard">
         <img class="img-fluid" src="{{{URL::asset('image/baiza-logo-white.png')}}}" alt="baiza" style="height: 30px;"> <span class="ml-3">Dashboard</span>
     </a>
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <!-- <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
+        <i class="fa fa-bars"></i>
+    </button> -->
     <!-- Left Menu -->
-    <div class="collapse navbar-collapse" id="navbarResponsive">
+    <!-- <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav navbar-sidenav" id="leftAccordion">            
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Selling">
                 <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#collapseSelling" data-parent="#leftAccordion">
@@ -73,5 +73,13 @@
                 <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-fw fa-sign-out mr-1"></i>Logout</a>
             </li>
         </ul>
-    </div>
+    </div> -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="/" target="_blank"><i class="fa fa-fw fa-globe mr-1"></i>Preview</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-fw fa-sign-out mr-1"></i>Logout</a>
+        </li>
+    </ul>
 </nav>
