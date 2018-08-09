@@ -141,6 +141,13 @@ Route::get('/dashboard/order_success/create', 'dashboard\transaction\DashboardOr
 Route::post('/dashboard/order_success/create', 'dashboard\transaction\DashboardOrderSuccessController@post_create');
 Route::get('/dashboard/order_success/delete', 'dashboard\transaction\DashboardOrderSuccessController@delete');
 
+//dashboard/order_progressPage
+Route::get('/dashboard/confirmation', 'dashboard\transaction\ConfirmationController@index');
+Route::post('/dashboard/confirmation', 'dashboard\transaction\ConfirmationController@post');
+Route::get('/dashboard/confirmation/create', 'dashboard\transaction\ConfirmationController@create');
+Route::post('/dashboard/confirmation/create', 'dashboard\transaction\ConfirmationController@post_create');
+Route::get('/dashboard/confirmation/delete', 'dashboard\transaction\ConfirmationController@delete');
+
 Route::group(['prefix' => 'social-media', 'namespace' => 'Auth'], function(){
     Route::get('register/{provider}', 'SocialiteController@register');
     Route::get('registered/{provider}', 'SocialiteController@registered');

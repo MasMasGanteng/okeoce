@@ -69,8 +69,10 @@ class PaymentConfirmationController
 
             date_default_timezone_set('Asia/Jakarta');
 
-            $StartDate = "2018-07-01";
-            $EndDate = "2018-07-03";
+            $dateNow = date("Y-m-d");
+            $date1 = str_replace('-', '/', $dateNow);
+            $StartDate = date('Y-m-d',strtotime($date1 . "-5 days"));
+            $EndDate = $dateNow;
             
             $date = date('c');
             $timestamp = substr($date, 0,19).'.000+07:00';

@@ -60,12 +60,12 @@
                     },
                     success: function () {
                         alert('From Submitted.');
-                        window.location.href = "/thank_you";
+                        // window.location.href = "/thank_you";
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(xhr.status);
                         alert(thrownError);
-                        $("#submit").prop('disabled', false);
+                        // $("#submit").prop('disabled', false);
                     }
                 });
             });
