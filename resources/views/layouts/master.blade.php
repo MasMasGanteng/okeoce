@@ -13,8 +13,8 @@
         </button>
         <div class="collapse navbar-collapse" id="navToggleContent">
             <ul class="navbar-nav mx-auto nav-mobile-menu">
-                <li class="nav-item active">
-                    <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="/">HOME</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/product">PRODUCT</a>

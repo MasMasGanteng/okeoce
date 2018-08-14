@@ -68,7 +68,7 @@
             </li>
         </ul>
         
-    <div id="content-wrapper">
+    <div id="content-wrapper" class="pl-3 pr-3">
         <!-- content -->
         @yield('content')
         <!-- /.content-wrapper-->
@@ -120,9 +120,11 @@
                 </div>
             </div>
         </div>
-        @yield('footer_scripts')
     </div>
     </div>
+
+    
+        
     <!-- Bootstrap core JavaScript-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
@@ -131,12 +133,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
     <!-- Page level plugin JavaScript-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
     <script src="https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
     <!-- Custom scripts for all pages-->
     <script src="https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/js/sb-admin.min.js"></script>
     <script src="https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/js/demo/datatables-demo.js"></script>
+
+        @yield('footer_scripts')
 </body>
 
 </html>
