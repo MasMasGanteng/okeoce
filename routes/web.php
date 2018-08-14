@@ -142,11 +142,11 @@ Route::post('/dashboard/order_success/create', 'dashboard\transaction\DashboardO
 Route::get('/dashboard/order_success/delete', 'dashboard\transaction\DashboardOrderSuccessController@delete');
 
 //dashboard/order_progressPage
-Route::get('/dashboard/confirmation', 'dashboard\transaction\ConfirmationController@index');
-Route::post('/dashboard/confirmation', 'dashboard\transaction\ConfirmationController@post');
-Route::get('/dashboard/confirmation/create', 'dashboard\transaction\ConfirmationController@create');
-Route::post('/dashboard/confirmation/create', 'dashboard\transaction\ConfirmationController@post_create');
-Route::get('/dashboard/confirmation/delete', 'dashboard\transaction\ConfirmationController@delete');
+Route::get('/dashboard/confirmation', 'dashboard\transaction\DashboardConfirmationController@index');
+Route::post('/dashboard/confirmation', 'dashboard\transaction\DashboardConfirmationController@post');
+Route::get('/dashboard/confirmation/create', 'dashboard\transaction\DashboardConfirmationController@create');
+Route::post('/dashboard/confirmation/create', 'dashboard\transaction\DashboardConfirmationController@post_create');
+Route::get('/dashboard/confirmation/delete', 'dashboard\transaction\DashboardConfirmationController@delete');
 
 Route::group(['prefix' => 'social-media', 'namespace' => 'Auth'], function(){
     Route::get('register/{provider}', 'SocialiteController@register');

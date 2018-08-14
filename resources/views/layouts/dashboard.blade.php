@@ -19,6 +19,9 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseSelling" data-parent="#leftAccordion">
                     <li>
+                        <a href="/dashboard/confirmation">Confirmation</a>
+                    </li>
+                    <li>
                         <a href="/dashboard/order_pending">Waiting Payment</a>
                     </li>
                     <li>
