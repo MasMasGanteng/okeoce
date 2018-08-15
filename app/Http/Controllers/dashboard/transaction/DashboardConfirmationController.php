@@ -95,7 +95,7 @@ class DashboardConfirmationController extends Controller
                 $nestedData['references'] = $post->references;
                 $nestedData['status'] = $post->status_convert;
                 $nestedData['url_img'] = $post->url_img;
-                $nestedData['option'] = "<a href='#' onclick='approve_func(\"{$url_edit}\");' class='btn btn-sm btn-info'><span class='fa fa-fw fa-pencil'></span></a>&nbsp;<a href='#' onclick='delete_func(\"{$url_delete}\");' class='btn btn-sm btn-danger'><span class='fa fa-fw fa-close'></span></a>";
+                $nestedData['option'] = "<a href='#' onclick='approve_func(\"{$post->id}\");' class='btn btn-sm btn-info'><span class='fa fa-fw fa-pencil'></span></a>&nbsp;<a href='#' onclick='delete_func(\"{$url_delete}\");' class='btn btn-sm btn-danger'><span class='fa fa-fw fa-close'></span></a>";
                 $data[] = $nestedData;
             }
         }
@@ -120,7 +120,14 @@ class DashboardConfirmationController extends Controller
 
     public function delete(Request $request)
     {
-        DB::table('order')->where('id', $request->input('id'))->delete();
-        return Redirect::to('/dashboard/order_in');
+        DB::table('confirmation')->where('id', $request->input('id'))->delete();
+        return Redirect::to('/dashboard/confirmation');
+    }
+
+    public function update(Request $request)
+    {
+        DB::table('order')->where('id', $request->input('id'))
+            ->update(['status' => 1]);
+        return Redirect::to('/dashboard/confirmation');
     }
 }

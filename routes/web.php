@@ -147,6 +147,7 @@ Route::post('/dashboard/confirmation', 'dashboard\transaction\DashboardConfirmat
 Route::get('/dashboard/confirmation/create', 'dashboard\transaction\DashboardConfirmationController@create');
 Route::post('/dashboard/confirmation/create', 'dashboard\transaction\DashboardConfirmationController@post_create');
 Route::get('/dashboard/confirmation/delete', 'dashboard\transaction\DashboardConfirmationController@delete');
+Route::get('/dashboard/confirmation/update', 'dashboard\transaction\DashboardConfirmationController@update');
 
 Route::group(['prefix' => 'social-media', 'namespace' => 'Auth'], function(){
     Route::get('register/{provider}', 'SocialiteController@register');

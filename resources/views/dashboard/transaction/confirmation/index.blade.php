@@ -1,6 +1,5 @@
 @extends('layouts.dashboard')
-{{-- local styles --}} @section('header_styles')
-@stop
+
 @section('content')
 <!-- Breadcrumbs-->
 <ol class="breadcrumb">
@@ -36,8 +35,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <input type="" class="form-control" name="id" id="id" value="">
-                    <input type="" class="form-control" name="order_id" id="order_id" value="">
+                    <input type="hidden" class="form-control" name="id" id="id" value="">
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 <div class="modal-body">
@@ -54,10 +52,12 @@
     </form>
 </div>
 <script src="{{asset('js/jquery-1.11.1.min.js')}}" type="text/javascript"></script>
+<script src="{{asset('js/custom_js/alert.js')}}" type="text/javascript"></script>
 <script>
     function approve_func(data){
-        console.log($data);
+        console.log(data);
         $('#submit_confirmation').modal('show');
+        $('#id').val(data);
     }
 
     $(document).ready(function () {
@@ -96,37 +96,6 @@
         if(e.keyCode == 13) {
             table.search(this.value).draw();
         }
-    })
-
-    $('#form_confirmation').bootstrapValidator().on('success.form.bv', function(e) {
-        $('#form_confirmation').on('submit', function (e) {
-            e.preventDefault();
-            var form_data = new FormData(this);
-            $.ajax({
-                type: 'post',
-                processData: false,
-                contentType: false,
-                "url": "/dashboard/confirmation/create",
-                data: form_data,
-                beforeSend: function (){
-                    $("#susubmit_confirmation_btnbmit").prop('disabled', true);
-                },
-                success: function () {
-                    alert('From Submitted.');
-                    // window.location.href = "/dashboard/confirmation";
-                },
-                error: function (xhr, ajaxOptions, thrownError) {
-                    alert(xhr.status);
-                    alert(thrownError);
-                    $("#submit_confirmation_btn").prop('disabled', false);
-                }
-            });
-        });
-    });
-
-    $('#submit_confirmation_btn').on('click', function () {
-        var form = $("#form_confirmation");
-        form.submit();
     })
 });
 </script>

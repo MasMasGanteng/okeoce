@@ -123,6 +123,7 @@
             <input type="hidden" id="total_order_price" name="total_order_price">
             <input type="hidden" id="up" name="up">
             <input type="hidden" id="jml_all_id" name="jml_all_id">
+            <input type="hidden" id="hidden_total" name="hidden_total">
             <div class="form-row">
                 <div class="form-group col-md-4">
                     <input type="text" class="form-control" name="nama_penerima" placeholder="NAMA PENERIMA" maxlength="100" value="{{$nama_penerima}}" required>
@@ -174,10 +175,13 @@
 
 <script src="{{asset('vendors/bootstrapvalidator/js/bootstrapValidator.min.js')}}" type="text/javascript"></script>
 <script>
-    var id = $('#id').val(); 
+    var id = $('#id').val();
+    var hidden_total = $('#hidden_total');
+
     function delete_a(url){
         window.location = url;
     };
+
     function calculate(id_product){
         var jml = parseInt($('#jml'+id_product).val()) || 0;
         var harga = parseInt($('#price_hidden'+id_product).val()) || 0;
@@ -192,6 +196,8 @@
             x1 = x1.replace(rgx, '$1' + '.' + '$2');
         }
         $('#price'+id_product).text('Rp. '+(x1 + x2));
+        $('#hidden_total').val(total);
+
     };
 
     function total_harga(){
@@ -209,7 +215,6 @@
                 price.push(parseInt($(this).val()) || 0);
             });
         });
-
 
         if(jml.length==price.length){
             for(i=0;i<jml.length;i++){
@@ -229,6 +234,7 @@
             x1 = x1.replace(rgx, '$1' + '.' + '$2');
         }
         $('#total').text('Rp. '+(x1 + x2));
+        $('#hidden_total').val(total+unique_number);
     };
     $('#order_table').on('input', 'input', function () {
         total_harga();
@@ -290,32 +296,56 @@
                     $('#ongkir').text('Rp. 25.000,00');
                     
                     var ongkir = 25000;
-                    var totals = $('#total').text();
-                    var totals_rp = totals.substr(4,6);
-                    var totals_ongkir = parseInt(totals_rp.replace('.','')) + ongkir;
+                    var totals = $('#hidden_total').val();
+                    var totals_ongkir = parseInt(totals) + parseInt(ongkir);
 
-                    $('#total').text('Rp. '+totals_ongkir);
+                    var set = totals_ongkir.toString();
+                    set += '';
+                    x = set.split('.');
+                    x1 = x[0];
+                    x2 = ',00';
+                    var rgx = /(\d+)(\d{3})/;
+                    while (rgx.test(x1)) {
+                        x1 = x1.replace(rgx, '$1' + '.' + '$2');
+                    }
+                    $('#total').text('Rp. '+(x1 + x2));
                     $('#total_order_price').val(totals_ongkir);
 
                 }else if(kota_id == 3172 || kota_id == 3174 || kota_id == 3175){
                     $('#ongkir').text('Rp. 30.000,00');
 
                     var ongkir = 30000;
-                    var totals = $('#total').text();
-                    var totals_rp = totals.substr(4,6);
-                    var totals_ongkir = parseInt(totals_rp.replace('.','')) + ongkir;
-                    $('#total_order_price').val(totals_ongkir);
+                    var totals = $('#hidden_total').val();
+                    var totals_ongkir = parseInt(totals) + parseInt(ongkir);
 
-                    $('#total').text('Rp. '+totals_ongkir);
+                    var set = totals_ongkir.toString();
+                    set += '';
+                    x = set.split('.');
+                    x1 = x[0];
+                    x2 = ',00';
+                    var rgx = /(\d+)(\d{3})/;
+                    while (rgx.test(x1)) {
+                        x1 = x1.replace(rgx, '$1' + '.' + '$2');
+                    }
+                    $('#total').text('Rp. '+(x1 + x2));
+                    $('#total_order_price').val(totals_ongkir);
                 }else if(kota_id == 3216 || kota_id == 3603 || kota_id ==  3671){
                     $('#ongkir').text('Rp. 40.000,00');
 
                     var ongkir = 40000;
-                    var totals = $('#total').text();
-                    var totals_rp = totals.substr(4,6);
-                    var totals_ongkir = parseInt(totals_rp.replace('.','')) + ongkir;
+                    var totals = $('#hidden_total').val();
+                    var totals_ongkir = parseInt(totals) + parseInt(ongkir);
 
-                    $('#total').text('Rp. '+totals_ongkir);
+                    var set = totals_ongkir.toString();
+                    set += '';
+                    x = set.split('.');
+                    x1 = x[0];
+                    x2 = ',00';
+                    var rgx = /(\d+)(\d{3})/;
+                    while (rgx.test(x1)) {
+                        x1 = x1.replace(rgx, '$1' + '.' + '$2');
+                    }
+                    $('#total').text('Rp. '+(x1 + x2));
                     $('#total_order_price').val(totals_ongkir);
                 }
             }

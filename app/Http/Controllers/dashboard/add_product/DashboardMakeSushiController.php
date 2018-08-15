@@ -87,7 +87,7 @@ class DashboardMakeSushiController extends Controller
             foreach ($posts as $post)
             {
                 $edit =  $post->id;
-                $url_edit="/dashboard/make_sushi/create?id=".$edit."$order_id=".$post->order_id;
+                $url_edit="/dashboard/make_sushi/create?id=".$edit;
                 $url_delete="/dashboard/make_sushi/delete?id=".$edit;
                 $nestedData['id'] = $post->id;
                 $nestedData['name'] = $post->name;
