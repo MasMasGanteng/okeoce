@@ -126,30 +126,41 @@
         <div class="form-group">
             <textarea class="form-control" placeholder="ALAMAT" rows="3">{{$address}}</textarea>
         </div>
+        <div class="text-center mt-5 mb-3">
+            <button type="submit" class="btn btn-info btn-lg">Approve Confirmation</button>
+        </div>
     </form>
-    <div class="font-blue h5 mt-3 mb-4">
-        <b>DETAIL CONFIRMATION</b>
-    </div>
-    <table class="table baiza-table" id="order_table">
-        <thead>
-            <tr class="header">
-                <th scope="col">Bank</th>
-                <th scope="col">Acoount No</th>
-                <th scope="col">Account Name</th>
-                <th scope="col">Amount</th>
-                <th scope="col">References</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>a</td>
-                <td>b</td>
-                <td>c</td>
-                <td>d</td>
-                <td>e</td>
-            </tr>
-        </tbody>
-    </table>
 </div>
 @stop {{-- local scripts --}} @section('footer_scripts')
+<script>
+    $(document).ready(function(){
+        $('#form').bootstrapValidator().on('success.form.bv', function(e) {
+            $('#form').on('submit', function (e) {
+                e.preventDefault();
+                var form_data = new FormData(this);
+                var id = $('#id').val();
+                $.ajax({
+                    type: 'post',
+                    processData: false,
+                    contentType: false,
+                    "url": "/dashboard/confirmation/create",
+                    data: form_data,
+                    beforeSend: function (){
+                        $("#submit").prop('disabled', true);
+                    },
+                    success: function () {
+                        alert('From Submitted.');
+                        window.location.href = "/dashboard/confirmation";
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr.status);
+                        alert(thrownError);
+                        $("#submit").prop('disabled', false);
+                    }
+                });
+            });
+        });
+    });
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.bootstrapvalidator/0.5.2/js/bootstrapValidator.min.js"></script>
 @stop

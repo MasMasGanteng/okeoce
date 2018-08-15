@@ -54,12 +54,6 @@
 <script src="{{asset('js/jquery-1.11.1.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('js/custom_js/alert.js')}}" type="text/javascript"></script>
 <script>
-    function approve_func(data){
-        console.log(data);
-        $('#submit_confirmation').modal('show');
-        $('#id').val(data);
-    }
-
     $(document).ready(function () {
         var table = $('#tables').DataTable({
             // dom: 'Bflrtip',
@@ -88,8 +82,7 @@
                 { "data": "status" , name:"nama_penerima"},
                 { "data": "url_img" , name:"address"},
                 { "data": "option" , name:"option",orderable:false}
-            ],
-            "order": [[ 0, "desc" ]]
+            ]
         });
         $('#tables_filter input').unbind();
         $('#tables_filter input').bind('keyup', function(e) {

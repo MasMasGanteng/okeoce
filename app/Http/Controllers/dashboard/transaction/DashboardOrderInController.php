@@ -230,7 +230,7 @@ class DashboardOrderInController extends Controller
     {
         if ($request->input('id')!=null){
             DB::table('order')->where('id', $request->input('id'))
-            ->update(['status' => 4 ]);
+            ->update(['status' => 3 ]);
         }
     }
 

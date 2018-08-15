@@ -63,7 +63,7 @@
                     },
                     success: function (data) {
                         alert('From Submitted.');
-                        window.location.href = "/thank_you";
+                        window.location.href = "/order_history";
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(xhr.status);
