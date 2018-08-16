@@ -34,9 +34,19 @@
                 <label for="payment_user">References :</label>
                 <input type="text" class="form-control" id="payment_references" name="payment_references" placeholder="Contoh : John Doe">
             </div>
+            <div class="form-group">
+                <label for="payment_upload">Upload Bukti Transfer :</label>
+                <input type="file" class="form-control" id="payment_upload" aria-describedby="inputGroupFileAddon01">
+                <!-- <div class="input-group mb-3">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" id="payment_upload" aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="payment_upload">Choose file</label>
+                    </div>
+                </div> -->
+            </div>
             <div class="text-center mt-5">
                 <button type="submit" class="btn btn-blue btn-block btn-lg">CONFIRM PAYMENT</button>
-                <a href="https://wa.me/6287881604062" class="btn btn-blue btn-block btn-lg">CONFIRM PAYMENT VIA WHATSAPP</a>
+                <a href="https://wa.me/6287881604062" class="btn btn-success btn-block btn-lg">CONFIRM PAYMENT VIA WHATSAPP</a>
             </div>
         </form>
     </div>

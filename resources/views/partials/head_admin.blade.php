@@ -12,9 +12,9 @@
 <!-- File Input -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-fileinput/4.4.5/css/fileinput.min.css" media="all" rel="stylesheet" type="text/css" />
 <!-- Page level plugin CSS-->
-<link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css" rel="stylesheet">
+<link href="https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 <!-- summernote -->
 <!-- <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet"> -->
 <!-- Custom styles for this template-->
-<link href="{{{URL::asset('css/sb-admin.min.css')}}}" rel="stylesheet">
+<link href="https://blackrockdigital.github.io/startbootstrap-sb-admin/css/sb-admin.css" rel="stylesheet">
 <link href="{{{URL::asset('css/dashboard.min.css')}}}" rel="stylesheet">
