@@ -21,10 +21,39 @@
     </nav>
     <div class="tab-content baiza-tab-content" id="nav-tabContent">
         <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            <p>Melalui rekening BCA :</p>
+            <ul>
+                <li>Masukkan kartu ATM dan PIN ATM Anda</li>
+                <li>Pilih menu lainnya</li>
+                <li>Pilih menu TRANSFER</li>
+                <li>Pilih menu ke Rekening BCA</li>
+                <li>Masukkan nominal transfer sesuai dengan tagihan yang tertera pada website, pastikan Anda membayar sesuai dengan jumlah tagihan pembayaran tepat hingga 3 digit terakhir. Perbedaan nilai transfer akan menghambat proses verifikasi.</li>
+                <li>Masukkan rekening <strong>0353202038 a/n PT. Arkamaya Baiza Pandhapa</strong></li>
+                <li>Pilih Benar </li>
+                <li>Selesai</li>
+            </ul>
+            <p>Melalui rekening bank lain :</p>
+            <ul>
+                <li>Masukkan kartu ATM dan PIN ATM Anda</li>
+                <li>Pilih menu lainnya</li>
+                <li>Pilih menu TRANSFER</li>
+                <li>Pilih Ke Rekening Bank Lain</li>
+                <li>Masukkan kode bank BCA “014”</li>
+                <li>Pilih lanjut</li>
+                <li>Masukkan rekening <strong>0353202038 a/n PT. Arkamaya Baiza Pandhapa</strong></li>
+                <li>Masukkan nominal transfer sesuai dengan tagihan yang tertera pada website, pastikan Anda membayar sesuai dengan jumlah tagihan pembayaran tepat hingga 3 digit terakhir. Perbedaan nilai transfer akan menghambat proses verifikasi.</li>
+                <li>Pilih Benar </li>
+                <li>Selesai</li>
+            </ul>
         </div>
         <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+            <p>Melalui Klik BCA :</p>
+            <ul>
+                <li>Pilih metode pembayaran “KlikBCA” lalu masukkan userid KlikBCA-mu</li>
+                <li>Login ke akun KlikBCA-mu</li>
+                <li>Masukkan respon dari token lalu klik “Kirim”</li>
+            </ul>
+            <small>*Note : Kamu punya waktu 2 jam untuk melakukan pembayaran dengan KlikBCA.</small>
         </div>
     </div>
     <div class="text-center mt-5 mb-3">

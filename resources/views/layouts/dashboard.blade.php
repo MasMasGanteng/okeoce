@@ -130,12 +130,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 
     <!-- Page level plugin JavaScript-->
-    <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-    <script src="https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/datatables/jquery.dataTables.js"></script>
+    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/vendor/datatables/dataTables.bootstrap4.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/js/sb-admin.min.js"></script>
-    <script src="https://github.com/BlackrockDigital/startbootstrap-sb-admin/blob/master/js/demo/datatables-demo.js"></script>
+    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/js/sb-admin.min.js"></script>
+    <!-- Custom scripts for this page-->
+    <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/js/demo/datatables-demo.js"></script>
 
         @yield('footer_scripts')
 </body>

@@ -60,6 +60,10 @@ footer.sticky-footer {
     background: #68acb1!important;
 } 
 
+.sidebar .nav-item .nav-link {
+    cursor: pointer;
+}
+
 #leftAccordion .nav-item .nav-link span, .sidebar .nav-item .nav-link .fa {
     font-size: .8rem;
     color: #fff;
