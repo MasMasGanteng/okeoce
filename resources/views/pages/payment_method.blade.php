@@ -4,9 +4,9 @@
     <div class="font-blue h5 mt-3">
         <b>PAYMENT</b>
     </div>
-    <div class="h6">
+    <!-- <div class="h6">
         LIMIT WAKTU TRANSFER
-    </div>
+    </div> -->
     <div class="my-3 py-3 row no-gutters h6" style="border-bottom: 2px solid #dedede;">
         <div class="col">
             TOTAL
@@ -92,7 +92,7 @@
                     },
                     success: function (data) {
                         alert('From Submitted.');
-                        window.location.href = "/detail_order";
+                        window.location.href = "/thank_you";
                     },
                     error: function (xhr, ajaxOptions, thrownError) {
                         alert(xhr.status);

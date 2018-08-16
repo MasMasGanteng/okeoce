@@ -19,6 +19,9 @@
                 </a>
                 <ul class="sidenav-second-level collapse" id="collapseSelling" data-parent="#leftAccordion">
                     <li>
+                        <a href="/dashboard/confirmation">Confirmation</a>
+                    </li>
+                    <li>
                         <a href="/dashboard/order_pending">Waiting Payment</a>
                     </li>
                     <li>
@@ -118,10 +121,7 @@
             </div>
         </div>
     </div>
-    </div>
-
-    
-        
+    </div> 
     <!-- Bootstrap core JavaScript-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.min.js"></script>
