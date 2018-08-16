@@ -77,10 +77,13 @@
                 { "data": "order_id" , name:"order_id"},
                 { "data": "bank" , name:"bank"},
                 { "data": "account_no" , name:"account_no"},
-                { "data": "amount" , name:"payment_method"},
-                { "data": "references" , name:"shipping_method"},
-                { "data": "status" , name:"nama_penerima"},
-                { "data": "url_img" , name:"address"},
+                { "data": "amount" , name:"amount"},
+                { "data": "references" , name:"references"},
+                { "data": "status" , name:"status"},
+                { "data": "url_img", "render": function(data, type, row) {
+                    return '<img src="'+data+'" class="img-dash-table" />';
+                    }
+                },
                 { "data": "option" , name:"option",orderable:false}
             ]
         });

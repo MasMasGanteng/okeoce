@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\front;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
 use DateTime;
-use Formatter;
 
 class PaymentConfirmationController 
 {
@@ -164,6 +164,15 @@ class PaymentConfirmationController
             }
         }
 
+        $file_image = $request->file('url_img-input');
+        $url_img = null;
+        $upload_image = false;
+        
+        if($file_image != null){
+            $url_img = $file_image->getClientOriginalName();
+            $upload_image = true;
+        }
+
         DB::table('confirmation')->insert([
             'order_id' => $request->input('order_id'),
             'bank' => $request->input('payment_bank'),
@@ -171,8 +180,13 @@ class PaymentConfirmationController
             'account_number' => $request->input('payment_account_number'),
             'amount' => $request->input('payment_amount'),
             'references' => $request->input('payment_references'),
-            'url_img' => $request->input('url_img'),
+            'url_img' => $url_img,
             'created_by' => Auth::user()->id
         ]);
+
+        if($upload_image == true){
+            $file_image->move(public_path('/uploads/confirmation'), $file_image->getClientOriginalName());
+        }
     }
+
 }

@@ -98,13 +98,13 @@
     <script src="https://blackrockdigital.github.io/startbootstrap-sb-admin/js/sb-admin-datatables.min.js"></script>
     @yield('footer_scripts')
     <script type="text/javascript">
-    $('.login-overlay').click(function() {
-        $('.login-pop-up').toggleClass('open');
-    });
-    $('.register-overlay').click(function() {
-        $('.login-pop-up').removeClass('open');
-        $('.register-pop-up').toggleClass('open');
-    });
+    // $('.login-overlay').click(function() {
+    //     $('.login-pop-up').toggleClass('open');
+    // });
+    // $('.register-overlay').click(function() {
+    //     $('.login-pop-up').removeClass('open');
+    //     $('.register-pop-up').toggleClass('open');
+    // });
 
     $("#navToggle").click(function() {
         $("#navToggleContent").slideToggle();

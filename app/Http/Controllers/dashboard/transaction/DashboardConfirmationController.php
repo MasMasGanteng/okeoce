@@ -83,9 +83,10 @@ class DashboardConfirmationController extends Controller
             foreach ($posts as $post)
             {
                 $edit =  $post->order_id;
+                $id =  $post->id;
                 $url_show="/dashboard/confirmation/create?id=".$edit;
                 $url_edit="/dashboard/confirmation/create?id=".$edit;
-                $url_delete="/dashboard/confirmation/delete?id=".$edit;
+                $url_delete="/dashboard/confirmation/delete?id=".$id;
 
                 $nestedData['id'] = $post->id;
                 $nestedData['order_id'] = $post->order_id;
@@ -94,7 +95,7 @@ class DashboardConfirmationController extends Controller
                 $nestedData['amount'] = $post->amount;
                 $nestedData['references'] = $post->references;
                 $nestedData['status'] = $post->status_convert;
-                $nestedData['url_img'] = $post->url_img;
+                $nestedData['url_img'] = '/uploads/confirmation/'.$post->url_img;
                 
                 if($post->status!=1){
                     $nestedData['option'] = "
@@ -203,21 +204,19 @@ class DashboardConfirmationController extends Controller
     public function post_create(Request $request)
     {
         if ($request->input('id')!=null){
+            DB::table('confirmation')->where('order_id', $request->input('id'))
+            ->update(['status' => 1 ]);
+
             DB::table('order')->where('id', $request->input('id'))
             ->update(['status' => 3 ]);
+
+            return Redirect::to('/dashboard/confirmation');
         }
     }
 
     public function delete(Request $request)
     {
         DB::table('confirmation')->where('id', $request->input('id'))->delete();
-        return Redirect::to('/dashboard/confirmation');
-    }
-
-    public function update(Request $request)
-    {
-        DB::table('order')->where('id', $request->input('id'))
-            ->update(['status' => 1]);
         return Redirect::to('/dashboard/confirmation');
     }
 }
