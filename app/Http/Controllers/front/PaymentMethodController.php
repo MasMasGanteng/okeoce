@@ -46,10 +46,10 @@ class PaymentMethodController extends Controller
                 'status' => 2
             ]);
 
-            // Mail::raw('Order anda sudah kami terima, silahkan melakukan pembayaran dan selanjutnya konfirmasi pembayaran di web.', function ($message) use ($user) {
-            //     $message->from(env('MAIL_USERNAME'), 'Baiza Order');
-            //     $message->to($user->email)->subject('Order sudah diterima');;
-            // });
+            Mail::raw('Order anda sudah kami terima, silahkan melakukan pembayaran dan selanjutnya konfirmasi pembayaran di web.', function ($message) use ($user) {
+                $message->from(env('MAIL_USERNAME'), 'Baiza Order');
+                $message->to($user->email)->subject('Order sudah diterima');;
+            });
         }
     }
 }
