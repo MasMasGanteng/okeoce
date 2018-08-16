@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Redirect;
 use DateTime;
+use Mail;
 
 class PaymentConfirmationController 
 {
@@ -37,6 +38,7 @@ class PaymentConfirmationController
     
     public function bca_get_token(Request $request)
     {
+        $user = Auth::user();
         $curl = curl_init();
 
         curl_setopt_array($curl, array(
@@ -187,6 +189,11 @@ class PaymentConfirmationController
         if($upload_image == true){
             $file_image->move(public_path('/uploads/confirmation'), $file_image->getClientOriginalName());
         }
+
+        Mail::raw('Konfirmasi anda sudah kami terima, periksa kembali status order anda pada halaman Order History.', function ($message) use ($user) {
+                $message->from(env('MAIL_USERNAME'), 'Baiza Order');
+                $message->to($user->email)->subject('Konfirmasi Pembayaran Sukses');;
+            });
     }
 
 }
