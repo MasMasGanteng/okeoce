@@ -36,7 +36,7 @@ class PaymentConfirmationController
         }
     }
     
-    public function bca_get_token(Request $request)
+        public function bca_get_token(Request $request)
     {
         $user = Auth::user();
         $curl = curl_init();
@@ -51,7 +51,7 @@ class PaymentConfirmationController
             CURLOPT_CUSTOMREQUEST => "POST",
             CURLOPT_POSTFIELDS => "grant_type=client_credentials",
             CURLOPT_HTTPHEADER => array(
-            "authorization: Basic YjA5NWFjOWQtMmQyMS00MmEzLWE3MGMtNDc4MWY0NTcwNzA0OmJlZGQxZjhkLTNiZDYtNGQ0YS04Y2I0LWU2MWRiNDE2OTFjOQ==",
+            "authorization: Basic MjFkOGUxNmYtYWEwOC00ODI2LWIyMmUtZTJjNTJhZTliNzU3Ojk3MDA1MzhjLTQ2NTctNGYzOS1iNDY3LTZlMTVlZmFiZmY5MA==",
             "cache-control: no-cache",
             "content-type: application/x-www-form-urlencoded"
             ),
@@ -79,16 +79,16 @@ class PaymentConfirmationController
             $date = date('c');
             $timestamp = substr($date, 0,19).'.000+07:00';
 
-            $api_key = 'dcc99ba6-3b2f-479b-9f85-86a09ccaaacf';
+            $api_key = 'dcd326d7-749a-429d-ad6f-134b80daf48d';
             
-            $api_secret = '5e636b16-df7f-4a53-afbe-497e6fe07edc';
+            $api_secret = '3ef753f0-c6ed-42f5-b75e-838c40d0f990';
 
             $authorization = 'Bearer '.$token;
 
             $body = '';
             $body_sexy = strtolower(hash('sha256', $body));
 
-            $create = 'GET:/banking/v3/corporates/h2hauto008/accounts/0613005827/statements?EndDate='.$EndDate.'&StartDate='.$StartDate.':'.$token.':'.$body_sexy.':'.$timestamp;
+            $create = 'GET:/banking/v3/corporates/IBPARKAMAY/accounts/0353202038/statements?EndDate='.$EndDate.'&StartDate='.$StartDate.':'.$token.':'.$body_sexy.':'.$timestamp;
             
             $signature = hash_hmac('SHA256', $create, $api_secret);
         
@@ -96,7 +96,7 @@ class PaymentConfirmationController
 
             curl_setopt_array($curl1, array(
                 CURLOPT_PORT => "443",
-                CURLOPT_URL => "https://devapi.klikbca.com:443/banking/v3/corporates/h2hauto008/accounts/0613005827/statements?EndDate=".$EndDate."&StartDate=".$StartDate,
+                CURLOPT_URL => "https://devapi.klikbca.com:443/banking/v3/corporates/IBPARKAMAY/accounts/0353202038/statements?EndDate=".$EndDate."&StartDate=".$StartDate,
                 CURLOPT_RETURNTRANSFER => true,
                 CURLOPT_ENCODING => "",
                 CURLOPT_MAXREDIRS => 10,
@@ -121,48 +121,48 @@ class PaymentConfirmationController
             if ($err1) {
                 echo "cURL Error #:" . $err1;
             } else {
-                // echo 'TOKEN :    ';
-                // echo $token;
-                // echo '<br>';
-                // echo '<br>';
+                echo 'TOKEN :    ';
+                echo $token;
+                echo '<br>';
+                echo '<br>';
                 
-                // echo 'STRING :    ';
-                // echo $create;
-                // echo '<br>';
-                // echo '<br>';
+                echo 'STRING :    ';
+                echo $create;
+                echo '<br>';
+                echo '<br>';
 
-                // echo 'SIGNATURE :    ';
-                // echo $signature;
-                // echo '<br>';
-                // echo '<br>';
+                echo 'SIGNATURE :    ';
+                echo $signature;
+                echo '<br>';
+                echo '<br>';
 
-                // echo $timestamp;
-                // echo '<br>';
-                // echo '<br>';
+                echo $timestamp;
+                echo '<br>';
+                echo '<br>';
 
-                // echo $body_sexy;
-                // echo '<br>';
-                // echo '<br>';
+                echo $body_sexy;
+                echo '<br>';
+                echo '<br>';
 
-                // echo $authorization;
-                // echo '<br>';
-                // echo '<br>';
+                echo $authorization;
+                echo '<br>';
+                echo '<br>';
 
-                // echo $response1;
-                // echo '<br>';
-                // echo '<br>';
+                echo $response1;
+                echo '<br>';
+                echo '<br>';
 
-                $content = json_decode($response1);
+                // $content = json_decode($response1);
 
-                foreach($content->Data as $data ){
-                    $amount = $data->TransactionAmount;
-                    $references = $data->Trailer;
+                // foreach($content->Data as $data ){
+                //     $amount = $data->TransactionAmount;
+                //     $references = $data->Trailer;
 
-                    if ($request->input('payment_amount')==$amount){
-                        DB::table('order')->where('price', $request->input('payment_amount'))->where('id', $request->input('order_id'))
-                        ->update(['status' => 3 ]);
-                    }
-                }
+                //     if ($request->input('payment_amount')==$amount){
+                //         DB::table('order')->where('price', $request->input('payment_amount'))->where('id', $request->input('order_id'))
+                //         ->update(['status' => 3 ]);
+                //     }
+                // }
             }
         }
 
